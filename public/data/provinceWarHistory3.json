@@ -1,0 +1,297 @@
+{
+  "provinces": {
+    "hubei": {
+      "name": "湖北",
+      "code": "420000",
+      "warPeriod": "1937-1945",
+      "status": "沦陷区",
+      "fallDate": "1938-10-25",
+      "liberationDate": "1945-08-15",
+      "summary": "湖北是武汉会战的主战场，武汉沦陷后成为日军统治中心之一。",
+      "majorEvents": [
+        {
+          "date": "1938-06-11",
+          "event": "武汉会战开始",
+          "location": "武汉",
+          "description": "中日双方在武汉地区展开大规模会战",
+          "significance": "抗战初期最大规模会战"
+        },
+        {
+          "date": "1938-10-25",
+          "event": "武汉沦陷",
+          "location": "武汉",
+          "description": "日军占领武汉三镇",
+          "significance": "华中重镇失守"
+        },
+        {
+          "date": "1940-05-01",
+          "event": "枣宜会战",
+          "location": "枣阳、宜昌",
+          "description": "国军在鄂西北抗击日军",
+          "significance": "张自忠将军殉国"
+        }
+      ],
+      "resistance": {
+        "organizations": ["新四军第5师", "鄂豫边区抗日根据地"],
+        "leaders": ["李先念", "陈少敏"],
+        "activities": "在大别山区建立抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约40万人",
+        "military": "约20万人"
+      },
+      "heritage": [
+        {
+          "name": "张自忠将军纪念馆",
+          "type": "纪念馆",
+          "description": "纪念抗日名将张自忠"
+        }
+      ]
+    },
+    "hunan": {
+      "name": "湖南",
+      "code": "430000",
+      "warPeriod": "1937-1945",
+      "status": "战场",
+      "fallDate": "部分沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "湖南是抗战的重要战场，发生了四次长沙会战，被誉为抗战的中流砥柱。",
+      "majorEvents": [
+        {
+          "date": "1939-09-14",
+          "event": "第一次长沙会战",
+          "location": "长沙",
+          "description": "国军在长沙击退日军进攻",
+          "significance": "抗战中期重要胜利"
+        },
+        {
+          "date": "1941-09-06",
+          "event": "第二次长沙会战",
+          "location": "长沙",
+          "description": "国军再次击退日军",
+          "significance": "巩固了湖南防线"
+        },
+        {
+          "date": "1941-12-24",
+          "event": "第三次长沙会战",
+          "location": "长沙",
+          "description": "国军大败日军",
+          "significance": "抗战以来最大胜利"
+        },
+        {
+          "date": "1944-06-18",
+          "event": "长沙沦陷",
+          "location": "长沙",
+          "description": "日军在豫湘桂会战中占领长沙",
+          "significance": "湖南省会失守"
+        }
+      ],
+      "resistance": {
+        "organizations": ["国民革命军第9战区", "湘鄂赣边区游击队"],
+        "leaders": ["薛岳", "王震", "任弼时"],
+        "activities": "正面抗战与敌后游击相结合"
+      },
+      "casualties": {
+        "civilian": "约35万人",
+        "military": "约30万人"
+      },
+      "heritage": [
+        {
+          "name": "岳麓山抗战纪念园",
+          "type": "纪念园",
+          "description": "纪念长沙会战英烈"
+        }
+      ]
+    },
+    "guangdong": {
+      "name": "广东",
+      "code": "440000",
+      "warPeriod": "1937-1945",
+      "status": "部分沦陷",
+      "fallDate": "1938-10-21",
+      "liberationDate": "1945-08-15",
+      "summary": "广东是华南抗战的主战场，广州沦陷后，粤北山区成为抗战基地。",
+      "majorEvents": [
+        {
+          "date": "1938-10-12",
+          "event": "大亚湾登陆",
+          "location": "惠州大亚湾",
+          "description": "日军在大亚湾登陆",
+          "significance": "日军南下广东"
+        },
+        {
+          "date": "1938-10-21",
+          "event": "广州沦陷",
+          "location": "广州",
+          "description": "日军占领广州",
+          "significance": "华南重镇失守"
+        },
+        {
+          "date": "1942-02-23",
+          "event": "香港沦陷",
+          "location": "香港",
+          "description": "日军占领香港",
+          "significance": "英国在远东的重要据点失守"
+        }
+      ],
+      "resistance": {
+        "organizations": ["东江纵队", "珠江纵队", "粤北游击队"],
+        "leaders": ["曾生", "王作尧", "林锵云"],
+        "activities": "在粤北、粤东山区开展游击战"
+      },
+      "casualties": {
+        "civilian": "约25万人",
+        "military": "约15万人"
+      },
+      "heritage": [
+        {
+          "name": "东江纵队纪念馆",
+          "type": "纪念馆",
+          "description": "展示东江纵队抗战历程"
+        }
+      ]
+    },
+    "guangxi": {
+      "name": "广西",
+      "code": "450000",
+      "warPeriod": "1937-1945",
+      "status": "战场",
+      "fallDate": "1944-11-24",
+      "liberationDate": "1945-08-15",
+      "summary": "广西是桂南会战和豫湘桂会战的重要战场，桂林保卫战英勇悲壮。",
+      "majorEvents": [
+        {
+          "date": "1939-11-15",
+          "event": "桂南会战",
+          "location": "南宁、昆仑关",
+          "description": "国军在桂南抗击日军",
+          "significance": "华南抗战重要战役"
+        },
+        {
+          "date": "1939-12-18",
+          "event": "昆仑关大捷",
+          "location": "昆仑关",
+          "description": "国军收复昆仑关",
+          "significance": "抗战中期重要胜利"
+        },
+        {
+          "date": "1944-11-10",
+          "event": "桂林保卫战",
+          "location": "桂林",
+          "description": "国军在桂林英勇抗敌",
+          "significance": "悲壮的城市保卫战"
+        }
+      ],
+      "resistance": {
+        "organizations": ["桂系军队", "广西学生军", "桂东游击队"],
+        "leaders": ["李宗仁", "白崇禧", "韦拔群"],
+        "activities": "正面抗战与游击战相结合"
+      },
+      "casualties": {
+        "civilian": "约20万人",
+        "military": "约18万人"
+      },
+      "heritage": [
+        {
+          "name": "昆仑关战役博物馆",
+          "type": "纪念馆",
+          "description": "纪念昆仑关大捷"
+        }
+      ]
+    },
+    "hainan": {
+      "name": "海南",
+      "code": "460000",
+      "warPeriod": "1939-1945",
+      "status": "沦陷区",
+      "fallDate": "1939-02-10",
+      "liberationDate": "1945-08-15",
+      "summary": "海南岛在1939年沦陷，琼崖纵队在岛上坚持了艰苦的抗日游击战争。",
+      "majorEvents": [
+        {
+          "date": "1939-02-10",
+          "event": "海南沦陷",
+          "location": "海口",
+          "description": "日军占领海南岛",
+          "significance": "南海门户失守"
+        },
+        {
+          "date": "1940-05-01",
+          "event": "琼崖纵队成立",
+          "location": "琼山",
+          "description": "海南抗日武装统一为琼崖纵队",
+          "significance": "海南抗战力量整合"
+        }
+      ],
+      "resistance": {
+        "organizations": ["琼崖纵队", "琼崖抗日独立队"],
+        "leaders": ["冯白驹", "马白山"],
+        "activities": "在五指山区坚持游击战"
+      },
+      "casualties": {
+        "civilian": "约5万人",
+        "military": "约2万人"
+      },
+      "heritage": [
+        {
+          "name": "琼崖红军云龙改编旧址",
+          "type": "历史遗迹",
+          "description": "琼崖纵队改编地"
+        }
+      ]
+    },
+    "chongqing": {
+      "name": "重庆",
+      "code": "500000",
+      "warPeriod": "1937-1945",
+      "status": "战时首都",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "重庆是抗战时期的战时首都，承受了日军长期轰炸，是中国抗战的政治中心。",
+      "majorEvents": [
+        {
+          "date": "1937-11-20",
+          "event": "国民政府迁都重庆",
+          "location": "重庆",
+          "description": "国民政府正式迁都重庆",
+          "significance": "重庆成为战时首都"
+        },
+        {
+          "date": "1938-02-18",
+          "event": "重庆大轰炸开始",
+          "location": "重庆",
+          "description": "日军开始对重庆进行战略轰炸",
+          "significance": "持续6年的轰炸"
+        },
+        {
+          "date": "1941-06-05",
+          "event": "较场口大隧道惨案",
+          "location": "重庆较场口",
+          "description": "防空洞内发生踩踏事故",
+          "significance": "重庆大轰炸的悲剧"
+        }
+      ],
+      "resistance": {
+        "organizations": ["国民政府", "中共南方局", "重庆地下党"],
+        "leaders": ["蒋介石", "周恩来", "董必武"],
+        "activities": "作为抗战政治中心和统战基地"
+      },
+      "casualties": {
+        "civilian": "约12万人",
+        "military": "约3万人"
+      },
+      "heritage": [
+        {
+          "name": "重庆大轰炸遗址",
+          "type": "历史遗迹",
+          "description": "保存重庆大轰炸历史遗迹"
+        },
+        {
+          "name": "红岩革命纪念馆",
+          "type": "纪念馆",
+          "description": "展示中共南方局历史"
+        }
+      ]
+    }
+  }
+}

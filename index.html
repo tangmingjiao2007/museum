@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 将原来的 vite.svg 改为 favicon.ico -->
+    <link rel="icon" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>抗战文物数字展示与战役数据可视化系统 V1.0</title>
+    <!-- 添加model-viewer组件所需的脚本 -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <!-- 使用nomodule版本作为备选方案 -->
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+<style>
+/* 紫/粉/靛蓝渐变 → 暗绛红 */
+[class*="from-purple-"],[class*="from-fuchsia-"],[class*="from-pink-"],[class*="from-indigo-"],[class*="from-rose-"]{
+  --tw-gradient-from:#241016!important;--tw-gradient-stops:#241016,#3A1620,#2A1218!important}
+[class*="via-purple-"],[class*="via-fuchsia-"],[class*="via-pink-"],[class*="via-indigo-"],[class*="via-rose-"]{
+  --tw-gradient-stops:#241016,#3A1620,#2A1218!important}
+[class*="to-purple-"],[class*="to-fuchsia-"],[class*="to-pink-"],[class*="to-indigo-"],[class*="to-rose-"]{
+  --tw-gradient-to:#2A1218!important;--tw-gradient-stops:#241016,#3A1620,#2A1218!important}
+
+/* 所有渐变统一底色 */
+[class*="bg-gradient"]{
+  background-image:linear-gradient(165deg,#241016 0%,#3A1620 55%,#2A1218 100%)!important}
+
+/* 兜底：任何残留深色块 */
+[class*="bg-slate-"],[class*="bg-gray-"],[class*="bg-zinc-"],[class*="bg-neutral-"]{
+  background-color:#451A24!important}
+[class*="bg-black"],[class*="bg-opacity"]{background-color:#2A1218!important}
+
+/* 金色保持 */
+[class*="text-yellow-"],[class*="text-amber-"]{color:#EBC97A!important}
+[class*="border-yellow-"],[class*="border-amber-"]{border-color:rgba(212,175,55,.4)!important;border-width:1px!important}
+/* 黑块 → 暗红 */
+[class*="bg-black"],[class*="bg-gray-900"],[class*="bg-slate-900"],[class*="bg-zinc-900"],[class*="bg-neutral-900"]{
+  background-color:#451A24!important;background-image:none!important}
+
+/* 半透明黑遮罩 → 半透明暗红 */
+[class*="bg-black/"],[class*="bg-opacity"]{
+  background-color:rgba(69,26,36,.72)!important}
+
+/*暗红金边 */
+[class*="bg-yellow-"]{
+  background:linear-gradient(135deg,#5A212C,#8C2F2F)!important;
+  color:#EBC97A!important;border:1px solid rgba(212,175,55,.55)!important}
+
+/* 卡片统一加金细边*/
+[class*="rounded-lg"],[class*="rounded-xl"]{
+  border:1px solid rgba(212,175,55,.22)!important}
+</style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

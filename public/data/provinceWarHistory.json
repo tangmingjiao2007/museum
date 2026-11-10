@@ -1,0 +1,493 @@
+{
+  "provinces": {
+    "beijing": {
+      "name": "北京",
+      "code": "110000",
+      "warPeriod": "1937-1945",
+      "status": "沦陷区",
+      "fallDate": "1937-07-29",
+      "liberationDate": "1945-08-15",
+      "summary": "北京作为华北重镇，在七七事变后迅速沦陷，成为日军华北占领区的重要据点。",
+      "majorEvents": [
+        {
+          "date": "1937-07-07",
+          "event": "七七事变",
+          "location": "卢沟桥",
+          "description": "日军在卢沟桥挑起事端，全面抗战爆发",
+          "significance": "抗日战争全面爆发的标志性事件"
+        },
+        {
+          "date": "1937-07-29",
+          "event": "北平沦陷",
+          "location": "北平城",
+          "description": "日军占领北平，改名北京",
+          "significance": "华北重要政治中心沦陷"
+        },
+        {
+          "date": "1945-08-15",
+          "event": "日本投降",
+          "location": "北京",
+          "description": "日本宣布无条件投降，北京光复",
+          "significance": "抗战胜利，古都重获自由"
+        }
+      ],
+      "resistance": {
+        "organizations": ["冀中军区", "平西抗日根据地"],
+        "leaders": ["聂荣臻", "萧克"],
+        "activities": "开展敌后游击战，建立抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约15万人",
+        "military": "约8万人"
+      },
+      "heritage": [
+        {
+          "name": "卢沟桥",
+          "type": "历史遗迹",
+          "description": "七七事变发生地，现为抗战纪念地"
+        },
+        {
+          "name": "中国人民抗日战争纪念馆",
+          "type": "纪念馆",
+          "description": "全国最大的抗战主题纪念馆"
+        }
+      ]
+    },
+    "tianjin": {
+      "name": "天津",
+      "code": "120000",
+      "warPeriod": "1937-1945",
+      "status": "沦陷区",
+      "fallDate": "1937-07-30",
+      "liberationDate": "1945-08-15",
+      "summary": "天津作为华北重要港口城市，在七七事变后第二天即告沦陷，成为日军在华北的重要据点。",
+      "majorEvents": [
+        {
+          "date": "1937-07-30",
+          "event": "天津沦陷",
+          "location": "天津市",
+          "description": "日军占领天津，控制华北重要港口",
+          "significance": "华北门户失守"
+        },
+        {
+          "date": "1939-06-15",
+          "event": "天津大轰炸",
+          "location": "天津租界",
+          "description": "日军对天津进行大规模轰炸",
+          "significance": "造成大量平民伤亡"
+        }
+      ],
+      "resistance": {
+        "organizations": ["冀中军区", "津南抗日游击队"],
+        "leaders": ["吕正操", "孙毅"],
+        "activities": "开展城市地下斗争和郊区游击战"
+      },
+      "casualties": {
+        "civilian": "约12万人",
+        "military": "约6万人"
+      },
+      "heritage": [
+        {
+          "name": "平津战役纪念馆",
+          "type": "纪念馆",
+          "description": "纪念解放天津的重要战役"
+        }
+      ]
+    },
+    "hebei": {
+      "name": "河北",
+      "code": "130000",
+      "warPeriod": "1937-1945",
+      "status": "沦陷区/抗日根据地",
+      "fallDate": "1937-08",
+      "liberationDate": "1945-08-15",
+      "summary": "河北是华北抗战的主战场，既有沦陷区，也有重要的抗日根据地，游击战争十分活跃。",
+      "majorEvents": [
+        {
+          "date": "1937-09-25",
+          "event": "平型关大捷",
+          "location": "灵丘县",
+          "description": "八路军115师歼灭日军1000余人",
+          "significance": "抗战以来第一个大胜仗"
+        },
+        {
+          "date": "1940-08-20",
+          "event": "百团大战",
+          "location": "正太铁路沿线",
+          "description": "八路军发动大规模破袭战",
+          "significance": "抗战期间最大规模的主动出击"
+        },
+        {
+          "date": "1942-05-01",
+          "event": "五一大扫荡",
+          "location": "冀中平原",
+          "description": "日军对冀中根据地进行残酷扫荡",
+          "significance": "抗日根据地遭受重大损失"
+        }
+      ],
+      "resistance": {
+        "organizations": ["冀中军区", "冀东军区", "晋察冀边区"],
+        "leaders": ["聂荣臻", "吕正操", "杨成武"],
+        "activities": "建立抗日根据地，开展游击战争"
+      },
+      "casualties": {
+        "civilian": "约80万人",
+        "military": "约25万人"
+      },
+      "heritage": [
+        {
+          "name": "白求恩柯棣华纪念馆",
+          "type": "纪念馆",
+          "description": "纪念国际友人支援中国抗战"
+        },
+        {
+          "name": "冉庄地道战遗址",
+          "type": "历史遗迹",
+          "description": "保存完好的地道战遗址"
+        }
+      ]
+    },
+    "shanxi": {
+      "name": "山西",
+      "code": "140000",
+      "warPeriod": "1937-1945",
+      "status": "主战场",
+      "fallDate": "1937-11",
+      "liberationDate": "1945-08-15",
+      "summary": "山西是抗战初期的主战场，发生了忻口会战、太原会战等重大战役，后成为重要的抗日根据地。",
+      "majorEvents": [
+        {
+          "date": "1937-09-25",
+          "event": "平型关大捷",
+          "location": "大同市灵丘县",
+          "description": "八路军115师首战告捷",
+          "significance": "抗战以来首次大胜"
+        },
+        {
+          "date": "1937-10-13",
+          "event": "忻口会战",
+          "location": "忻州市",
+          "description": "国共合作抗击日军的重要战役",
+          "significance": "国共合作典型战例"
+        },
+        {
+          "date": "1937-11-08",
+          "event": "太原沦陷",
+          "location": "太原市",
+          "description": "山西省会沦陷",
+          "significance": "华北重镇失守"
+        },
+        {
+          "date": "1940-03-30",
+          "event": "关家垴战斗",
+          "location": "武乡县",
+          "description": "八路军与日军激战",
+          "significance": "百团大战重要组成部分"
+        }
+      ],
+      "resistance": {
+        "organizations": ["晋察冀边区", "晋冀鲁豫边区", "晋绥边区"],
+        "leaders": ["聂荣臻", "刘伯承", "贺龙"],
+        "activities": "建立三大抗日根据地，开展敌后游击战"
+      },
+      "casualties": {
+        "civilian": "约100万人",
+        "military": "约30万人"
+      },
+      "heritage": [
+        {
+          "name": "八路军太行纪念馆",
+          "type": "纪念馆",
+          "description": "展示八路军在太行山区的抗战历程"
+        },
+        {
+          "name": "平型关战役遗址",
+          "type": "历史遗迹",
+          "description": "平型关大捷发生地"
+        }
+      ]
+    },
+    "neimenggu": {
+      "name": "内蒙古",
+      "code": "150000",
+      "warPeriod": "1931-1945",
+      "status": "沦陷区",
+      "fallDate": "1937-10",
+      "liberationDate": "1945-08-15",
+      "summary": "内蒙古地区较早沦陷，日军在此建立伪蒙古政权，当地人民进行了英勇的抗日斗争。",
+      "majorEvents": [
+        {
+          "date": "1936-02-01",
+          "event": "德王叛国",
+          "location": "百灵庙",
+          "description": "德穆楚克栋鲁普与日军合作",
+          "significance": "蒙古地区政治分裂"
+        },
+        {
+          "date": "1936-11-18",
+          "event": "百灵庙战役",
+          "location": "百灵庙",
+          "description": "傅作义部收复百灵庙",
+          "significance": "抗战前重要胜利"
+        }
+      ],
+      "resistance": {
+        "organizations": ["大青山抗日游击队", "绥远抗日同盟军"],
+        "leaders": ["李井泉", "姚喆"],
+        "activities": "在大青山建立抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约20万人",
+        "military": "约8万人"
+      },
+      "heritage": [
+        {
+          "name": "大青山抗日游击根据地旧址",
+          "type": "历史遗迹",
+          "description": "八路军在内蒙古的重要根据地"
+        }
+      ]
+    },
+    "liaoning": {
+      "name": "辽宁",
+      "code": "210000",
+      "warPeriod": "1931-1945",
+      "status": "沦陷区",
+      "fallDate": "1931-09-18",
+      "liberationDate": "1945-08-15",
+      "summary": "辽宁是九一八事变的发生地，最早沦陷，也是抗战开始的地方，东北抗联在此进行了艰苦卓绝的斗争。",
+      "majorEvents": [
+        {
+          "date": "1931-09-18",
+          "event": "九一八事变",
+          "location": "沈阳",
+          "description": "日军炸毁南满铁路，攻占沈阳",
+          "significance": "抗日战争起点"
+        },
+        {
+          "date": "1932-01-28",
+          "event": "一二八事变",
+          "location": "上海",
+          "description": "日军在上海挑起事端",
+          "significance": "扩大侵华战争"
+        }
+      ],
+      "resistance": {
+        "organizations": ["东北抗日联军", "东北义勇军"],
+        "leaders": ["杨靖宇", "赵尚志", "李兆麟"],
+        "activities": "在白山黑水间坚持14年抗战"
+      },
+      "casualties": {
+        "civilian": "约60万人",
+        "military": "约20万人"
+      },
+      "heritage": [
+        {
+          "name": "九一八历史博物馆",
+          "type": "纪念馆",
+          "description": "展示九一八事变历史"
+        },
+        {
+          "name": "抗美援朝纪念馆",
+          "type": "纪念馆",
+          "description": "位于丹东，纪念抗美援朝战争"
+        }
+      ]
+    },
+    "jilin": {
+      "name": "吉林",
+      "code": "220000",
+      "warPeriod": "1931-1945",
+      "status": "沦陷区",
+      "fallDate": "1931-09-19",
+      "liberationDate": "1945-08-15",
+      "summary": "吉林在九一八事变后迅速沦陷，东北抗联在此进行了长期的游击战争。",
+      "majorEvents": [
+        {
+          "date": "1932-02-05",
+          "event": "哈尔滨沦陷",
+          "location": "哈尔滨",
+          "description": "日军占领东北重要城市哈尔滨",
+          "significance": "东北全境沦陷"
+        },
+        {
+          "date": "1936-08-01",
+          "event": "东北抗联成立",
+          "location": "长白山区",
+          "description": "各抗日武装统一为东北抗联",
+          "significance": "东北抗战力量整合"
+        }
+      ],
+      "resistance": {
+        "organizations": ["东北抗日联军第一路军", "吉林救国军"],
+        "leaders": ["杨靖宇", "魏拯民"],
+        "activities": "在长白山区坚持游击战争"
+      },
+      "casualties": {
+        "civilian": "约40万人",
+        "military": "约15万人"
+      },
+      "heritage": [
+        {
+          "name": "杨靖宇烈士陵园",
+          "type": "纪念馆",
+          "description": "纪念东北抗联英雄杨靖宇"
+        }
+      ]
+    },
+    "heilongjiang": {
+      "name": "黑龙江",
+      "code": "230000",
+      "warPeriod": "1931-1945",
+      "status": "沦陷区",
+      "fallDate": "1932-02-05",
+      "liberationDate": "1945-08-15",
+      "summary": "黑龙江是东北抗联活动的重要地区，赵尚志、李兆麟等英雄在此战斗。",
+      "majorEvents": [
+        {
+          "date": "1932-01-28",
+          "event": "马占山抗战",
+          "location": "齐齐哈尔",
+          "description": "马占山率部在江桥抗击日军",
+          "significance": "东北军民抗日第一枪"
+        },
+        {
+          "date": "1940-02-23",
+          "event": "赵尚志牺牲",
+          "location": "鹤岗",
+          "description": "东北抗联将领赵尚志英勇牺牲",
+          "significance": "抗联重要领导人殉国"
+        }
+      ],
+      "resistance": {
+        "organizations": ["东北抗日联军第三路军", "黑龙江省抗日救国军"],
+        "leaders": ["赵尚志", "李兆麟", "冯仲云"],
+        "activities": "在小兴安岭和完达山区开展游击战"
+      },
+      "casualties": {
+        "civilian": "约35万人",
+        "military": "约12万人"
+      },
+      "heritage": [
+        {
+          "name": "东北烈士纪念馆",
+          "type": "纪念馆",
+          "description": "位于哈尔滨，纪念东北抗联烈士"
+        }
+      ]
+    },
+    "shanghai": {
+      "name": "上海",
+      "code": "310000",
+      "warPeriod": "1932-1945",
+      "status": "沦陷区",
+      "fallDate": "1937-11-12",
+      "liberationDate": "1945-08-15",
+      "summary": "上海发生了一二八事变和八一三事变，淞沪会战是抗战初期最大规模的战役。",
+      "majorEvents": [
+        {
+          "date": "1932-01-28",
+          "event": "一二八事变",
+          "location": "上海",
+          "description": "十九路军在上海抗击日军",
+          "significance": "中国军队首次大规模抗日"
+        },
+        {
+          "date": "1937-08-13",
+          "event": "八一三事变",
+          "location": "上海",
+          "description": "淞沪会战爆发",
+          "significance": "抗战初期最大战役"
+        },
+        {
+          "date": "1937-10-26",
+          "event": "四行仓库保卫战",
+          "location": "四行仓库",
+          "description": "谢晋元率八百壮士坚守四行仓库",
+          "significance": "英勇抗敌的典型事例"
+        },
+        {
+          "date": "1937-11-12",
+          "event": "上海沦陷",
+          "location": "上海",
+          "description": "日军占领上海",
+          "significance": "华东重要城市失守"
+        }
+      ],
+      "resistance": {
+        "organizations": ["十九路军", "第88师", "上海地下党"],
+        "leaders": ["蔡廷锴", "谢晋元", "潘汉年"],
+        "activities": "正面抗战和地下斗争相结合"
+      },
+      "casualties": {
+        "civilian": "约30万人",
+        "military": "约25万人"
+      },
+      "heritage": [
+        {
+          "name": "四行仓库抗战纪念馆",
+          "type": "纪念馆",
+          "description": "纪念八百壮士英勇事迹"
+        },
+        {
+          "name": "淞沪抗战纪念馆",
+          "type": "纪念馆",
+          "description": "展示淞沪会战历史"
+        }
+      ]
+    },
+    "jiangsu": {
+      "name": "江苏",
+      "code": "320000",
+      "warPeriod": "1937-1945",
+      "status": "沦陷区",
+      "fallDate": "1937-12-13",
+      "liberationDate": "1945-08-15",
+      "summary": "江苏是南京大屠杀的发生地，也是新四军活动的重要地区。",
+      "majorEvents": [
+        {
+          "date": "1937-12-13",
+          "event": "南京沦陷",
+          "location": "南京",
+          "description": "日军占领南京，制造南京大屠杀",
+          "significance": "中华民族的巨大灾难"
+        },
+        {
+          "date": "1937-12-13",
+          "event": "南京大屠杀",
+          "location": "南京",
+          "description": "日军在南京屠杀30万中国军民",
+          "significance": "日军暴行的铁证"
+        },
+        {
+          "date": "1940-10-19",
+          "event": "黄桥决战",
+          "location": "泰兴黄桥",
+          "description": "新四军击败韩德勤部",
+          "significance": "新四军发展壮大"
+        }
+      ],
+      "resistance": {
+        "organizations": ["新四军", "苏中军区", "苏北抗日根据地"],
+        "leaders": ["陈毅", "粟裕", "张爱萍"],
+        "activities": "在苏中苏北建立抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约50万人",
+        "military": "约20万人"
+      },
+      "heritage": [
+        {
+          "name": "侵华日军南京大屠杀遇难同胞纪念馆",
+          "type": "纪念馆",
+          "description": "纪念南京大屠杀遇难同胞"
+        },
+        {
+          "name": "新四军纪念馆",
+          "type": "纪念馆",
+          "description": "展示新四军抗战历程"
+        }
+      ]
+    }
+  }
+}

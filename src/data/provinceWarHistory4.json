@@ -1,0 +1,388 @@
+{
+  "provinces": {
+    "sichuan": {
+      "name": "四川",
+      "code": "510000",
+      "warPeriod": "1937-1945",
+      "status": "大后方",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "四川是抗战的大后方，为抗战提供了大量的人力物力支援，川军出川抗战英勇无畏。",
+      "majorEvents": [
+        {
+          "date": "1937-09-05",
+          "event": "川军出川抗战",
+          "location": "成都",
+          "description": "刘湘率川军出川参加抗战",
+          "significance": "地方军阀积极抗日"
+        },
+        {
+          "date": "1938-10-01",
+          "event": "成都大轰炸",
+          "location": "成都",
+          "description": "日军轰炸成都",
+          "significance": "战火延伸到大后方"
+        },
+        {
+          "date": "1944-12-01",
+          "event": "中国远征军成立",
+          "location": "昆明",
+          "description": "中国远征军在昆明成立",
+          "significance": "中国军队走出国门抗日"
+        }
+      ],
+      "resistance": {
+        "organizations": ["川军", "四川抗日救国会", "川康边区游击队"],
+        "leaders": ["刘湘", "邓锡侯", "朱德"],
+        "activities": "提供后勤支援，川军出川抗战"
+      },
+      "casualties": {
+        "civilian": "约8万人",
+        "military": "约35万人"
+      },
+      "heritage": [
+        {
+          "name": "建川博物馆",
+          "type": "纪念馆",
+          "description": "中国最大的民间博物馆群"
+        },
+        {
+          "name": "刘湘墓",
+          "type": "历史遗迹",
+          "description": "川军领袖刘湘陵墓"
+        }
+      ]
+    },
+    "guizhou": {
+      "name": "贵州",
+      "code": "520000",
+      "warPeriod": "1937-1945",
+      "status": "大后方",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "贵州是抗战大后方，为抗战提供了重要的战略物资和人员支援。",
+      "majorEvents": [
+        {
+          "date": "1938-11-01",
+          "event": "黔军出省抗战",
+          "location": "贵阳",
+          "description": "贵州军队出省参加抗战",
+          "significance": "西南地区积极抗日"
+        },
+        {
+          "date": "1944-12-01",
+          "event": "独山战役",
+          "location": "独山",
+          "description": "日军进攻独山，国军抵抗",
+          "significance": "日军最远进攻点"
+        }
+      ],
+      "resistance": {
+        "organizations": ["黔军", "贵州抗日救国会"],
+        "leaders": ["王家烈", "何应钦"],
+        "activities": "提供后勤支援和兵员补充"
+      },
+      "casualties": {
+        "civilian": "约3万人",
+        "military": "约8万人"
+      },
+      "heritage": [
+        {
+          "name": "息烽集中营旧址",
+          "type": "历史遗迹",
+          "description": "国民党关押政治犯的监狱"
+        }
+      ]
+    },
+    "yunnan": {
+      "name": "云南",
+      "code": "530000",
+      "warPeriod": "1937-1945",
+      "status": "大后方/边境战场",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "云南是抗战大后方和国际援华通道，滇缅公路是重要的生命线。",
+      "majorEvents": [
+        {
+          "date": "1938-08-01",
+          "event": "滇缅公路通车",
+          "location": "昆明-仰光",
+          "description": "连接中国和缅甸的国际通道建成",
+          "significance": "重要的国际援华通道"
+        },
+        {
+          "date": "1942-05-04",
+          "event": "中国远征军入缅",
+          "location": "缅甸",
+          "description": "中国远征军进入缅甸作战",
+          "significance": "中国军队首次出国作战"
+        },
+        {
+          "date": "1944-05-11",
+          "event": "滇西反攻",
+          "location": "怒江",
+          "description": "中国军队反攻滇西日军",
+          "significance": "收复失地的重要战役"
+        }
+      ],
+      "resistance": {
+        "organizations": ["滇军", "中国远征军", "云南抗日救国会"],
+        "leaders": ["龙云", "卫立煌", "杜聪明"],
+        "activities": "守卫西南边疆，支援远征军作战"
+      },
+      "casualties": {
+        "civilian": "约5万人",
+        "military": "约20万人"
+      },
+      "heritage": [
+        {
+          "name": "滇西抗战纪念馆",
+          "type": "纪念馆",
+          "description": "纪念滇西抗战和远征军"
+        },
+        {
+          "name": "松山战役遗址",
+          "type": "历史遗迹",
+          "description": "远征军攻克松山的战场遗址"
+        }
+      ]
+    },
+    "xizang": {
+      "name": "西藏",
+      "code": "540000",
+      "warPeriod": "1937-1945",
+      "status": "后方",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "西藏地区在抗战期间保持相对稳定，为抗战提供了一定支援。",
+      "majorEvents": [
+        {
+          "date": "1940-02-22",
+          "event": "十四世达赖坐床",
+          "location": "拉萨",
+          "description": "十四世达赖喇嘛在拉萨坐床",
+          "significance": "西藏政教领袖确立"
+        }
+      ],
+      "resistance": {
+        "organizations": ["西藏地方政府"],
+        "leaders": ["热振活佛", "十四世达赖"],
+        "activities": "维护边疆稳定"
+      },
+      "casualties": {
+        "civilian": "极少",
+        "military": "极少"
+      },
+      "heritage": [
+        {
+          "name": "布达拉宫",
+          "type": "历史建筑",
+          "description": "西藏政教中心"
+        }
+      ]
+    },
+    "shaanxi": {
+      "name": "陕西",
+      "code": "610000",
+      "warPeriod": "1937-1945",
+      "status": "抗日根据地",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "陕西是中共中央所在地，延安是全国抗日根据地的指挥中心。",
+      "majorEvents": [
+        {
+          "date": "1936-12-12",
+          "event": "西安事变",
+          "location": "西安",
+          "description": "张学良、杨虎城发动西安事变",
+          "significance": "促成国共第二次合作"
+        },
+        {
+          "date": "1937-08-25",
+          "event": "红军改编为八路军",
+          "location": "延安",
+          "description": "中国工农红军改编为国民革命军第八路军",
+          "significance": "国共合作抗日开始"
+        },
+        {
+          "date": "1945-04-23",
+          "event": "中共七大召开",
+          "location": "延安",
+          "description": "中国共产党第七次全国代表大会在延安召开",
+          "significance": "确立毛泽东思想指导地位"
+        }
+      ],
+      "resistance": {
+        "organizations": ["中共中央", "八路军总部", "陕甘宁边区政府"],
+        "leaders": ["毛泽东", "朱德", "周恩来"],
+        "activities": "领导全国抗日战争，建设模范抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约2万人",
+        "military": "约5万人"
+      },
+      "heritage": [
+        {
+          "name": "延安革命纪念馆",
+          "type": "纪念馆",
+          "description": "展示延安时期革命历史"
+        },
+        {
+          "name": "杨家岭革命旧址",
+          "type": "历史遗迹",
+          "description": "中共中央驻地旧址"
+        }
+      ]
+    },
+    "gansu": {
+      "name": "甘肃",
+      "code": "620000",
+      "warPeriod": "1937-1945",
+      "status": "大后方",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "甘肃是抗战大后方，为抗战提供了重要的战略物资和交通保障。",
+      "majorEvents": [
+        {
+          "date": "1936-10-09",
+          "event": "红军三大主力会师",
+          "location": "会宁",
+          "description": "红一、二、四方面军在会宁会师",
+          "significance": "长征胜利结束"
+        },
+        {
+          "date": "1943-01-01",
+          "event": "中苏航线开通",
+          "location": "兰州",
+          "description": "兰州成为中苏航线重要中转站",
+          "significance": "国际援华通道"
+        }
+      ],
+      "resistance": {
+        "organizations": ["西北军", "甘肃抗日救国会"],
+        "leaders": ["马步芳", "邓宝珊"],
+        "activities": "维护西北稳定，保障交通线"
+      },
+      "casualties": {
+        "civilian": "约1万人",
+        "military": "约3万人"
+      },
+      "heritage": [
+        {
+          "name": "会宁红军长征胜利纪念馆",
+          "type": "纪念馆",
+          "description": "纪念红军长征胜利"
+        }
+      ]
+    },
+    "qinghai": {
+      "name": "青海",
+      "code": "630000",
+      "warPeriod": "1937-1945",
+      "status": "后方",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "青海地区在抗战期间保持稳定，为抗战提供了一定的物资支援。",
+      "majorEvents": [
+        {
+          "date": "1940-05-01",
+          "event": "青海建省",
+          "location": "西宁",
+          "description": "青海正式建省",
+          "significance": "西北行政区划调整"
+        }
+      ],
+      "resistance": {
+        "organizations": ["青海省政府", "马家军"],
+        "leaders": ["马步芳", "马步青"],
+        "activities": "维护西北边疆稳定"
+      },
+      "casualties": {
+        "civilian": "极少",
+        "military": "约1000人"
+      },
+      "heritage": [
+        {
+          "name": "青海省博物馆",
+          "type": "博物馆",
+          "description": "展示青海历史文化"
+        }
+      ]
+    },
+    "ningxia": {
+      "name": "宁夏",
+      "code": "640000",
+      "warPeriod": "1937-1945",
+      "status": "后方",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "宁夏地区在抗战期间相对稳定，为抗战提供了一定支援。",
+      "majorEvents": [
+        {
+          "date": "1941-01-01",
+          "event": "宁夏省成立",
+          "location": "银川",
+          "description": "宁夏省正式成立",
+          "significance": "西北行政区划完善"
+        }
+      ],
+      "resistance": {
+        "organizations": ["宁夏省政府", "马鸿逵部"],
+        "leaders": ["马鸿逵", "马鸿宾"],
+        "activities": "维护地方稳定"
+      },
+      "casualties": {
+        "civilian": "极少",
+        "military": "约500人"
+      },
+      "heritage": [
+        {
+          "name": "宁夏博物馆",
+          "type": "博物馆",
+          "description": "展示宁夏历史文化"
+        }
+      ]
+    },
+    "xinjiang": {
+      "name": "新疆",
+      "code": "650000",
+      "warPeriod": "1937-1945",
+      "status": "后方",
+      "fallDate": "未沦陷",
+      "liberationDate": "1945-08-15",
+      "summary": "新疆是抗战大后方，盛世才统治时期与苏联关系密切，为抗战提供了一定支援。",
+      "majorEvents": [
+        {
+          "date": "1937-10-01",
+          "event": "新疆抗日救国会成立",
+          "location": "乌鲁木齐",
+          "description": "新疆各界成立抗日救国组织",
+          "significance": "边疆地区积极抗日"
+        },
+        {
+          "date": "1943-09-27",
+          "event": "中共代表团到新疆",
+          "location": "乌鲁木齐",
+          "description": "毛泽民等中共代表到新疆工作",
+          "significance": "加强边疆统一战线"
+        }
+      ],
+      "resistance": {
+        "organizations": ["新疆省政府", "新疆抗日救国会"],
+        "leaders": ["盛世才", "毛泽民"],
+        "activities": "维护边疆稳定，支援抗战"
+      },
+      "casualties": {
+        "civilian": "约2000人",
+        "military": "约1000人"
+      },
+      "heritage": [
+        {
+          "name": "新疆维吾尔自治区博物馆",
+          "type": "博物馆",
+          "description": "展示新疆历史文化"
+        }
+      ]
+    }
+  }
+}

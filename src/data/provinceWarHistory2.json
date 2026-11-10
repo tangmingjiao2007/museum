@@ -1,0 +1,297 @@
+{
+  "provinces": {
+    "zhejiang": {
+      "name": "浙江",
+      "code": "330000",
+      "warPeriod": "1937-1945",
+      "status": "沦陷区",
+      "fallDate": "1937-12-24",
+      "liberationDate": "1945-08-15",
+      "summary": "浙江沿海地区较早沦陷，浙东、浙南山区成为重要的抗日根据地。",
+      "majorEvents": [
+        {
+          "date": "1937-12-24",
+          "event": "杭州沦陷",
+          "location": "杭州",
+          "description": "日军占领浙江省会杭州",
+          "significance": "浙江政治中心失守"
+        },
+        {
+          "date": "1942-04-18",
+          "event": "浙赣会战",
+          "location": "金华、衢州",
+          "description": "日军为报复杜立特空袭发动攻势",
+          "significance": "浙江内陆遭受重创"
+        },
+        {
+          "date": "1944-05-27",
+          "event": "浙东抗日根据地建立",
+          "location": "余姚四明山",
+          "description": "新四军浙东游击纵队建立根据地",
+          "significance": "华东敌后抗战重要基地"
+        }
+      ],
+      "resistance": {
+        "organizations": ["新四军浙东游击纵队", "浙东抗日根据地"],
+        "leaders": ["何克希", "谭启龙"],
+        "activities": "在四明山、天台山建立抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约25万人",
+        "military": "约10万人"
+      },
+      "heritage": [
+        {
+          "name": "浙东抗日根据地旧址",
+          "type": "历史遗迹",
+          "description": "四明山抗日根据地遗址"
+        }
+      ]
+    },
+    "anhui": {
+      "name": "安徽",
+      "code": "340000",
+      "warPeriod": "1937-1945",
+      "status": "沦陷区/抗日根据地",
+      "fallDate": "1937-12",
+      "liberationDate": "1945-08-15",
+      "summary": "安徽是新四军的重要活动地区，发生了皖南事变等重大事件。",
+      "majorEvents": [
+        {
+          "date": "1938-05-19",
+          "event": "徐州会战",
+          "location": "淮北地区",
+          "description": "国军在徐州地区抗击日军",
+          "significance": "正面战场重要战役"
+        },
+        {
+          "date": "1941-01-06",
+          "event": "皖南事变",
+          "location": "泾县茂林",
+          "description": "国民党军队袭击新四军军部",
+          "significance": "国共合作破裂的标志"
+        },
+        {
+          "date": "1943-03-18",
+          "event": "新四军重建",
+          "location": "盐城",
+          "description": "新四军在苏北重建军部",
+          "significance": "新四军浴火重生"
+        }
+      ],
+      "resistance": {
+        "organizations": ["新四军", "皖东抗日根据地", "皖江抗日根据地"],
+        "leaders": ["叶挺", "项英", "张云逸"],
+        "activities": "在皖东、皖中建立抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约30万人",
+        "military": "约12万人"
+      },
+      "heritage": [
+        {
+          "name": "皖南事变烈士陵园",
+          "type": "纪念馆",
+          "description": "纪念皖南事变牺牲的新四军将士"
+        }
+      ]
+    },
+    "fujian": {
+      "name": "福建",
+      "code": "350000",
+      "warPeriod": "1937-1945",
+      "status": "部分沦陷",
+      "fallDate": "1938-05-10",
+      "liberationDate": "1945-08-15",
+      "summary": "福建沿海地区部分沦陷，内陆山区坚持抗战，是东南抗战的重要基地。",
+      "majorEvents": [
+        {
+          "date": "1938-05-10",
+          "event": "厦门沦陷",
+          "location": "厦门",
+          "description": "日军占领厦门",
+          "significance": "福建沿海门户失守"
+        },
+        {
+          "date": "1941-04-24",
+          "event": "福州沦陷",
+          "location": "福州",
+          "description": "日军占领福建省会福州",
+          "significance": "福建政治中心沦陷"
+        },
+        {
+          "date": "1944-10-05",
+          "event": "福州光复",
+          "location": "福州",
+          "description": "国军收复福州",
+          "significance": "东南抗战重要胜利"
+        }
+      ],
+      "resistance": {
+        "organizations": ["闽浙赣游击队", "福建抗日义勇军"],
+        "leaders": ["叶飞", "曾镜冰"],
+        "activities": "在闽北、闽西山区开展游击战"
+      },
+      "casualties": {
+        "civilian": "约15万人",
+        "military": "约8万人"
+      },
+      "heritage": [
+        {
+          "name": "福建省革命历史纪念馆",
+          "type": "纪念馆",
+          "description": "展示福建抗战历史"
+        }
+      ]
+    },
+    "jiangxi": {
+      "name": "江西",
+      "code": "360000",
+      "warPeriod": "1937-1945",
+      "status": "部分沦陷",
+      "fallDate": "1938-07-26",
+      "liberationDate": "1945-08-15",
+      "summary": "江西是南方抗战的重要战场，发生了南昌会战、上高会战等重要战役。",
+      "majorEvents": [
+        {
+          "date": "1938-07-26",
+          "event": "九江沦陷",
+          "location": "九江",
+          "description": "日军占领九江",
+          "significance": "长江中游重镇失守"
+        },
+        {
+          "date": "1939-03-17",
+          "event": "南昌会战",
+          "location": "南昌",
+          "description": "国军与日军在南昌激战",
+          "significance": "江西抗战重要战役"
+        },
+        {
+          "date": "1941-03-15",
+          "event": "上高会战",
+          "location": "上高县",
+          "description": "国军在上高大败日军",
+          "significance": "抗战中期重要胜利"
+        }
+      ],
+      "resistance": {
+        "organizations": ["赣东北游击队", "新四军", "国民革命军"],
+        "leaders": ["方志敏", "黄公略", "薛岳"],
+        "activities": "在赣东北、赣南山区坚持抗战"
+      },
+      "casualties": {
+        "civilian": "约20万人",
+        "military": "约15万人"
+      },
+      "heritage": [
+        {
+          "name": "方志敏纪念馆",
+          "type": "纪念馆",
+          "description": "纪念革命烈士方志敏"
+        }
+      ]
+    },
+    "shandong": {
+      "name": "山东",
+      "code": "370000",
+      "warPeriod": "1937-1945",
+      "status": "沦陷区/抗日根据地",
+      "fallDate": "1937-12-27",
+      "liberationDate": "1945-08-15",
+      "summary": "山东是华东抗战的重要战场，八路军和新四军在此建立了重要的抗日根据地。",
+      "majorEvents": [
+        {
+          "date": "1937-12-27",
+          "event": "济南沦陷",
+          "location": "济南",
+          "description": "日军占领山东省会济南",
+          "significance": "山东政治中心失守"
+        },
+        {
+          "date": "1938-01-10",
+          "event": "青岛沦陷",
+          "location": "青岛",
+          "description": "日军占领青岛",
+          "significance": "山东重要港口失守"
+        },
+        {
+          "date": "1940-05-01",
+          "event": "鲁南会战",
+          "location": "枣庄、临沂",
+          "description": "国军在鲁南抗击日军",
+          "significance": "山东正面抗战重要战役"
+        }
+      ],
+      "resistance": {
+        "organizations": ["八路军山东纵队", "胶东军区", "鲁中军区"],
+        "leaders": ["罗荣桓", "许世友", "王建安"],
+        "activities": "在胶东、鲁中、鲁南建立抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约45万人",
+        "military": "约18万人"
+      },
+      "heritage": [
+        {
+          "name": "台儿庄大战纪念馆",
+          "type": "纪念馆",
+          "description": "纪念台儿庄大捷"
+        },
+        {
+          "name": "八路军115师司令部旧址",
+          "type": "历史遗迹",
+          "description": "位于莒南县"
+        }
+      ]
+    },
+    "henan": {
+      "name": "河南",
+      "code": "410000",
+      "warPeriod": "1937-1945",
+      "status": "战场/部分沦陷",
+      "fallDate": "1938-06-06",
+      "liberationDate": "1945-08-15",
+      "summary": "河南是中原抗战的主战场，发生了豫湘桂会战等重大战役。",
+      "majorEvents": [
+        {
+          "date": "1938-06-06",
+          "event": "开封沦陷",
+          "location": "开封",
+          "description": "日军占领开封",
+          "significance": "河南重镇失守"
+        },
+        {
+          "date": "1938-06-09",
+          "event": "花园口决堤",
+          "location": "郑州花园口",
+          "description": "国军炸开黄河大堤阻止日军",
+          "significance": "以水代兵的悲壮之举"
+        },
+        {
+          "date": "1944-04-17",
+          "event": "豫湘桂会战",
+          "location": "河南全境",
+          "description": "日军发动一号作战",
+          "significance": "抗战后期重大战役"
+        }
+      ],
+      "resistance": {
+        "organizations": ["八路军129师", "新四军第4师", "豫西抗日根据地"],
+        "leaders": ["刘伯承", "彭雪枫", "皮定均"],
+        "activities": "在豫西、豫东建立抗日根据地"
+      },
+      "casualties": {
+        "civilian": "约60万人",
+        "military": "约25万人"
+      },
+      "heritage": [
+        {
+          "name": "彭雪枫纪念馆",
+          "type": "纪念馆",
+          "description": "纪念新四军将领彭雪枫"
+        }
+      ]
+    }
+  }
+}
