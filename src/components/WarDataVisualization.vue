@@ -1641,7 +1641,7 @@ const handleImageError = (event) => {
 
 .stat-number {
   margin-top: 4px;
-  font-family: var(--font-serif);
+  font-family: var(--font-num);
   font-size: 28px;
   font-weight: 700;
   color: #a7382a;

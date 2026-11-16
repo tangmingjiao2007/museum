@@ -496,7 +496,7 @@ const closeImagePreview = () => {
 }
 
 .stat-value {
-  font-family: var(--font-serif);
+  font-family: var(--font-num);
   font-size: 30px;
   font-weight: 700;
   color: var(--red-deep);

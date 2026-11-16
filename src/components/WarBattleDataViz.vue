@@ -1571,7 +1571,7 @@ onMounted(async () => {
 }
 
 .number-display {
-  font-family: var(--font-serif);
+  font-family: var(--font-num);
   font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
@@ -1765,7 +1765,7 @@ onMounted(async () => {
 
 .rank-number {
   flex: 0 0 20px;
-  font-family: var(--font-serif);
+  font-family: var(--font-num);
   font-size: 12px;
   color: #b9945e;
 }

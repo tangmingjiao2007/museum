@@ -45,7 +45,10 @@ export default {
         'red-deep': '#6B0F0F',
       },
       fontFamily: {
-        serif: ['"Songti SC"', '"SimSun"', '"Noto Serif SC"', 'serif'],
+        display: ['"YanShiLiuYunKai"', '"KaiTi"', '"STKaiti"', 'serif'],
+        serif: ['"SourceHanSerifHeavy"', '"Songti SC"', '"SimSun"', 'serif'],
+        sans: ['"SourceHanSans"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+        num: ['"AlimamaShuHeiTiBold"', '"DIN Alternate"', 'Arial', 'sans-serif'],
       },
       backdropBlur: {
         'xs': '2px',

@@ -3,8 +3,47 @@
 @tailwind utilities;
 
 /* ============================================================
+   字体资源（本地 woff2，按项目用字做子集，约 5MB）
+   - 演示流云楷：大标题（h1 / 页头主标题）
+   - 思源宋体 CN Heavy：二级标题（h2-h4 / 小标题）
+   - 思源黑体：正文
+   - 阿里妈妈数黑体：数字与英文强调
+   ============================================================ */
+@font-face {
+  font-family: 'YanShiLiuYunKai';
+  src: url('/fonts/YanShiLiuYunKai.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SourceHanSerifHeavy';
+  src: url('/fonts/SourceHanSerifHeavy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SourceHanSans';
+  src: url('/fonts/SourceHanSans.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AlimamaShuHeiTiBold';
+  src: url('/fonts/AlimamaShuHeiTiBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
    抗战数字博物馆 · 视觉基础
-   米白宣纸底 / 朱红主色 / 细描边卡片 / 宋体标题
+   米白宣纸底 / 朱红主色 / 细描边卡片 / 楷体大标题 + 宋体小标题
    ============================================================ */
 
 :root {
@@ -23,8 +62,14 @@
   --gold: #b9945e;
   --gold-soft: #f1e4cd;
 
-  --font-serif: 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
-  --font-sans: 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  /* 大标题：演示流云楷（楷书笔意，用于 h1 等主标题） */
+  --font-display: 'YanShiLiuYunKai', 'KaiTi', 'STKaiti', 'Kaiti SC', serif;
+  /* 二级标题：思源宋体 CN Heavy（规整厚重） */
+  --font-serif: 'SourceHanSerifHeavy', 'Songti SC', 'STSong', 'SimSun', serif;
+  /* 正文：思源黑体（规整易读） */
+  --font-sans: 'SourceHanSans', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  /* 数字/英文强调 */
+  --font-num: 'AlimamaShuHeiTiBold', 'DIN Alternate', 'Helvetica Neue', Arial, sans-serif;
 
   color-scheme: light;
 }
@@ -66,11 +111,33 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: var(--font-serif);
   font-weight: 700;
   color: var(--ink);
   letter-spacing: 0.02em;
   line-height: 1.35;
+}
+
+/* 大标题（页面主标题）：演示流云楷，楷书笔意更显庄重 */
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+/* 二级标题 / 小标题：思源宋体 Heavy，规整有分量 */
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+}
+
+/* 数字类元素里的中文单位（如“余万”）回落到黑体，避免数字字体缺字 */
+.stat-value span,
+.stat-number span,
+.number-display span,
+.rank-number span,
+.stat-cell span {
+  font-family: var(--font-sans);
 }
 
 p,

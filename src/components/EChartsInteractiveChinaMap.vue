@@ -1042,7 +1042,7 @@ const updateMapByYear = () => {
 }
 
 .stat-number {
-  font-family: var(--font-serif);
+  font-family: var(--font-num);
   font-size: 22px;
   font-weight: 700;
   color: #a7382a;
