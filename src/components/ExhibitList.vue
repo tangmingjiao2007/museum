@@ -160,7 +160,7 @@ onMounted(() => {
             class="absolute top-3 right-3 flex flex-col items-end space-y-1.5"
           >
             <span
-              class="bg-purple-500 bg-opacity-80 backdrop-blur-sm text-white text-xs font-semibold py-1 px-2.5 rounded-full shadow-md"
+              class="bg-[#a7382a] bg-opacity-90 backdrop-blur-sm text-white text-xs font-semibold py-1 px-2.5 rounded-full shadow-md"
               >基础介绍</span
             >
             <span

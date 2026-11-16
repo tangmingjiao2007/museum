@@ -166,21 +166,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="space-y-8">
+  <section class="item-section">
     <!-- 板块标题 -->
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        纪念物品
-      </h2>
-      <p class="text-white/80 text-lg max-w-3xl mx-auto">
-        这些珍贵的纪念物品记录着抗战英雄的光辉事迹，每一件都承载着深厚的历史意义和民族情感。
-      </p>
-      <div class="w-20 h-1 bg-yellow-500 mx-auto mt-4 rounded-full"></div>
+    <div class="item-head">
+      <h2>纪念物品</h2>
+      <p>这些珍贵的纪念物品记录着抗战英雄的光辉事迹，每一件都承载着深厚的历史意义和民族情感。</p>
+      <hr class="ui-rule" />
     </div>
 
     <!-- 纪念物品网格 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      <div
+    <div class="item-grid">
+      <article
         v-for="(item, index) in memorialItems"
         :key="item.id"
         :ref="
@@ -188,67 +184,30 @@ onMounted(() => {
             if (el) itemCards[index] = el;
           }
         "
-        class="group bg-white/80 backdrop-blur-md rounded-xl overflow-hidden border border-yellow-200/30 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-yellow-300/50 transform hover:-translate-y-2 flex flex-col opacity-0 translate-y-5 cursor-pointer"
+        class="item-card"
         @click="navigateToDetail(item)"
       >
-        <!-- 物品图片区域 -->
-        <div class="relative h-48 md:h-56 overflow-hidden">
-          <img
-            :src="item.thumbnail"
-            :alt="item.title"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <!-- 标签 -->
-          <div
-            class="absolute top-3 right-3 flex flex-col items-end space-y-1.5"
-          >
-            <span
-              class="bg-yellow-600/80 backdrop-blur-sm text-white text-xs font-semibold py-1 px-2.5 rounded-full shadow-md"
-            >
-              纪念物品
-            </span>
-            <span
-              class="bg-gray-700/80 backdrop-blur-sm text-white text-xs font-semibold py-1 px-2.5 rounded-full shadow-md"
-            >
-              {{ item.category }}
-            </span>
+        <div class="item-media">
+          <img :src="item.thumbnail" :alt="item.title" loading="lazy" />
+          <div class="item-tags">
+            <span class="item-tag">{{ item.category }}</span>
           </div>
-          <!-- Hover覆盖层 -->
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6"
-          >
-            <span class="text-white font-semibold text-lg">查看3D模型</span>
-          </div>
+          <div class="item-hover"><span>查看 3D 模型</span></div>
         </div>
 
-        <!-- 物品信息区域 -->
-        <div class="p-4 md:p-6 flex flex-col flex-grow">
-          <h3
-            class="text-lg md:text-xl font-bold text-museum-dark mb-2 group-hover:text-yellow-600 transition-colors duration-300 line-clamp-2"
-          >
-            {{ item.title }}
-          </h3>
-          <div class="flex items-center text-museum-dark/60 text-sm mb-3">
+        <div class="item-body">
+          <h3 class="item-title line-clamp-2">{{ item.title }}</h3>
+          <div class="item-meta">
             <span>{{ item.material }}</span>
-            <span class="mx-2">·</span>
+            <span>·</span>
             <span>{{ item.dynasty }}</span>
           </div>
-          <p
-            class="text-museum-dark/70 text-sm line-clamp-3 flex-grow mb-4 leading-relaxed"
-          >
-            {{ item.description }}
-          </p>
-          <div class="mt-auto pt-3 border-t border-yellow-100/50">
-            <button
-              class="w-full text-center py-2 px-4 bg-yellow-600/10 hover:bg-yellow-600 text-yellow-600 hover:text-white rounded-lg text-sm font-medium transition-all duration-300 group-hover:bg-yellow-600 group-hover:text-white"
-            >
-              查看详细信息
-            </button>
-          </div>
+          <p class="item-desc line-clamp-3">{{ item.description }}</p>
+          <span class="item-action">查看详细信息 →</span>
         </div>
-      </div>
+      </article>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>

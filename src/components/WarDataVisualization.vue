@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="war-heroes-page">
     <!-- 页面头部 -->
     <section class="heroes-header">
@@ -1176,954 +1176,575 @@ const handleImageError = (event) => {
 </script>
 
 <style scoped>
+/* ===== 抗战英雄人物 ===== */
 .war-heroes-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #dc2626 50%, #991b1b 75%, #7f1d1d 100%);
-  color: #fef2f2;
-  font-family: 'Noto Serif SC', serif;
-}
-
-/* 页面头部 */
-.heroes-header {
-  padding: 100px 0 80px;
-  background: radial-gradient(circle at center, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
-  text-align: center;
+  color: #2e231a;
+  padding-bottom: 24px;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 4px;
 }
 
-.header-emblem {
-  margin-bottom: 30px;
+/* ---------- 页头 ---------- */
+.heroes-header {
+  padding: 28px 24px 26px;
+  margin-bottom: 22px;
+  border: 1px solid #e8d8c4;
+  border-radius: 20px;
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(249, 229, 221, 0.9) 0%, rgba(249, 229, 221, 0) 60%),
+    #fffcf5;
+  text-align: center;
 }
 
 .emblem-circle {
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(145deg, #dc2626, #991b1b);
-  border: 4px solid #fbbf24;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.emblem-icon {
-  font-size: 3rem;
-  color: #fbbf24;
+  display: none;
 }
 
 .page-title {
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: #fbbf24;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 32px;
+  letter-spacing: 0.12em;
+  color: #8a2c21;
 }
 
 .page-subtitle {
-  font-size: 1.5rem;
-  color: #fef2f2;
-  margin-bottom: 30px;
-  opacity: 0.9;
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8b7768;
 }
 
 .hero-quote {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #fbbf24;
-  background: rgba(127, 29, 29, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 4px solid #fbbf24;
-  max-width: 600px;
-  margin: 0 auto;
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 22px;
+  border-left: 2px solid #a7382a;
+  border-radius: 0 10px 10px 0;
+  background: #fdf7ec;
+  color: #5a4738;
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
 }
 
 .quote-mark {
-  font-size: 1.5rem;
-  color: #dc2626;
-  font-weight: bold;
+  color: #b9945e;
+  font-family: var(--font-serif);
 }
 
-/* 英雄分类导航 */
+/* ---------- 分类 ---------- */
 .heroes-navigation {
-  padding: 40px 0;
-  background: rgba(127, 29, 29, 0.2);
-  border-top: 2px solid rgba(251, 191, 36, 0.3);
-  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+  margin-bottom: 20px;
 }
 
 .nav-tabs {
   display: flex;
-  justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .nav-tab {
-  background: rgba(127, 29, 29, 0.6);
-  border: 2px solid rgba(251, 191, 36, 0.3);
-  border-radius: 25px;
-  padding: 15px 25px;
-  color: #fef2f2;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: inherit;
+  gap: 7px;
+  padding: 7px 16px;
+  border: 1px solid #e8d8c4;
+  border-radius: 999px;
+  background: #fffcf5;
+  color: #5a4738;
+  font-size: 13.5px;
+  transition: all 0.2s ease;
 }
 
-.nav-tab:hover,
+.nav-tab:hover {
+  border-color: rgba(167, 56, 42, 0.4);
+  color: #8a2c21;
+}
+
 .nav-tab.active {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  color: #7f1d1d;
-  border-color: #fbbf24;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+  background: #a7382a;
+  border-color: #a7382a;
+  color: #fff8ee;
 }
 
 .tab-icon {
-  font-size: 1.2rem;
-}
-
-.tab-label {
-  font-weight: bold;
+  display: none;
 }
 
 .tab-count {
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-size: 12px;
+  opacity: 0.7;
 }
 
-/* 英雄列表 */
-.heroes-list {
-  padding: 80px 0;
-}
-
+/* ---------- 英雄卡片 ---------- */
 .heroes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .hero-card {
-  background: linear-gradient(145deg, rgba(127, 29, 29, 0.8), rgba(153, 27, 27, 0.6));
-  border: 2px solid rgba(251, 191, 36, 0.3);
-  border-radius: 15px;
-  padding: 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 16px 18px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border: 1px solid #e8d8c4;
+  border-radius: 18px;
+  background: #fffcf5;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
-.hero-card:hover,
+.hero-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(167, 56, 42, 0.35);
+  box-shadow: 0 22px 38px -32px rgba(84, 48, 28, 0.85);
+}
+
 .hero-card.selected {
-  border-color: #fbbf24;
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(251, 191, 36, 0.2);
+  border-color: #a7382a;
+  box-shadow: 0 0 0 1px rgba(167, 56, 42, 0.35);
 }
 
 .hero-avatar {
   position: relative;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 20px;
+  width: 86px;
+  height: 86px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #e8d8c4;
+  background: #f4e8d9;
 }
 
 .hero-avatar img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  border: 3px solid #fbbf24;
   object-fit: cover;
+  filter: grayscale(0.15) saturate(0.92);
 }
 
 .hero-rank {
   position: absolute;
-  bottom: -5px;
-  right: -5px;
-  background: #fbbf24;
-  color: #7f1d1d;
-  padding: 4px 8px;
-  border-radius: 10px;
-  font-size: 0.8rem;
-  font-weight: bold;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%);
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(255, 252, 245, 0.94);
+  border: 1px solid #e8d8c4;
+  color: #a7382a;
+  font-size: 11px;
+  line-height: 18px;
+  white-space: nowrap;
 }
 
 .hero-info {
-  text-align: center;
-  margin-bottom: 20px;
+  width: 100%;
 }
 
 .hero-name {
-  font-size: 1.3rem;
-  color: #fbbf24;
-  margin-bottom: 8px;
-  font-weight: bold;
+  font-size: 18px;
+  color: #2e231a;
 }
 
 .hero-title {
-  color: #fef2f2;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-  opacity: 0.9;
+  margin-top: 2px;
+  font-size: 12.5px;
+  color: #8b7768;
 }
 
 .hero-years {
-  color: #fbbf24;
-  font-size: 0.9rem;
-  margin-bottom: 8px;
+  margin-top: 4px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #a08b79;
 }
 
 .hero-category {
-  background: rgba(251, 191, 36, 0.2);
-  color: #fbbf24;
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 0.8rem;
   display: inline-block;
+  margin-top: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(167, 56, 42, 0.18);
+  background: #f6e2da;
+  color: #8a2c21;
+  font-size: 11px;
 }
 
 .hero-actions {
-  text-align: center;
+  width: 100%;
+  margin-top: 14px;
 }
 
 .view-details-btn {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  color: #7f1d1d;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: inherit;
+  width: 100%;
+  padding: 8px 0;
+  border: 1px solid rgba(167, 56, 42, 0.28);
+  border-radius: 999px;
+  background: transparent;
+  color: #a7382a;
+  font-size: 13px;
+  transition: all 0.2s ease;
 }
 
-.view-details-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+.hero-card:hover .view-details-btn {
+  background: #a7382a;
+  border-color: #a7382a;
+  color: #fff8ee;
 }
 
-/* 英雄详细信息面板 */
+/* ---------- 详情弹层 ---------- */
 .hero-detail-panel {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  z-index: 60;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-  overflow-y: auto;
+  padding: 24px;
+  background: rgba(38, 24, 16, 0.55);
+  backdrop-filter: blur(4px);
 }
 
 .detail-content {
-  background: linear-gradient(145deg, #7f1d1d, #991b1b);
-  border: 3px solid #fbbf24;
-  border-radius: 20px;
-  max-width: 800px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  width: min(760px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  border: 1px solid #e8d8c4;
+  border-radius: 18px;
+  background: #fffcf5;
+  color: #2e231a;
 }
 
 .close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  background: #dc2626;
-  color: #fef2f2;
-  border: none;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #e8d8c4;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-  font-size: 1.2rem;
+  background: #fffdf8;
+  color: #5a4738;
+  font-size: 14px;
 }
 
 .close-btn:hover {
-  background: #991b1b;
-  transform: scale(1.1);
+  background: #f6e2da;
+  color: #8a2c21;
 }
 
 .detail-header {
   display: flex;
-  align-items: flex-start;
-  gap: 30px;
-  padding: 40px 40px 20px;
-  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+  align-items: center;
+  gap: 22px;
+  padding: 26px 28px;
+  border-bottom: 1px solid #e8d8c4;
+  background: #fdf7ec;
 }
 
 .detail-avatar {
   position: relative;
-  flex-shrink: 0;
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #e8d8c4;
+  background: #f4e8d9;
 }
 
 .detail-avatar img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 4px solid #fbbf24;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .detail-rank {
   position: absolute;
-  bottom: -10px;
-  right: -10px;
-  background: #fbbf24;
-  color: #7f1d1d;
-  padding: 6px 12px;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.detail-basic-info {
-  flex: 1;
+  left: 50%;
+  bottom: 2px;
+  transform: translateX(-50%);
+  padding: 0 9px;
+  border-radius: 999px;
+  background: rgba(255, 252, 245, 0.94);
+  border: 1px solid #e8d8c4;
+  color: #a7382a;
+  font-size: 11px;
+  line-height: 18px;
+  white-space: nowrap;
 }
 
 .detail-name {
-  font-size: 2.2rem;
-  color: #fbbf24;
-  margin-bottom: 10px;
-  font-weight: bold;
+  font-size: 28px;
+  color: #8a2c21;
+  letter-spacing: 0.06em;
 }
 
 .detail-title {
-  color: #fef2f2;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  opacity: 0.9;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: #8b7768;
 }
 
 .detail-meta {
-  display: grid;
-  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 26px;
+  margin-top: 12px;
 }
 
 .meta-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-size: 13px;
 }
 
 .meta-label {
-  color: #fbbf24;
-  font-weight: bold;
-  min-width: 80px;
+  color: #8b7768;
 }
 
 .meta-value {
-  color: #fef2f2;
+  color: #2e231a;
 }
 
 .detail-body {
-  padding: 20px 40px 40px;
+  padding: 24px 28px 30px;
 }
 
 .detail-section {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
+}
+
+.detail-section:last-child {
+  margin-bottom: 0;
 }
 
 .section-title {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.3rem;
-  color: #fbbf24;
-  margin-bottom: 20px;
-  font-weight: bold;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 17px;
+  color: #8a2c21;
 }
 
 .section-icon {
-  font-size: 1.2rem;
+  display: none;
 }
 
 .hero-story {
-  background: rgba(127, 29, 29, 0.3);
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 4px solid #fbbf24;
+  border-left: 2px solid rgba(167, 56, 42, 0.28);
+  padding-left: 16px;
 }
 
 .story-paragraph {
-  color: #fef2f2;
-  line-height: 1.8;
-  margin-bottom: 15px;
-  opacity: 0.9;
-}
-
-.story-paragraph:last-child {
-  margin-bottom: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #4a392b;
+  text-align: justify;
 }
 
 .contributions-list {
-  list-style: none;
+  display: grid;
+  gap: 8px;
   padding: 0;
+  list-style: none;
 }
 
 .contribution-item {
-  background: rgba(127, 29, 29, 0.3);
-  padding: 15px 20px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border-left: 4px solid #fbbf24;
-  color: #fef2f2;
-  position: relative;
-  padding-left: 45px;
-}
-
-.contribution-item::before {
-  content: '★';
-  position: absolute;
-  left: 20px;
-  color: #fbbf24;
-  font-weight: bold;
+  padding: 10px 14px;
+  border-left: 2px solid rgba(167, 56, 42, 0.35);
+  border-radius: 0 8px 8px 0;
+  background: #fdf7ec;
+  color: #4a392b;
+  font-size: 13.5px;
+  line-height: 1.75;
 }
 
 .hero-timeline {
   display: grid;
-  gap: 15px;
+  gap: 10px;
+  padding-left: 4px;
 }
 
 .timeline-event {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  background: rgba(127, 29, 29, 0.3);
-  padding: 15px 20px;
-  border-radius: 8px;
-  border-left: 4px solid #fbbf24;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 13.5px;
 }
 
 .timeline-year {
-  background: #fbbf24;
-  color: #7f1d1d;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  flex-shrink: 0;
+  flex: 0 0 64px;
+  color: #a7382a;
+  font-family: var(--font-serif);
+  font-weight: 600;
 }
 
 .timeline-description {
-  color: #fef2f2;
-  flex: 1;
-  opacity: 0.9;
+  color: #4a392b;
 }
 
 .hero-quotes {
   display: grid;
-  gap: 15px;
+  gap: 10px;
 }
 
 .hero-quote-item {
-  background: rgba(127, 29, 29, 0.3);
-  border-left: 4px solid #fbbf24;
-  padding: 20px;
-  border-radius: 8px;
-  color: #fbbf24;
+  padding: 12px 16px;
+  border-left: 2px solid #b9945e;
+  border-radius: 0 8px 8px 0;
+  background: #fdf7ec;
+  color: #5a4738;
+  font-size: 13.5px;
   font-style: italic;
-  font-size: 1.1rem;
-  margin: 0;
-  position: relative;
+  line-height: 1.8;
 }
 
-.hero-quote-item::before {
-  content: '"';
-  font-size: 3rem;
-  color: #dc2626;
-  position: absolute;
-  left: -5px;
-  top: -10px;
-  font-weight: bold;
-}
-
-/* 英雄统计 */
+/* ---------- 统计 ---------- */
 .heroes-statistics {
-  padding: 80px 0;
-  background: rgba(153, 27, 27, 0.1);
-  border-top: 2px solid rgba(251, 191, 36, 0.3);
+  margin-top: 26px;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #fbbf24;
-  margin-bottom: 50px;
-  font-weight: bold;
+.heroes-statistics .section-title {
+  justify-content: center;
+  font-size: 22px;
+  letter-spacing: 0.08em;
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
 }
 
 .stat-card {
-  background: linear-gradient(145deg, rgba(127, 29, 29, 0.8), rgba(153, 27, 27, 0.6));
-  padding: 40px 20px;
-  border-radius: 15px;
-  border: 2px solid #fbbf24;
+  padding: 20px 16px;
   text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.stat-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(251, 191, 36, 0.2);
+  border: 1px solid #e8d8c4;
+  border-radius: 16px;
+  background: #fffcf5;
 }
 
 .stat-icon {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  display: none;
 }
 
 .stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #fbbf24;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-top: 4px;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: #a7382a;
 }
 
 .stat-label {
-  color: #fef2f2;
-  font-size: 1rem;
-  opacity: 0.9;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  color: #8b7768;
 }
 
-/* 英雄精神传承 */
+/* ---------- 结语 ---------- */
 .heroes-legacy {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #7f1d1d, #991b1b);
-  border-top: 4px solid #fbbf24;
+  margin-top: 26px;
+  padding: 30px 32px;
+  border: 1px solid rgba(167, 56, 42, 0.2);
+  border-radius: 18px;
+  background: linear-gradient(120deg, #fbeee5 0%, #fdf7ec 65%, #f7ecdc 100%);
 }
 
 .legacy-content {
-  text-align: center;
-  max-width: 1000px;
+  max-width: 980px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .legacy-title {
-  font-size: 2.5rem;
-  color: #fbbf24;
-  margin-bottom: 30px;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  color: #8a2c21;
+  letter-spacing: 0.1em;
 }
 
 .legacy-text {
-  font-size: 1.3rem;
-  color: #fef2f2;
-  line-height: 1.8;
-  margin-bottom: 50px;
-  opacity: 0.9;
-  font-style: italic;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #5a4738;
 }
 
 .spirit-values {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
 }
 
 .value-item {
-  background: rgba(127, 29, 29, 0.5);
-  padding: 30px 20px;
-  border-radius: 15px;
-  border: 2px solid rgba(251, 191, 36, 0.3);
-  transition: all 0.3s ease;
-}
-
-.value-item:hover {
-  border-color: #fbbf24;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+  padding: 20px 18px;
+  border: 1px solid #e8d8c4;
+  border-radius: 14px;
+  background: #fffcf5;
 }
 
 .value-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  display: none;
 }
 
 .value-title {
-  font-size: 1.2rem;
-  color: #fbbf24;
-  margin-bottom: 15px;
-  font-weight: bold;
+  margin-top: 6px;
+  font-size: 15px;
+  color: #8a2c21;
 }
 
 .value-desc {
-  color: #fef2f2;
-  line-height: 1.6;
-  opacity: 0.9;
-  font-size: 0.95rem;
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #8b7768;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .page-title {
-    font-size: 2.5rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .spirit-values {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
+/* ---------- 响应式 ---------- */
+@media (max-width: 1100px) {
   .heroes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .heroes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .spirit-values {
     grid-template-columns: 1fr;
   }
-  
-  .nav-tabs {
-    flex-direction: column;
-    align-items: center;
+  .page-title {
+    font-size: 26px;
   }
-  
   .detail-header {
     flex-direction: column;
     text-align: center;
-    padding: 30px 20px 20px;
+    padding: 24px 20px;
   }
-  
+  .detail-meta {
+    justify-content: center;
+  }
   .detail-body {
     padding: 20px;
   }
-  
-  .timeline-event {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .legacy-title {
-    font-size: 1.8rem;
-  }
-  
-  .legacy-text {
-    font-size: 1.1rem;
+  .heroes-legacy {
+    padding: 22px 18px;
   }
 }
-
-@media (max-width: 480px) {
-  .page-title {
-    font-size: 2rem;
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .spirit-values {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-  }
-  
-  .value-title {
-    font-size: 1.1rem;
-  }
-  
-  .value-desc {
-    font-size: 0.9rem;
-  }
-  
-  .container {
-    padding: 0 15px;
-  }
-}
-.war-heroes-page {
-  background: transparent;
-  color: #E8E3DA;
-}
-
-.heroes-header {
-  background: linear-gradient(165deg, #241016 0%, #3A1620 60%, #2A1218 100%) !important;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-}
-.emblem-circle {
-  background: radial-gradient(circle at 50% 35%, #5A212C 0%, #3A1620 60%, #241016 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.45) !important;
-  box-shadow: 0 0 50px -12px rgba(212, 175, 55, 0.35), inset 0 0 30px rgba(0, 0, 0, 0.6) !important;
-}
-.emblem-icon { font-size: 2.5rem; }
-.page-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.12em;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
-}
-.page-subtitle { color: #9AA5AC !important; letter-spacing: 0.1em; }
-.hero-quote { color: #E8E3DA !important; }
-.quote-mark { color: #D4AF37 !important; opacity: 0.7; }
-
-.nav-tab {
-  background: #3A1620 !important;
-  color: #9AA5AC !important;
-  border: 1px solid rgba(212, 175, 55, 0.22) !important;
-  border-radius: 999px;
-  transition: all 0.3s ease;
-}
-.nav-tab:hover {
-  background: #1F2830 !important;
-  color: #E8E3DA !important;
-  border-color: rgba(212, 175, 55, 0.45) !important;
-}
-.nav-tab.active {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  color: #D4AF37 !important;
-  border-color: #D4AF37 !important;
-  box-shadow: 0 4px 18px -6px rgba(212, 175, 55, 0.4);
-}
-.tab-count { color: #7E878E !important; }
-.nav-tab.active .tab-count { color: #B87333 !important; }
-
-.hero-card {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.hero-card:hover {
-  transform: translateY(-3px) scale(1.01);
-  border-color: rgba(212, 175, 55, 0.5) !important;
-  box-shadow: 0 12px 34px -14px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(212, 175, 55, 0.25) !important;
-}
-.hero-card.selected {
-  border-color: #D4AF37 !important;
-  box-shadow: 0 0 0 1px #D4AF37, 0 12px 34px -14px rgba(212, 175, 55, 0.4) !important;
-}
-.hero-avatar {
-  border: 1px solid rgba(212, 175, 55, 0.25) !important;
-  background: #241016;
-}
-.hero-avatar img { filter: saturate(0.85) brightness(0.95); }
-.hero-rank {
-  background: rgba(14, 20, 24, 0.9) !important;
-  border: 1px solid rgba(212, 175, 55, 0.35) !important;
-  color: #D4AF37 !important;
-}
-.hero-name { color: #E8E3DA !important; letter-spacing: 0.05em; }
-.hero-title { color: #9AA5AC !important; }
-.hero-years { color: #7E878E !important; }
-.hero-category {
-  background: rgba(212, 175, 55, 0.1) !important;
-  color: #D4AF37 !important;
-  border: 1px solid rgba(212, 175, 55, 0.3) !important;
-}
-.view-details-btn {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  color: #E8E3DA !important;
-  border: 1px solid rgba(212, 175, 55, 0.35) !important;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-.view-details-btn:hover {
-  background: rgba(212, 175, 55, 0.12) !important;
-  color: #D4AF37 !important;
-  border-color: #D4AF37 !important;
-}
-
-.hero-detail-panel {
-  background: rgba(8, 12, 15, 0.85) !important;
-  backdrop-filter: blur(6px);
-}
-.detail-content {
-  background: linear-gradient(160deg, #451A24 0%, #2A1218 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.3) !important;
-  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.9) !important;
-  color: #E8E3DA !important;
-}
-.close-btn { color: #9AA5AC !important; }
-.close-btn:hover { color: #D4AF37 !important; }
-.detail-name { color: #D4AF37 !important; }
-.detail-title { color: #9AA5AC !important; }
-.meta-label { color: #7E878E !important; }
-.meta-value { color: #E8E3DA !important; }
-.detail-avatar { border: 1px solid rgba(212, 175, 55, 0.3) !important; }
-.detail-rank {
-  background: rgba(14, 20, 24, 0.9) !important;
-  color: #D4AF37 !important;
-  border: 1px solid rgba(212, 175, 55, 0.35) !important;
-}
-
-.section-title { color: #D4AF37 !important; letter-spacing: 0.08em; }
-.story-paragraph { color: #C3CAD0 !important; }
-.contribution-item {
-  color: #C3CAD0 !important;
-  border-left: 2px solid rgba(212, 175, 55, 0.4) !important;
-}
-.hero-timeline { border-left: 1px solid rgba(212, 175, 55, 0.3) !important; }
-.timeline-year { color: #D4AF37 !important; }
-.timeline-description { color: #C3CAD0 !important; }
-.hero-quote-item {
-  background: rgba(212, 175, 55, 0.06) !important;
-  border-left: 2px solid #D4AF37 !important;
-  color: #E8E3DA !important;
-}
-
-.stat-card {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
-}
-.stat-number { color: #D4AF37 !important; }
-.stat-label { color: #9AA5AC !important; }
-
-.legacy-title { color: #D4AF37 !important; letter-spacing: 0.1em; }
-.legacy-text { color: #C3CAD0 !important; }
-.value-item {
-  background: rgba(26, 34, 40, 0.6) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 12px;
-}
-.value-title { color: #E8E3DA !important; }
-.value-desc { color: #9AA5AC !important; }
-.hero-quote {
-  background: rgba(212, 175, 55, 0.06) !important;
-  border: 1px solid rgba(212, 175, 55, 0.25) !important;
-  border-radius: 10px;
-  padding: 14px 28px;
-  display: inline-block;
-}
-
-.heroes-legacy {
-  background: linear-gradient(165deg, #241016 0%, #3A1620 100%) !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
-}
-.legacy-content {
-  background: rgba(26, 34, 40, 0.5) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 14px;
-  padding: 32px;
-}
-
-.heroes-statistics {
-  background: transparent !important;
-}
-.heroes-navigation {
-  background: transparent !important;
-}
-.heroes-list {
-  background: transparent !important;
-}
-
-.war-heroes-page [class*="bg-red-"] {
-  background-color: #3A1620 !important;
-}
-.war-heroes-page [class*="from-red-"] {
-  --tw-gradient-from: #241016 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-.war-heroes-page [class*="to-red-"] {
-  --tw-gradient-to: #2A1218 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-.war-heroes-page [class*="border-red-"] {
-  border-color: rgba(212, 175, 55, 0.22) !important;
-}
-.hero-card{
-  background:linear-gradient(160deg,#451A24 0%,#3A1620 100%)!important;
-  border:1px solid rgba(212,175,55,.28)!important;
-  box-shadow:0 2px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.04)!important}
-.hero-card:hover{
-  border-color:rgba(212,175,55,.55)!important;
-  box-shadow:0 12px 34px -14px rgba(0,0,0,.8)!important}
-.nav-tab{background:#3A1620!important;color:#C3CAD0!important;border:1px solid rgba(212,175,55,.25)!important}
-.nav-tab.active{background:#5A212C!important;color:#EBC97A!important;border-color:#D4AF37!important}
-.stat-card,.value-item,.hero-detail-panel .detail-content{
-  background:linear-gradient(160deg,#451A24 0%,#3A1620 100%)!important;
-  border:1px solid rgba(212,175,55,.25)!important}
-.hero-avatar,.detail-avatar{background:#2A1218!important;border:1px solid rgba(212,175,55,.3)!important}
-.hero-category{background:rgba(212,175,55,.12)!important;color:#EBC97A!important;border:1px solid rgba(212,175,55,.35)!important}
-.view-details-btn{background:#5A212C!important;color:#E8E3DA!important;border:1px solid rgba(212,175,55,.4)!important}
-.view-details-btn:hover{background:rgba(212,175,55,.15)!important;color:#EBC97A!important;border-color:#D4AF37!important}
-.hero-quote-item,.significance{background:rgba(212,175,55,.08)!important;border-left:2px solid #D4AF37!important}
-
-
-.war-heroes-page .hero-rank,
-.war-heroes-page .detail-rank{
-  background:transparent!important;
-  border:none!important;
-  box-shadow:none!important;
-  color:#EBC97A!important;
-  text-shadow:0 1px 6px rgba(0,0,0,.9)!important;
-  padding:2px 0!important;
-}
-
-
-.war-heroes-page .hero-timeline .timeline-event{
-  position:relative!important;padding-left:28px!important}
-.war-heroes-page .hero-timeline .timeline-event::before{
-  content:''!important;position:absolute!important;left:8px!important;top:50%!important;
-  transform:translateY(-50%)!important;width:9px!important;height:9px!important;
-  border-radius:50%!important;background:#D4AF37!important;
-  box-shadow:0 0 0 3px rgba(212,175,55,.15),0 0 12px rgba(212,175,55,.45)!important;
-  display:block!important}
-.war-heroes-page .timeline-year{
-  background:transparent!important;background-image:none!important;
-  border:none!important;box-shadow:none!important;text-decoration:none!important;
-  color:#EBC97A!important;font-weight:600!important}
-.war-heroes-page .timeline-year::after,
-.war-heroes-page .timeline-event::after{display:none!important}
-.war-heroes-page .timeline-description{color:#C3CAD0!important}
-
-
-.war-heroes-page .hero-avatar,
-.war-heroes-page .detail-avatar{
-  background:transparent!important;
-  background-color:transparent!important;
-  background-image:none!important;
-  border:none!important;
-  box-shadow:none!important;
-  overflow:visible!important;
-}
-.war-heroes-page .hero-avatar img,
-.war-heroes-page .detail-avatar img{
-  background:transparent!important;
-  border-radius:50%!important;
-  border:2px solid #D4AF37!important;
-  object-fit:cover!important;
-  display:block!important;
-  box-shadow:0 0 18px -4px rgba(212,175,55,.45)!important;
-}
-
-
-.war-heroes-page .hero-timeline .timeline-event{
-  display:flex!important;
-  align-items:center!important;
-  gap:14px!important;
-  line-height:1.6!important;
-}
-.war-heroes-page .hero-timeline .timeline-event > *{
-  margin-top:0!important;margin-bottom:0!important;
-  padding-top:0!important;padding-bottom:0!important;
-  line-height:1.6!important;
-  align-self:center!important;
-}
-.war-heroes-page .hero-timeline .timeline-event > [class*="year"],
-.war-heroes-page .hero-timeline .timeline-event > [class*="date"]{
-  flex:0 0 64px!important;
-  color:#EBC97A!important;
-}
-
 </style>

@@ -1228,19 +1228,19 @@ const handleModelLoad = () => {
 
         <!-- AI问答功能 -->
         <div
-          class="backdrop-blur-lg bg-museum-primary/20 rounded-2xl border border-museum-gold/20 shadow-2xl flex flex-col h-[400px] md:h-[500px] animate-slide-up animation-delay-200"
+          class="bg-white/80 backdrop-blur-lg rounded-2xl border border-[#e8d8c4] shadow-sm flex flex-col h-[400px] md:h-[500px] animate-slide-up animation-delay-200"
         >
           <!-- 对话标题 -->
           <div
-            class="p-3 md:p-4 border-b border-museum-gold/20 backdrop-blur-md bg-museum-primary/40 animate-fade-in"
+            class="p-3 md:p-4 border-b border-[#e8d8c4] bg-[#fdf7ec]/80 animate-fade-in"
           >
             <div class="flex justify-between items-center">
               <h3
-                class="text-lg md:text-xl font-bold text-museum-light flex items-center animate-content"
+                class="text-lg md:text-xl font-bold text-[#8a2c21] flex items-center animate-content"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2 text-museum-gold"
+                  class="h-5 w-5 mr-2 text-[#a7382a]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -1264,10 +1264,10 @@ const handleModelLoad = () => {
                       sendMessage();
                     }
                   "
-                  class="text-left p-1.5 bg-museum-gold/20 hover:bg-museum-gold/30 rounded-md border border-museum-gold/30 transition-colors duration-200 text-xs text-museum-light/80 hover:text-museum-light truncate"
+                  class="text-left p-1.5 bg-[#f6e2da] hover:bg-[#f1e4cd] rounded-md border border-[#e8d8c4] transition-colors duration-200 text-xs text-[#8a2c21] hover:text-[#8a2c21] truncate"
                   title="这件文物的历史背景是什么？"
                 >
-                  💡 历史背景
+                  历史背景
                 </button>
                 <button
                   @click="
@@ -1276,10 +1276,10 @@ const handleModelLoad = () => {
                       sendMessage();
                     }
                   "
-                  class="text-left p-1.5 bg-museum-gold/20 hover:bg-museum-gold/30 rounded-md border border-museum-gold/30 transition-colors duration-200 text-xs text-museum-light/80 hover:text-museum-light truncate"
+                  class="text-left p-1.5 bg-[#f6e2da] hover:bg-[#f1e4cd] rounded-md border border-[#e8d8c4] transition-colors duration-200 text-xs text-[#8a2c21] hover:text-[#8a2c21] truncate"
                   title="这件文物有什么文化价值？"
                 >
-                  🎨 文化价值
+                  文化价值
                 </button>
                 <button
                   @click="
@@ -1288,10 +1288,10 @@ const handleModelLoad = () => {
                       sendMessage();
                     }
                   "
-                  class="text-left p-1.5 bg-museum-gold/20 hover:bg-museum-gold/30 rounded-md border border-museum-gold/30 transition-colors duration-200 text-xs text-museum-light/80 hover:text-museum-light truncate"
+                  class="text-left p-1.5 bg-[#f6e2da] hover:bg-[#f1e4cd] rounded-md border border-[#e8d8c4] transition-colors duration-200 text-xs text-[#8a2c21] hover:text-[#8a2c21] truncate"
                   title="这件文物的制作工艺如何？"
                 >
-                  ⚒️ 制作工艺
+                  制作工艺
                 </button>
                 <button
                   @click="
@@ -1300,10 +1300,10 @@ const handleModelLoad = () => {
                       sendMessage();
                     }
                   "
-                  class="text-left p-1.5 bg-museum-gold/20 hover:bg-museum-gold/30 rounded-md border border-museum-gold/30 transition-colors duration-200 text-xs text-museum-light/80 hover:text-museum-light truncate"
+                  class="text-left p-1.5 bg-[#f6e2da] hover:bg-[#f1e4cd] rounded-md border border-[#e8d8c4] transition-colors duration-200 text-xs text-[#8a2c21] hover:text-[#8a2c21] truncate"
                   title="这件文物在抗战中发挥了什么作用？"
                 >
-                  ⚔️ 抗战作用
+                  抗战作用
                 </button>
               </div>
             </div>
@@ -1326,7 +1326,7 @@ const handleModelLoad = () => {
                 class="flex items-start justify-start"
               >
                 <div
-                  class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-green-500/80 flex items-center justify-center mr-2 flex-shrink-0 shadow-glow-green"
+                  class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#a7382a] flex items-center justify-center mr-2 flex-shrink-0"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1345,15 +1345,15 @@ const handleModelLoad = () => {
                 </div>
                 <div class="max-w-[85%] md:max-w-[80%]">
                   <div
-                    class="bg-museum-primary/40 backdrop-blur-sm p-2 md:p-3 rounded-lg rounded-tl-none text-museum-light text-left text-sm md:text-base shadow-md hover:bg-museum-primary/60 transition-all duration-300"
+                    class="bg-[#fdf7ec] p-2 md:p-3 rounded-lg rounded-tl-none text-[#2e231a] text-left text-sm md:text-base border border-[#e8d8c4] shadow-sm transition-all duration-300"
                   >
                     {{ message.text }}
                     <span
                       v-if="message.isTyping"
-                      class="inline-block w-1.5 h-4 bg-museum-light/70 ml-0.5 animate-pulse"
+                      class="inline-block w-1.5 h-4 bg-[#8b7768] ml-0.5 animate-pulse"
                     ></span>
                   </div>
-                  <div class="text-xs text-museum-light/50 mt-1 text-left">
+                  <div class="text-xs text-[#8b7768] mt-1 text-left">
                     {{ message.time }}
                   </div>
                 </div>
@@ -1363,16 +1363,16 @@ const handleModelLoad = () => {
               <div v-else class="flex items-start justify-end">
                 <div class="max-w-[85%] md:max-w-[80%]">
                   <div
-                    class="bg-museum-gold/20 backdrop-blur-sm p-2 md:p-3 rounded-lg rounded-tr-none text-museum-light text-sm md:text-base shadow-md hover:bg-museum-gold/30 transition-all duration-300"
+                    class="bg-[#f6e2da] p-2 md:p-3 rounded-lg rounded-tr-none text-[#7a3a24] text-sm md:text-base border border-[#e8c9bd] shadow-sm transition-all duration-300"
                   >
                     {{ message.text }}
                   </div>
-                  <div class="text-xs text-museum-light/50 mt-1 text-right">
+                  <div class="text-xs text-[#8b7768] mt-1 text-right">
                     {{ message.time }}
                   </div>
                 </div>
                 <div
-                  class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-museum-copper/80 flex items-center justify-center ml-2 flex-shrink-0 shadow-glow-copper"
+                  class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#b9945e] flex items-center justify-center ml-2 flex-shrink-0"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1398,7 +1398,7 @@ const handleModelLoad = () => {
               class="flex items-start mb-3 md:mb-4 animate-fade-in"
             >
               <div
-                class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-green-500/80 flex items-center justify-center mr-2 flex-shrink-0 shadow-glow-green"
+                class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#a7382a] flex items-center justify-center mr-2 flex-shrink-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1416,18 +1416,18 @@ const handleModelLoad = () => {
                 </svg>
               </div>
               <div
-                class="bg-museum-primary/40 backdrop-blur-sm p-2 md:p-3 rounded-lg rounded-tl-none text-museum-light shadow-md"
+                class="bg-[#fdf7ec] p-2 md:p-3 rounded-lg rounded-tl-none text-[#2e231a] border border-[#e8d8c4] shadow-sm"
               >
                 <div class="flex space-x-1">
                   <div
-                    class="w-2 h-2 bg-museum-light/70 rounded-full animate-bounce"
+                    class="w-2 h-2 bg-[#8b7768] rounded-full animate-bounce"
                   ></div>
                   <div
-                    class="w-2 h-2 bg-museum-light/70 rounded-full animate-bounce"
+                    class="w-2 h-2 bg-[#8b7768] rounded-full animate-bounce"
                     style="animation-delay: 0.2s"
                   ></div>
                   <div
-                    class="w-2 h-2 bg-museum-light/70 rounded-full animate-bounce"
+                    class="w-2 h-2 bg-[#8b7768] rounded-full animate-bounce"
                     style="animation-delay: 0.4s"
                   ></div>
                 </div>
@@ -1437,20 +1437,20 @@ const handleModelLoad = () => {
 
           <!-- 输入区域 -->
           <div
-            class="p-3 md:p-4 border-t border-museum-gold/20 backdrop-blur-md bg-museum-primary/40 animate-slide-up animation-delay-300"
+            class="p-3 md:p-4 border-t border-[#e8d8c4] bg-[#fdf7ec]/80 animate-slide-up animation-delay-300"
           >
             <div class="flex">
               <textarea
                 v-model="userMessage"
                 @keydown="handleKeyDown"
-                class="flex-grow bg-museum-primary/40 backdrop-blur-sm text-museum-light border border-museum-gold/30 rounded-l-lg p-2 focus:outline-none focus:border-museum-gold/60 focus:shadow-glow-gold resize-none text-sm md:text-base transition-all duration-300"
+                class="flex-grow bg-white text-[#2e231a] border border-[#e8d8c4] rounded-l-lg p-2 focus:outline-none focus:border-[#a7382a] resize-none text-sm md:text-base transition-all duration-300"
                 placeholder="询问AI智能助手..."
                 rows="1"
                 ref="messageInput"
               ></textarea>
               <button
                 @click="sendMessage"
-                class="bg-green-500 hover:bg-green-600 text-white font-bold px-3 md:px-4 rounded-r-lg transition-all duration-300 hover:shadow-glow-green hover:scale-105"
+                class="bg-[#a7382a] hover:bg-[#8a2c21] text-white font-bold px-3 md:px-4 rounded-r-lg transition-all duration-300"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1468,7 +1468,7 @@ const handleModelLoad = () => {
                 </svg>
               </button>
             </div>
-            <div class="mt-1 md:mt-2 text-xs text-museum-light/50 text-right">
+            <div class="mt-1 md:mt-2 text-xs text-[#8b7768] text-right">
               由豆包AI提供智能问答服务
             </div>
           </div>
@@ -1557,8 +1557,8 @@ const handleModelLoad = () => {
         <div
           class="bg-gradient-to-r from-red-50/80 to-orange-50/80 backdrop-blur-md rounded-xl p-6 md:p-8 border border-red-200/30 shadow-lg"
         >
-          <h3 class="text-lg font-semibold text-white/80 mb-4">历史背景</h3>
-          <p class="text-white/60 leading-relaxed">
+          <h3 class="text-lg font-semibold text-[#8a2c21] mb-4">历史背景</h3>
+          <p class="text-[#4a392b] leading-relaxed">
             {{ exhibitData.historicalContext }}
           </p>
         </div>
@@ -1569,12 +1569,11 @@ const handleModelLoad = () => {
           class="bg-gradient-to-r from-yellow-50/80 to-amber-50/80 backdrop-blur-md rounded-xl p-6 md:p-8 border border-yellow-200/30 shadow-lg"
         >
           <h3
-            class="text-lg font-semibold text-white/80 mb-4 flex items-center"
+            class="text-lg font-semibold text-[#8a2c21] mb-4 flex items-center"
           >
-            <span class="text-yellow-600 mr-2">📚</span>
             史料记载
           </h3>
-          <div class="text-white/60 leading-relaxed space-y-4">
+          <div class="text-[#4a392b] leading-relaxed space-y-4">
             <p class="text-justify">{{ exhibitData.historicalRecord }}</p>
           </div>
         </div>

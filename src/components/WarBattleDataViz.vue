@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="war-battle-dataviz">
     <!-- 背景粒子效果 -->
     <div class="particle-bg">
@@ -67,7 +67,7 @@
               <div class="timeline-content-item">
                 <h4>{{ battle.name }}</h4>
                 <p class="timeline-date">{{ battle.date }}</p>
-                <p class="timeline-location">📍 {{ battle.location }}</p>
+                <p class="timeline-location">{{ battle.location }}</p>
                 <p class="timeline-outcome" :class="battle.outcome === '胜利' ? 'victory' : 'defeat'">
                   {{ battle.outcome === '胜利' ? '✓' : '✗' }} {{ battle.outcome }}
                 </p>
@@ -281,7 +281,7 @@ const battleStats = reactive([
     label: '重大战役',
     value: 22,
     unit: '场',
-    color: '#D4AF37'
+    color: '#8B1A1A'
   },
   {
     label: '持续时间',
@@ -293,7 +293,7 @@ const battleStats = reactive([
     label: '参战人数',
     value: 3500,
     unit: '万',
-    color: '#D4AF37'
+    color: '#8B1A1A'
   },
   {
     label: '解放区域',
@@ -719,7 +719,7 @@ const selectBattle = (battle) => {
         name: battle.location,
         value: [...battle.coordinates, battle.impact],
         battle: battle.name,
-        color: battle.outcome === '胜利' ? '#D4AF37' : '#8C2F2F'
+        color: battle.outcome === '胜利' ? '#8B1A1A' : '#8C2F2F'
       }]
       
       option.series[0].data = battleData
@@ -796,7 +796,7 @@ const updateProvinceView = (province) => {
           name: battle.location,
           value: [...battle.coordinates, battle.impact],
           battle: battle.name,
-          color: battle.outcome === '胜利' ? '#D4AF37' : '#8C2F2F'
+          color: battle.outcome === '胜利' ? '#8B1A1A' : '#8C2F2F'
         }
       })
       
@@ -923,7 +923,7 @@ const updateCasualtyChart = (battle) => {
           text: `${battle.name} - 战役详情`,
           left: 'center',
           textStyle: {
-            color: '#fef2f2',
+            color: '#2e231a',
             fontSize: 14
           }
         },
@@ -937,13 +937,13 @@ const updateCasualtyChart = (battle) => {
           type: 'category',
           data: ['中方伤亡', '日方伤亡', '中方参战', '日方参战'],
           axisLabel: {
-            color: '#fef2f2',
+            color: '#2e231a',
             fontSize: 10,
             rotate: 45
           },
           axisLine: {
             lineStyle: {
-              color: '#555'
+              color: '#8b7768'
             }
           }
         },
@@ -951,14 +951,14 @@ const updateCasualtyChart = (battle) => {
           type: 'value',
           name: '人数(万)',
           nameTextStyle: {
-            color: '#fef2f2'
+            color: '#2e231a'
           },
           axisLabel: {
-            color: '#fef2f2'
+            color: '#2e231a'
           },
           axisLine: {
             lineStyle: {
-              color: '#555'
+              color: '#8b7768'
             }
           }
         },
@@ -972,7 +972,7 @@ const updateCasualtyChart = (battle) => {
           ],
           itemStyle: {
             color: function(params) {
-              const colors = ['#8C2F2F', '#D4AF37', '#8C2F2F', '#D4AF37']
+              const colors = ['#8C2F2F', '#8B1A1A', '#8C2F2F', '#8B1A1A']
               return colors[params.dataIndex]
             }
           }
@@ -1000,22 +1000,22 @@ const initMapChart = async () => {
           name: selectedBattle.value.location,
           value: [...selectedBattle.value.coordinates, selectedBattle.value.impact],
           battle: selectedBattle.value.name,
-          color: selectedBattle.value.outcome === '胜利' ? '#D4AF37' : '#8C2F2F'
+          color: selectedBattle.value.outcome === '胜利' ? '#8B1A1A' : '#8C2F2F'
         }]
       : [
           { name: '辽宁', value: [123.4, 41.8, 100], battle: '九一八事变', color: '#8C2F2F', battleId: 'jiuyiba' },
-          { name: '上海', value: [121.5, 31.2, 150], battle: '淞沪会战', color: '#D4AF37', battleId: 'songhu' },
-          { name: '山西', value: [112.5, 37.9, 120], battle: '平型关大捷', color: '#D4AF37', battleId: 'pingxingguan' },
+          { name: '上海', value: [121.5, 31.2, 150], battle: '淞沪会战', color: '#8B1A1A', battleId: 'songhu' },
+          { name: '山西', value: [112.5, 37.9, 120], battle: '平型关大捷', color: '#8B1A1A', battleId: 'pingxingguan' },
           { name: '江苏', value: [118.8, 32.0, 180], battle: '南京保卫战', color: '#8C2F2F', battleId: 'nanjing' },
-          { name: '山东', value: [117.7, 34.6, 90], battle: '台儿庄大捷', color: '#D4AF37', battleId: 'taierzhuang' },
+          { name: '山东', value: [117.7, 34.6, 90], battle: '台儿庄大捷', color: '#8B1A1A', battleId: 'taierzhuang' },
           { name: '湖北', value: [114.3, 30.6, 160], battle: '武汉会战', color: '#8C2F2F', battleId: 'wuhan' },
           { name: '河北', value: [114.5, 38.0, 140], battle: '卢沟桥事变', color: '#8C2F2F', battleId: 'lugouqiao' },
-          { name: '湖南', value: [113.0, 28.2, 130], battle: '长沙会战', color: '#D4AF37', battleId: 'changsha' },
-          { name: '河南', value: [113.6, 34.8, 120], battle: '兰封战役', color: '#D4AF37', battleId: 'lanfeng' },
+          { name: '湖南', value: [113.0, 28.2, 130], battle: '长沙会战', color: '#8B1A1A', battleId: 'changsha' },
+          { name: '河南', value: [113.6, 34.8, 120], battle: '兰封战役', color: '#8B1A1A', battleId: 'lanfeng' },
           { name: '安徽', value: [117.3, 31.9, 110], battle: '皖南事变', color: '#8C2F2F', battleId: 'wannan' },
-          { name: '浙江', value: [120.2, 30.3, 100], battle: '杭州战役', color: '#D4AF37', battleId: 'hangzhou' },
-          { name: '江西', value: [115.9, 28.7, 105], battle: '南昌战役', color: '#D4AF37', battleId: 'nanchang' },
-          { name: '广东', value: [113.3, 23.2, 95], battle: '广州战役', color: '#D4AF37', battleId: 'guangzhou' }
+          { name: '浙江', value: [120.2, 30.3, 100], battle: '杭州战役', color: '#8B1A1A', battleId: 'hangzhou' },
+          { name: '江西', value: [115.9, 28.7, 105], battle: '南昌战役', color: '#8B1A1A', battleId: 'nanchang' },
+          { name: '广东', value: [113.3, 23.2, 95], battle: '广州战役', color: '#8B1A1A', battleId: 'guangzhou' }
         ]
     
     // 生成省份地图数据
@@ -1039,7 +1039,7 @@ const initMapChart = async () => {
         left: 'center',
         top: 10,
         textStyle: {
-          color: '#fef2f2',
+          color: '#2e231a',
           fontSize: 16,
           fontWeight: 'bold'
         }
@@ -1051,7 +1051,7 @@ const initMapChart = async () => {
             const data = battleData.find(item => item.name === params.name)
             return `
               <div style="padding: 8px;">
-                <h4 style="margin: 0 0 5px 0; color: #D4AF37;">${data.battle}</h4>
+                <h4 style="margin: 0 0 5px 0; color: #8B1A1A;">${data.battle}</h4>
                 <p style="margin: 0; color: #666;">地点: ${params.name}</p>
               </div>
             `
@@ -1066,7 +1066,7 @@ const initMapChart = async () => {
         center: selectedBattle.value ? selectedBattle.value.coordinates : [104, 35],
         itemStyle: {
           areaColor: 'rgba(127, 29, 29, 0.3)',
-          borderColor: '#D4AF37',
+          borderColor: '#8B1A1A',
           borderWidth: 1
         },
         emphasis: {
@@ -1076,7 +1076,7 @@ const initMapChart = async () => {
         },
         label: {
           show: viewMode.value === 'province',
-          color: '#fef2f2',
+          color: '#2e231a',
           fontSize: 10
         },
         select: {
@@ -1102,19 +1102,19 @@ const initMapChart = async () => {
           emphasis: {
             itemStyle: {
               areaColor: 'rgba(251, 191, 36, 0.6)',
-              borderColor: '#D4AF37',
+              borderColor: '#8B1A1A',
               borderWidth: 2
             },
             label: {
               show: true,
-              color: '#fef2f2',
+              color: '#2e231a',
               fontSize: 12,
               fontWeight: 'bold'
             }
           },
           label: {
             show: viewMode.value === 'overview',
-            color: '#fef2f2',
+            color: '#2e231a',
             fontSize: 10,
             formatter: function(params) {
               const province = provinceBattleData[params.name]
@@ -1147,7 +1147,7 @@ const initMapChart = async () => {
           label: {
             show: true,
             position: 'top',
-            color: '#fef2f2',
+            color: '#2e231a',
             fontSize: 10,
             formatter: function(params) {
               const data = battleData.find(item => item.name === params.name)
@@ -1189,7 +1189,7 @@ const initMapChart = async () => {
         left: 'center',
         top: 20,
         textStyle: {
-          color: '#fff',
+          color: '#2e231a',
           fontSize: 16
         }
       },
@@ -1197,7 +1197,7 @@ const initMapChart = async () => {
         type: 'category',
         data: ['九一八事变', '淞沪会战', '太原会战', '南京保卫战', '台儿庄大捷', '武汉会战'],
         axisLabel: {
-          color: '#fef2f2',
+          color: '#2e231a',
           fontSize: 10,
           rotate: 45
         }
@@ -1206,10 +1206,10 @@ const initMapChart = async () => {
         type: 'value',
         name: '战役影响度',
         nameTextStyle: {
-          color: '#fef2f2'
+          color: '#2e231a'
         },
         axisLabel: {
-          color: '#fef2f2'
+          color: '#2e231a'
         }
       },
       series: [{
@@ -1217,7 +1217,7 @@ const initMapChart = async () => {
         data: [100, 150, 120, 180, 90, 160],
         itemStyle: {
           color: function(params) {
-            const colors = ['#8C2F2F', '#D4AF37', '#8C2F2F', '#D4AF37', '#8C2F2F', '#D4AF37']
+            const colors = ['#8C2F2F', '#8B1A1A', '#8C2F2F', '#8B1A1A', '#8C2F2F', '#8B1A1A']
             return colors[params.dataIndex]
           }
         }
@@ -1243,13 +1243,13 @@ const initCasualtyChart = () => {
       type: 'category',
       data: ['九一八事变', '淞沪会战', '太原会战', '南京保卫战', '台儿庄大捷', '武汉会战', '卢沟桥事变', '平型关大捷', '长沙会战', '兰封战役'],
       axisLabel: {
-        color: '#fef2f2',
+        color: '#2e231a',
         fontSize: 10,
         rotate: 45
       },
       axisLine: {
         lineStyle: {
-          color: '#555'
+          color: '#8b7768'
         }
       }
     },
@@ -1257,19 +1257,19 @@ const initCasualtyChart = () => {
       type: 'value',
       name: '伤亡人数(万)',
       nameTextStyle: {
-        color: '#fef2f2'
+        color: '#2e231a'
       },
       axisLabel: {
-        color: '#fef2f2'
+        color: '#2e231a'
       },
       axisLine: {
         lineStyle: {
-          color: '#555'
+          color: '#8b7768'
         }
       },
       splitLine: {
         lineStyle: {
-          color: '#333'
+          color: '#efe2d1'
         }
       }
     },
@@ -1318,7 +1318,7 @@ const updatePieChart = (chart = null) => {
       { 
         value: Math.round((chinese / total) * 100), 
         name: '中国军队', 
-        itemStyle: { color: '#D4AF37' } 
+        itemStyle: { color: '#8B1A1A' } 
       },
       { 
         value: Math.round((japanese / total) * 100), 
@@ -1330,7 +1330,7 @@ const updatePieChart = (chart = null) => {
   } else {
     // 显示总体战役结果比例
     pieData = [
-      { value: 2, name: '胜利', itemStyle: { color: '#D4AF37' } },
+      { value: 2, name: '胜利', itemStyle: { color: '#8B1A1A' } },
       { value: 4, name: '失败', itemStyle: { color: '#8C2F2F' } }
     ]
     title = '战役结果分布'
@@ -1343,7 +1343,7 @@ const updatePieChart = (chart = null) => {
       left: 'center',
       top: '10%',
       textStyle: {
-        color: '#fef2f2',
+        color: '#2e231a',
         fontSize: 14,
         fontFamily: 'Noto Serif SC'
       }
@@ -1355,13 +1355,13 @@ const updatePieChart = (chart = null) => {
         center: ['50%', '60%'],
         data: pieData,
         label: {
-          color: '#fef2f2',
+          color: '#2e231a',
           fontSize: 12,
           fontFamily: 'Noto Serif SC'
         },
         labelLine: {
           lineStyle: {
-            color: '#fef2f2'
+            color: '#2e231a'
           }
         },
         animationType: 'scale',
@@ -1436,1479 +1436,587 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+/* ===== 抗日战争重大战役数据分析 ===== */
 .war-battle-dataviz {
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #8C2F2F 50%, #991b1b 75%, #7f1d1d 100%);
-  color: #fef2f2;
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 24px;
+  color: #2e231a;
 }
 
-/* 复古背景装饰 */
-.particle-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
+/* 去掉粒子与装饰 */
+.particle-bg,
+.top-decoration,
+.bottom-section,
+.title-decoration-left,
+.title-decoration-right {
+  display: none;
 }
 
-.particle {
-  position: absolute;
-  background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
-  border-radius: 50%;
-  animation: gentleFloat linear infinite;
-}
-
-@keyframes gentleFloat {
-  0% {
-    transform: translateY(100vh) translateX(-20px);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-  }
-  90% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-50px) translateX(20px);
-    opacity: 0;
-  }
-}
-
-/* 顶部区域 */
+/* ---------- 顶部 ---------- */
 .top-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 20px;
-  position: relative;
-  z-index: 10;
-  background: linear-gradient(90deg, rgba(251, 191, 36, 0.1), rgba(220, 38, 38, 0.2), rgba(251, 191, 36, 0.1));
-  border-bottom: 3px solid #D4AF37;
-  margin-bottom: 20px;
-}
-
-.top-decoration {
-  width: 250px;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #D4AF37, #8C2F2F, transparent);
-  position: relative;
-  border-radius: 2px;
-}
-
-.top-decoration::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: -3px;
-  width: 100%;
-  height: 9px;
-  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.3), rgba(220, 38, 38, 0.3), transparent);
-  filter: blur(3px);
+  margin-bottom: 18px;
 }
 
 .title-container {
   display: flex;
   align-items: center;
-  gap: 30px;
-}
-
-.title-decoration-left,
-.title-decoration-right {
-  width: 120px;
-  height: 3px;
-  background: linear-gradient(90deg, #D4AF37, #8C2F2F);
-  position: relative;
-  border-radius: 2px;
-}
-
-.title-decoration-left::after,
-.title-decoration-right::after {
-  content: '◆';
-  position: absolute;
-  color: #D4AF37;
-  font-size: 12px;
-  top: -6px;
-  text-shadow: 0 0 8px rgba(251, 191, 36, 0.8);
-}
-
-.title-decoration-left::after {
-  right: -8px;
-}
-
-.title-decoration-right::after {
-  left: -8px;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 26px;
+  border: 1px solid #e8d8c4;
+  border-radius: 18px;
+  background:
+    radial-gradient(70% 140% at 100% 0%, rgba(249, 229, 221, 0.85) 0%, rgba(249, 229, 221, 0) 60%),
+    #fffcf5;
 }
 
 .main-title {
-  font-size: 42px;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-  position: relative;
+  font-size: 26px;
+  letter-spacing: 0.08em;
+  color: #8a2c21;
 }
 
 .title-glow {
-  background: linear-gradient(45deg, #D4AF37, #8C2F2F, #D4AF37);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: retrotitleGlow 4s ease-in-out infinite;
-  text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
-  font-family: 'Noto Serif SC', serif;
-  font-weight: bold;
+  text-shadow: none;
 }
 
-@keyframes retrotitleGlow {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+.control-buttons {
+  flex-shrink: 0;
 }
 
-/* 主要内容区域 */
+.reset-btn {
+  padding: 8px 18px;
+  border: 1px solid #a7382a;
+  border-radius: 999px;
+  background: #a7382a;
+  color: #fff8ee;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.reset-btn:hover {
+  background: #8a2c21;
+}
+
+/* ---------- 布局 ---------- */
 .main-content {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-  gap: 20px;
-  position: relative;
-  z-index: 10;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr) 300px;
+  gap: 16px;
   max-width: 1400px;
   margin: 0 auto;
 }
 
 .left-section,
+.center-section,
 .right-section {
-  flex: 1;
-  min-width: 320px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  min-width: 0;
 }
 
-.center-section {
-  flex: 2;
-  min-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* 数据面板通用样式 */
+/* ---------- 数据面板 ---------- */
 .data-panel {
-  background: linear-gradient(145deg, rgba(251, 191, 36, 0.15), rgba(220, 38, 38, 0.1));
-  border: 2px solid #D4AF37;
-  border-radius: 8px;
-  padding: 20px;
-  position: relative;
+  padding: 16px;
+  border: 1px solid #e8d8c4;
+  border-radius: 16px;
+  background: #fffcf5;
   overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 0 20px rgba(251, 191, 36, 0.1), 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.data-panel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.2), transparent);
-  transition: left 0.8s ease;
-}
-
-.data-panel:hover {
-  border-color: #8C2F2F;
-  box-shadow: inset 0 0 30px rgba(220, 38, 38, 0.2), 0 6px 20px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
-}
-
-.data-panel:hover::before {
-  left: 100%;
 }
 
 .panel-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid rgba(251, 191, 36, 0.5);
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .header-icon {
-  font-size: 20px;
-  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.8));
+  display: none;
 }
 
 .header-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #fef2f2;
-  flex: 1;
-  font-family: 'Noto Serif SC', serif;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #8a2c21;
 }
 
 .header-line {
   flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, #D4AF37, transparent);
+  height: 1px;
+  background: linear-gradient(90deg, #e8d8c4, transparent);
 }
 
-/* 战役概览 */
-.battle-overview {
-  min-height: 280px;
-  flex: 0 0 auto;
-}
-
+/* ---------- 概览 ---------- */
 .overview-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  height: calc(100% - 60px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: rgba(251, 191, 36, 0.1);
-  border-radius: 6px;
-  padding: 15px;
-  border: 1px solid rgba(220, 38, 38, 0.3);
-  transition: all 0.3s ease;
-  box-shadow: inset 0 0 10px rgba(251, 191, 36, 0.05);
-}
-
-.stat-item:hover {
-  background: rgba(220, 38, 38, 0.15);
-  border-color: #D4AF37;
-  transform: scale(1.02);
+.overview-stats .stat-item {
+  padding: 12px;
+  border: 1px solid #efe2d1;
+  border-radius: 12px;
+  background: #fdf7ec;
 }
 
 .stat-number {
-  margin-bottom: 10px;
   display: flex;
   align-items: baseline;
-  gap: 5px;
+  gap: 3px;
 }
 
 .number-display {
-  font-size: 32px;
-  font-weight: bold;
-  animation: numberGlow 2s ease-in-out infinite;
-  font-family: 'Noto Serif SC', serif;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .number-unit {
-  font-size: 16px;
-  color: #cccccc;
+  font-size: 11px;
+  color: #8b7768;
 }
 
 .stat-label {
-  font-size: 14px;
-  color: #cccccc;
-  margin-top: 5px;
+  display: block;
+  margin-top: 2px;
+  font-size: 11.5px;
+  color: #8b7768;
 }
 
-@keyframes numberGlow {
-  0%, 100% {
-    text-shadow: 0 0 8px currentColor;
-  }
-  50% {
-    text-shadow: 0 0 15px currentColor, 0 0 20px currentColor;
-  }
-}
-
-/* 时间线 */
-.battle-timeline {
-  flex: 1;
-}
-
+/* ---------- 战役时间线 ---------- */
 .timeline-content {
-  height: calc(100% - 60px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 320px;
   overflow-y: auto;
-  padding-right: 5px;
+  padding-left: 14px;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: #e8d8c4;
 }
 
 .timeline-item {
-  display: flex;
-  margin-bottom: 15px;
+  position: relative;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s;
-  padding: 12px;
-  border-radius: 6px;
-  border-left: 3px solid transparent;
-  background: rgba(251, 191, 36, 0.08);
+  transition: all 0.2s ease;
 }
 
-.timeline-item:hover,
-.timeline-item.active {
-  background: rgba(220, 38, 38, 0.15);
-  border-left-color: #D4AF37;
-  transform: translateX(3px);
-  box-shadow: 0 3px 12px rgba(220, 38, 38, 0.3);
+.timeline-item:hover {
+  background: #fdf7ec;
+  border-color: #efe2d1;
 }
 
+.timeline-item.active,
 .timeline-item.selected {
-  background: rgba(251, 191, 36, 0.2);
-  border-left-color: #D4AF37;
-  border-left-width: 5px;
-  transform: translateX(5px);
-  box-shadow: 0 5px 20px rgba(251, 191, 36, 0.4);
+  background: #f6e2da;
+  border-color: rgba(167, 56, 42, 0.28);
 }
 
 .timeline-dot {
-  width: 10px;
-  height: 10px;
+  position: absolute;
+  left: -13px;
+  top: 16px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  margin-right: 12px;
-  margin-top: 4px;
-  flex-shrink: 0;
-  background: #8C2F2F;
-  box-shadow: 0 0 8px rgba(220, 38, 38, 0.6);
-  position: relative;
-  border: 1px solid #D4AF37;
+  background: #c9b8a6;
 }
 
-.timeline-dot::before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #D4AF37;
-  border-radius: 50%;
-  top: 2px;
-  left: 2px;
-  animation: gentlePulse 3s infinite;
+.timeline-item.active .timeline-dot,
+.timeline-item.selected .timeline-dot {
+  background: #a7382a;
+  box-shadow: 0 0 0 3px rgba(167, 56, 42, 0.14);
 }
 
 .timeline-content-item h4 {
-  margin: 0 0 6px 0;
-  color: #D4AF37;
-  font-size: 15px;
-  font-weight: bold;
-  font-family: 'Noto Serif SC', serif;
+  font-size: 13.5px;
+  color: #2e231a;
 }
 
 .timeline-date {
-  margin: 0 0 6px 0;
-  color: #8C2F2F;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.timeline-desc {
-  margin: 0;
-  color: #fef2f2;
-  font-size: 12px;
-  line-height: 1.4;
+  margin-top: 2px;
+  font-size: 11.5px;
+  color: #a7382a;
+  letter-spacing: 0.04em;
 }
 
 .timeline-location {
-  margin: 0 0 4px 0;
-  color: #D4AF37;
-  font-size: 11px;
-  font-weight: 500;
+  margin-top: 2px;
+  font-size: 11.5px;
+  color: #8b7768;
 }
 
 .timeline-outcome {
-  margin: 0 0 6px 0;
-  font-size: 11px;
-  font-weight: bold;
+  margin-top: 3px;
+  font-size: 11.5px;
 }
 
 .timeline-outcome.victory {
-  color: #D4AF37;
+  color: #8a2c21;
 }
 
 .timeline-outcome.defeat {
-  color: #8C2F2F;
+  color: #8b7768;
 }
 
-/* 控制按钮样式 */
-.control-buttons {
-  display: flex;
-  justify-content: center;
-  margin: 15px 0;
+.timeline-desc {
+  margin-top: 5px;
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: #5a4738;
 }
 
-.reset-btn {
-  background: linear-gradient(145deg, #D4AF37, #8C2F2F);
-  color: #fef2f2;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Noto Serif SC', serif;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-}
-
-.reset-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
-  background: linear-gradient(145deg, #f59e0b, #b91c1c);
-}
-
-/* 战役详情面板样式 */
-.battle-detail-content {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.detail-section {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(251, 191, 36, 0.2);
-}
-
-.detail-section:last-child {
-  border-bottom: none;
-}
-
-.detail-section h4 {
-  color: #D4AF37;
-  margin: 0 0 10px 0;
-  font-size: 14px;
-  font-weight: bold;
-  font-family: 'Noto Serif SC', serif;
-}
-
-.detail-section p {
-  margin: 0 0 8px 0;
-  color: #fef2f2;
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-.detail-section strong {
-  color: #D4AF37;
-  font-weight: 600;
-}
-
-.mini-timeline {
-  margin-top: 8px;
-}
-
-.mini-timeline-item {
-  display: flex;
-  margin-bottom: 6px;
-  padding: 4px 0;
-  border-left: 2px solid #8C2F2F;
-  padding-left: 8px;
-}
-
-.mini-time {
-  color: #D4AF37;
-  font-size: 10px;
-  font-weight: bold;
-  min-width: 60px;
-  margin-right: 8px;
-}
-
-.mini-event {
-  color: #fef2f2;
-  font-size: 10px;
-  line-height: 1.3;
-}
-
-.significance {
-  color: #D4AF37 !important;
-  font-style: italic;
-  line-height: 1.5 !important;
-  font-size: 12px !important;
-}
-
-.victory {
-  color: #D4AF37 !important;
-}
-
-.defeat {
-  color: #8C2F2F !important;
-}
-
-@keyframes gentlePulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1);
-  }
-}
-
-/* 图表容器 */
-.battle-map {
-  flex: 3;
-  min-height: 400px;
-}
-
-.casualty-chart {
-  flex: 2;
-  min-height: 300px;
-}
-
+/* ---------- 图表 ---------- */
 .map-container,
-.chart-container {
-  height: calc(100% - 60px);
-  min-height: 250px;
-  background: rgba(127, 29, 29, 0.4);
-  border-radius: 6px;
-  border: 2px solid rgba(251, 191, 36, 0.4);
-  position: relative;
-  box-shadow: inset 0 0 15px rgba(220, 38, 38, 0.2);
-}
-
-
-
-/* 胜负比例 */
-.battle-ratio {
-  min-height: 300px;
-  flex: 0 0 auto;
-}
-
-/* 兵力对比 */
+.casualty-chart,
+.battle-ratio,
 .force-stats {
-  min-height: 280px;
-  flex: 0 0 auto;
+  min-height: 0;
 }
 
+.chart-container {
+  width: 100%;
+  height: 260px;
+  min-height: 220px;
+}
+
+.battle-map .chart-container {
+  height: 340px;
+}
+
+.battle-ratio .chart-container {
+  height: 230px;
+}
+
+/* ---------- 兵力对比 ---------- */
 .force-comparison {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  height: calc(100% - 60px);
-}
-
-.force-item {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 15px;
-  border: 1px solid rgba(255, 107, 107, 0.2);
-  transition: all 0.3s ease;
-}
-
-.force-item:hover {
-  background: rgba(255, 107, 107, 0.1);
-  transform: scale(1.02);
+  gap: 14px;
 }
 
 .force-item h4 {
-  margin: 0 0 15px 0;
-  color: #ffffff;
-  font-size: 16px;
-  text-align: center;
-  font-weight: bold;
+  font-size: 13px;
+  color: #2e231a;
 }
 
 .progress-container {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 .progress-bar {
-  width: 100%;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  flex: 1;
+  height: 8px;
   overflow: hidden;
-  position: relative;
+  border-radius: 999px;
+  background: #f1e8dc;
 }
 
 .progress-fill {
   height: 100%;
-  border-radius: 10px;
-  transition: width 2s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.progress-fill::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  animation: shimmer 2s infinite;
+  border-radius: 999px;
 }
 
 .progress-text {
-  display: block;
-  text-align: center;
-  color: #ffd93d;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 8px;
+  flex-shrink: 0;
+  font-size: 11.5px;
+  color: #8b7768;
 }
 
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/* 排名区域 */
-.battle-ranking {
-  flex: 1;
-}
-
+/* ---------- 排名 ---------- */
 .ranking-list {
-  height: calc(100% - 60px);
-  overflow-y: auto;
-  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .ranking-item {
   display: flex;
   align-items: center;
-  padding: 12px;
-  margin-bottom: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  gap: 10px;
+  padding: 7px 8px;
   border-radius: 8px;
-  border-left: 3px solid transparent;
-  transition: all 0.3s ease;
 }
 
-.ranking-item:hover {
-  background: rgba(255, 107, 107, 0.1);
-  border-left-color: #ff6b6b;
-  transform: translateX(5px);
+.ranking-item:nth-child(odd) {
+  background: #fdf7ec;
 }
 
 .rank-number {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: bold;
-  color: #000;
-  margin-right: 15px;
+  flex: 0 0 20px;
+  font-family: var(--font-serif);
+  font-size: 12px;
+  color: #b9945e;
 }
 
 .rank-name {
   flex: 1;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12.5px;
+  color: #2e231a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .rank-score {
-  color: #ffd93d;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 12px;
+  color: #a7382a;
 }
 
-/* 底部装饰 */
-.bottom-section {
-  padding: 30px 20px;
+/* ---------- 战役详情 ---------- */
+.battle-detail-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  z-index: 10;
-  background: linear-gradient(90deg, rgba(251, 191, 36, 0.1), rgba(220, 38, 38, 0.15), rgba(251, 191, 36, 0.1));
-  border-top: 2px solid #D4AF37;
-  margin-top: 30px;
+  flex-direction: column;
+  gap: 14px;
+  max-height: 360px;
+  overflow-y: auto;
 }
 
-.bottom-decoration {
-  width: 50%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #D4AF37, #8C2F2F, #D4AF37, transparent);
-  position: relative;
-  border-radius: 2px;
+.detail-section h4 {
+  margin-bottom: 6px;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: #8a2c21;
 }
 
-.bottom-decoration::before {
-  content: '◇';
-  position: absolute;
-  left: 50%;
-  top: -8px;
-  transform: translateX(-50%);
-  color: #D4AF37;
-  font-size: 16px;
-  text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
+.detail-section p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: #5a4738;
 }
 
-/* 滚动条样式 */
-.timeline-content::-webkit-scrollbar,
-.ranking-list::-webkit-scrollbar {
-  width: 6px;
+.detail-section strong {
+  color: #2e231a;
+  font-weight: 600;
 }
 
-.timeline-content::-webkit-scrollbar-track,
-.ranking-list::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+.victory {
+  color: #8a2c21;
 }
 
-.timeline-content::-webkit-scrollbar-thumb,
-.ranking-list::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff6b6b, #ffd93d);
-  border-radius: 3px;
+.defeat {
+  color: #8b7768;
 }
 
-.timeline-content::-webkit-scrollbar-thumb:hover,
-.ranking-list::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ff6b6b, #ff6b6b);
+.mini-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-/* 响应式设计 */
-@media (max-width: 1200px) {
-  .main-content {
-    flex-direction: column;
-    padding: 15px;
-  }
-  
-  .left-section,
-  .right-section,
-  .center-section {
-    flex: none;
-    min-width: auto;
-    width: 100%;
-  }
-  
-  .battle-overview {
-    min-height: 200px;
-  }
-  
-  .battle-map {
-    min-height: 350px;
-  }
-  
-  .casualty-chart {
-    min-height: 250px;
-  }
+.mini-timeline-item {
+  display: flex;
+  gap: 8px;
+  font-size: 11.5px;
 }
 
-@media (max-width: 768px) {
-  .main-title {
-    font-size: 28px;
-  }
-  
-  .top-section {
-    padding: 20px 15px;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .title-container {
-    gap: 15px;
-  }
-  
-  .title-decoration-left,
-  .title-decoration-right {
-    width: 60px;
-  }
-  
-  .overview-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-  }
-  
-  .data-panel {
-    padding: 15px;
-  }
-  
-  .header-title {
-    font-size: 16px;
-  }
-  
-  .number-display {
-    font-size: 24px;
-  }
-  
-  .main-content {
-    padding: 10px;
-    gap: 15px;
-  }
+.mini-time {
+  flex: 0 0 58px;
+  color: #a7382a;
 }
 
-@media (max-width: 480px) {
-  .main-title {
-    font-size: 24px;
-  }
-  
-  .overview-stats {
-    grid-template-columns: 1fr;
-  }
-  
-  .top-decoration {
-    width: 150px;
-  }
-  
-  .title-decoration-left,
-  .title-decoration-right {
-    width: 40px;
-  }
-  
-  .reset-btn {
-    padding: 8px 16px;
-    font-size: 12px;
-  }
-  
-  .battle-detail-content {
-    max-height: 300px;
-  }
-  
-  .detail-section h4 {
-    font-size: 12px;
-  }
-  
-  .detail-section p {
-    font-size: 11px;
-  }
-  
-  .timeline-content-item h4 {
-    font-size: 13px;
-  }
-  
-  .timeline-location,
-  .timeline-outcome {
-    font-size: 10px;
-  }
+.mini-event {
+  color: #5a4738;
 }
 
-/* 省份详情模态框样式 */
+.significance {
+  padding: 9px 11px;
+  border-left: 2px solid #b9945e;
+  border-radius: 0 8px 8px 0;
+  background: #fdf7ec;
+  font-size: 12px !important;
+  color: #5a4738;
+}
+
+/* ---------- 省份模态框 ---------- */
 .province-detail-modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  inset: 0;
+  z-index: 70;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
+  padding: 24px;
+  background: rgba(38, 24, 16, 0.55);
+  backdrop-filter: blur(4px);
 }
 
 .modal-content {
-  background: linear-gradient(145deg, #7f1d1d, #991b1b);
-  border: 3px solid #D4AF37;
-  border-radius: 20px;
-  width: 85%;
-  max-width: 1000px;
-  height: 85%;
-  max-height: 800px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-  position: relative;
-  overflow: hidden;
-}
-
-.modal-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, transparent 30%, rgba(251, 191, 36, 0.1) 70%);
-  pointer-events: none;
+  width: min(720px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  border: 1px solid #e8d8c4;
+  border-radius: 18px;
+  background: #fffcf5;
 }
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 25px 30px;
-  border-bottom: 2px solid rgba(251, 191, 36, 0.3);
-  background: rgba(220, 38, 38, 0.2);
-  border-radius: 20px 20px 0 0;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border-bottom: 1px solid #e8d8c4;
+  background: #fdf7ec;
 }
 
 .modal-header h3 {
-  margin: 0;
-  color: #D4AF37;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: 'Noto Serif SC', serif;
-  text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+  font-size: 20px;
+  color: #8a2c21;
 }
 
 .close-btn {
-  background: #8C2F2F;
-  color: #fef2f2;
-  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid #e8d8c4;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #fffdf8;
+  color: #5a4738;
+  font-size: 14px;
 }
 
 .close-btn:hover {
-  background: #b91c1c;
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+  background: #f6e2da;
+  color: #8a2c21;
 }
 
 .modal-body {
-  flex: 1;
-  padding: 30px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  padding: 20px 22px 24px;
 }
 
 .province-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin-bottom: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .province-stats .stat-item {
-  background: linear-gradient(145deg, rgba(251, 191, 36, 0.2), rgba(220, 38, 38, 0.1));
-  border: 2px solid #D4AF37;
-  border-radius: 15px;
-  padding: 25px 20px;
+  padding: 12px;
   text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.province-stats .stat-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
-  border-color: #8C2F2F;
+  border: 1px solid #efe2d1;
+  border-radius: 12px;
+  background: #fdf7ec;
 }
 
 .province-stats .stat-value {
   display: block;
-  font-size: 32px;
-  font-weight: bold;
-  color: #D4AF37;
-  margin-bottom: 8px;
-  font-family: 'Noto Serif SC', serif;
-  text-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: #a7382a;
 }
 
 .province-stats .stat-label {
-  color: #cccccc;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.province-description {
-  background: rgba(127, 29, 29, 0.3);
-  border-left: 4px solid #D4AF37;
-  padding: 20px 25px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  margin-top: 2px;
+  font-size: 11.5px;
 }
 
 .province-description p {
-  margin: 0;
-  color: #fef2f2;
-  line-height: 1.6;
-  font-size: 16px;
-  opacity: 0.9;
-  font-style: italic;
+  font-size: 13px;
+  line-height: 1.85;
+  color: #5a4738;
 }
 
 .province-battles h4 {
-  color: #D4AF37;
-  margin: 0 0 15px 0;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: 'Noto Serif SC', serif;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.province-battles h4::before {
-  content: '⚔️';
-  font-size: 20px;
+  margin: 18px 0 10px;
+  font-size: 13px;
+  color: #8a2c21;
 }
 
 .battle-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .battle-item {
-  background: linear-gradient(145deg, rgba(251, 191, 36, 0.15), rgba(220, 38, 38, 0.1));
-  border: 2px solid rgba(251, 191, 36, 0.3);
-  border-radius: 12px;
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #efe2d1;
+  border-radius: 10px;
+  background: #fdf7ec;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .battle-item:hover {
-  background: linear-gradient(145deg, rgba(251, 191, 36, 0.25), rgba(220, 38, 38, 0.15));
-  border-color: #D4AF37;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+  border-color: rgba(167, 56, 42, 0.4);
+  background: #fffdf8;
 }
 
 .battle-icon {
-  font-size: 18px;
-  font-weight: bold;
-  margin-right: 15px;
+  font-size: 12px;
 }
 
 .battle-name {
-  color: #fef2f2;
-  font-size: 16px;
-  font-weight: 600;
   flex: 1;
+  font-size: 13px;
+  color: #2e231a;
 }
 
 .battle-action {
-  color: #D4AF37;
-  font-size: 14px;
-  font-weight: 500;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+  font-size: 12px;
+  color: #a7382a;
 }
 
-.battle-item:hover .battle-action {
-  opacity: 1;
+/* ---------- 响应式 ---------- */
+@media (max-width: 1280px) {
+  .main-content {
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+  .right-section {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* 省份模态框响应式设计 */
-@media (max-width: 768px) {
-  .modal-content {
-    width: 95%;
-    height: 90%;
-  }
-  
-  .modal-header {
-    padding: 20px 25px;
-  }
-  
-  .modal-header h3 {
-    font-size: 20px;
-  }
-  
-  .modal-body {
-    padding: 20px;
-    gap: 20px;
-  }
-  
-  .province-stats {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-  }
-  
-  .province-stats .stat-value {
-    font-size: 24px;
-  }
-  
-  .province-stats .stat-label {
-    font-size: 12px;
-  }
-  
-  .battle-list {
+@media (max-width: 900px) {
+  .main-content {
     grid-template-columns: 1fr;
   }
-  
-  .province-description p {
-    font-size: 14px;
+  .right-section {
+    grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 480px) {
-  .modal-content {
-    width: 98%;
-    height: 95%;
-    border-radius: 15px;
-  }
-  
-  .modal-header {
-    padding: 15px 20px;
-  }
-  
-  .modal-header h3 {
-    font-size: 18px;
-  }
-  
-  .close-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 16px;
-  }
-  
-  .modal-body {
-    padding: 15px;
-    gap: 15px;
-  }
-  
-  .province-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  
-  .province-stats .stat-value {
-    font-size: 20px;
-  }
-  
-  .province-stats .stat-item {
-    padding: 20px 15px;
-  }
-  
-  .province-battles h4 {
-    font-size: 16px;
-  }
-  
-  .province-description p {
-    font-size: 12px;
-  }
-  
-  .battle-item {
-    padding: 15px;
+  .title-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
   }
-  
-  .battle-name {
-    font-size: 14px;
-  }
-  
-  .battle-action {
-    font-size: 12px;
-    align-self: flex-end;
+  .battle-map .chart-container {
+    height: 300px;
   }
 }
-[class*="bg-red-"] { background-color: #3A1620 !important; }
-.bg-red-950, .bg-red-900 { background-color: #241016 !important; }
-[class*="from-red-"] {
-  --tw-gradient-from: #241016 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="via-red-"] { --tw-gradient-stops: #241016, #3A1620, #2A1218 !important; }
-[class*="to-red-"] {
-  --tw-gradient-to: #2A1218 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="border-red-"] { border-color: rgba(212,175,55,.22) !important; }
-[class*="text-red-"] { color: #E8E3DA !important; }
-.text-red-200, .text-red-300 { color: #9AA5AC !important; }
-[class*="text-yellow-"] { color: #D4AF37 !important; }
-.text-yellow-100, .text-yellow-200 { color: #E8E3DA !important; }
-[class*="bg-yellow-"] { background-color: #D4AF37 !important; color: #241016 !important; }
-[class*="bg-yellow-"] * { color: #241016 !important; }
-[class*="border-yellow-"] { border-color: rgba(212,175,55,.4) !important; border-width: 1px !important; }
-[class*="border-4"] { border-width: 1px !important; }
-[class*="border-8"] { border-width: 2px !important; }
-[class*="rounded-lg"], [class*="rounded-xl"] {
-  box-shadow: 0 2px 14px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.03) !important;
-}
-h1, h2, h3 { letter-spacing: .08em; }
-h2, h3 { color: #D4AF37 !important; }
-</style> 
-<style scoped>
-div, section, header, main {
-  background-color: #241016 !important;
-  background-image: none !important;
-}
-[class*="text-yellow-"] { color: #D4AF37 !important; }
-[class*="border-yellow-"], [class*="border-red-"] {
-  border-color: rgba(212,175,55,.3) !important;
-  border-width: 1px !important;
-}
-h1, h2, h3 { color: #D4AF37 !important; }
-/* ===== 战役数据 · 高级深色主题 ===== */
-.war-battle-dataviz {
-  background: transparent !important;
-  color: #E8E3DA !important;
-}
 
-/* 粒子：改成金色微尘，别太抢戏 */
-.particle {
-  background: rgba(212, 175, 55, 0.35) !important;
-  box-shadow: 0 0 6px rgba(212, 175, 55, 0.5) !important;
+@media (max-width: 640px) {
+  .province-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main-title {
+    font-size: 21px;
+  }
 }
-
-/* 顶部装饰线 → 渐变金 */
-.top-decoration {
-  background: linear-gradient(90deg, transparent, rgba(212,175,55,.35), transparent) !important;
-  background-image: linear-gradient(90deg, transparent, rgba(212,175,55,.35), transparent) !important;
-  height: 1px !important;
-}
-.title-decoration-left,
-.title-decoration-right {
-  background: linear-gradient(90deg, transparent, #D4AF37) !important;
-  background-image: linear-gradient(90deg, transparent, #D4AF37) !important;
-  height: 1px !important;
-}
-.title-decoration-right {
-  background: linear-gradient(90deg, #D4AF37, transparent) !important;
-  background-image: linear-gradient(90deg, #D4AF37, transparent) !important;
-}
-
-/* 主标题 */
-.main-title {
-  letter-spacing: 0.14em;
-}
-.title-glow {
-  color: #E8E3DA !important;
-  text-shadow: 0 2px 26px rgba(0,0,0,.8), 0 0 42px rgba(212,175,55,.25) !important;
-}
-
-/* 返回按钮 */
-.reset-btn {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  color: #E8E3DA !important;
-  border: 1px solid rgba(212,175,55,.35) !important;
-  border-radius: 8px;
-  transition: all .3s ease;
-}
-.reset-btn:hover {
-  background: rgba(212,175,55,.12) !important;
-  color: #D4AF37 !important;
-  border-color: #D4AF37 !important;
-}
-
-/* ===== 面板统一：深灰底 + 金细边 ===== */
-.data-panel {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212,175,55,.2) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 2px 16px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.03) !important;
-  transition: border-color .35s ease, box-shadow .35s ease;
-}
-.data-panel:hover {
-  border-color: rgba(212,175,55,.4) !important;
-  box-shadow: 0 8px 30px -12px rgba(0,0,0,.85) !important;
-}
-
-/* 面板头：图标 + 标题 + 延伸金线 */
-.panel-header {
-  border-bottom: 1px solid rgba(212,175,55,.18) !important;
-  padding-bottom: 10px;
-  margin-bottom: 14px;
-}
-.header-icon {
-  filter: saturate(.8);
-}
-.header-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.1em;
-  font-weight: 500;
-}
-.header-line {
-  background: linear-gradient(90deg, rgba(212,175,55,.5), transparent) !important;
-  background-image: linear-gradient(90deg, rgba(212,175,55,.5), transparent) !important;
-  height: 1px !important;
-}
-
-/* ===== 统计概览数字 ===== */
-.number-display {
-  color: #D4AF37 !important;
-  text-shadow: 0 0 22px rgba(212,175,55,.3);
-  letter-spacing: .02em;
-}
-.number-unit {
-  color: #9AA5AC !important;
-}
-.overview-stats .stat-label {
-  color: #9AA5AC !important;
-}
-.stat-item {
-  background: rgba(26,34,40,.5) !important;
-  border: 1px solid rgba(212,175,55,.12) !important;
-  border-radius: 10px;
-  padding: 10px !important;
-}
-
-/* ===== 时间线 ===== */
-.timeline-item {
-  background: rgba(26,34,40,.4) !important;
-  border-left: 1px solid rgba(212,175,55,.25) !important;
-  border-radius: 0 10px 10px 0;
-  padding-left: 14px !important;
-  transition: all .3s ease;
-}
-.timeline-item:hover {
-  background: rgba(212,175,55,.07) !important;
-  border-left-color: #D4AF37 !important;
-}
-.timeline-item.active {
-  background: rgba(212,175,55,.1) !important;
-  border-left-color: #D4AF37 !important;
-}
-.timeline-item.selected {
-  border-left: 2px solid #D4AF37 !important;
-  box-shadow: -4px 0 18px -6px rgba(212,175,55,.5);
-}
-.timeline-dot {
-  background: #D4AF37 !important;
-  border: 2px solid #241016 !important;
-  box-shadow: 0 0 0 3px rgba(212,175,55,.12), 0 0 12px rgba(212,175,55,.5) !important;
-}
-.timeline-content-item h4 {
-  color: #E8E3DA !important;
-  letter-spacing: .05em;
-}
-.timeline-date {
-  color: #D4AF37 !important;
-  opacity: .85;
-}
-.timeline-location { color: #9AA5AC !important; }
-.timeline-desc { color: #8B959C !important; }
-.timeline-outcome.victory { color: #D4AF37 !important; }
-.timeline-outcome.defeat { color: #B8606B !important; }
-
-/* ===== 图表容器：给画布一个深色底座 ===== */
-.chart-container, .map-container {
-  background: rgba(14,20,24,.5) !important;
-  border-radius: 10px;
-}
-
-/* ===== 兵力对比进度条 ===== */
-.force-item h4 {
-  color: #E8E3DA !important;
-}
-.progress-container {
-  background: #241016 !important;
-  border: 1px solid rgba(212,175,55,.18) !important;
-  border-radius: 999px;
-  overflow: hidden;
-}
-.progress-bar {
-  background: transparent !important;
-}
-.progress-fill {
-  background-image: linear-gradient(90deg, #8C6B2F, #D4AF37) !important;
-  box-shadow: 0 0 14px rgba(212,175,55,.4) !important;
-  border-radius: 999px;
-}
-.progress-text {
-  color: #C3CAD0 !important;
-}
-
-/* ===== 影响力排名 ===== */
-.ranking-item {
-  background: rgba(26,34,40,.5) !important;
-  border: 1px solid rgba(212,175,55,.12) !important;
-  border-radius: 10px;
-  transition: all .3s ease;
-}
-.ranking-item:hover {
-  background: rgba(212,175,55,.08) !important;
-  border-color: rgba(212,175,55,.35) !important;
-}
-.rank-number {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  color: #D4AF37 !important;
-  border: 1px solid rgba(212,175,55,.35) !important;
-  border-radius: 8px;
-}
-.rank-name { color: #E8E3DA !important; }
-.rank-score { color: #9AA5AC !important; }
-
-/* ===== 战役详情面板 ===== */
-.detail-section h4 {
-  color: #D4AF37 !important;
-  letter-spacing: .08em;
-  border-left: 2px solid rgba(212,175,55,.5);
-  padding-left: 8px;
-}
-.detail-section p {
-  color: #C3CAD0 !important;
-}
-.detail-section strong { color: #9AA5AC !important; }
-.significance {
-  background: rgba(212,175,55,.06) !important;
-  border-left: 2px solid #D4AF37 !important;
-  border-radius: 0 8px 8px 0;
-  padding: 10px 14px !important;
-}
-.mini-timeline {
-  border-left: 1px solid rgba(212,175,55,.3) !important;
-}
-.mini-time { color: #D4AF37 !important; }
-.mini-event { color: #C3CAD0 !important; }
-
-/* ===== 省份详情弹窗 ===== */
-.province-detail-modal {
-  background: rgba(8,12,15,.85) !important;
-  backdrop-filter: blur(6px);
-}
-.modal-content {
-  background: linear-gradient(160deg, #451A24 0%, #2A1218 100%) !important;
-  border: 1px solid rgba(212,175,55,.3) !important;
-  box-shadow: 0 30px 80px -20px rgba(0,0,0,.9) !important;
-  border-radius: 14px !important;
-}
-.modal-header {
-  border-bottom: 1px solid rgba(212,175,55,.2) !important;
-}
-.modal-header h3 { color: #D4AF37 !important; letter-spacing: .1em; }
-.close-btn { color: #9AA5AC !important; }
-.close-btn:hover { color: #D4AF37 !important; }
-.province-stats .stat-value { color: #D4AF37 !important; }
-.province-stats .stat-label { color: #9AA5AC !important; }
-.province-description p { color: #C3CAD0 !important; }
-.province-battles h4 { color: #D4AF37 !important; }
-.battle-item {
-  background: rgba(26,34,40,.6) !important;
-  border: 1px solid rgba(212,175,55,.15) !important;
-  border-radius: 10px;
-  transition: all .3s ease;
-}
-.battle-item:hover {
-  background: rgba(212,175,55,.08) !important;
-  border-color: rgba(212,175,55,.4) !important;
-}
-.battle-name { color: #E8E3DA !important; }
-.battle-action { color: #D4AF37 !important; }
-
-/* 底部装饰 */
-.bottom-decoration {
-  background: linear-gradient(90deg, transparent, rgba(212,175,55,.3), transparent) !important;
-  background-image: linear-gradient(90deg, transparent, rgba(212,175,55,.3), transparent) !important;
-  height: 1px !important;
-}
-[class*="border-pink-"],[class*="border-fuchsia-"],[class*="border-purple-"],[class*="border-rose-"],[class*="border-indigo-"]{
-  border-color:rgba(212,175,55,.35)!important;border-width:1px!important}
-[class*="shadow-pink-"],[class*="shadow-fuchsia-"],[class*="shadow-purple-"],[class*="shadow-rose-"],[class*="shadow-indigo-"]{
-  box-shadow:0 2px 14px rgba(0,0,0,.5)!important}
-[class*="text-pink-"],[class*="text-fuchsia-"],[class*="text-purple-"],[class*="text-indigo-"]{
-  color:#C3CAD0!important}
-.data-panel{
-  box-shadow:0 2px 16px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.03)!important;border:1px solid rgba(212,175,55,.22)!important}
-.stat-item,.ranking-item,.timeline-item{
-  background:rgba(58,22,32,.6)!important;border:1px solid rgba(212,175,55,.18)!important}
 </style>

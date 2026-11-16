@@ -19,13 +19,6 @@
           <span class="quote-mark">"</span>
         </div>
       </div>
-      <div class="hero-decoration">
-        <div class="floating-elements">
-          <div v-for="n in 8" :key="n" class="floating-element" :style="getFloatingStyle(n)">
-            {{ getFloatingIcon(n) }}
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- 项目介绍 -->
@@ -164,7 +157,7 @@
           </div>
           <div class="guide-sidebar">
             <div class="accessibility-info">
-              <h3 class="sidebar-title">🌐 无障碍访问</h3>
+              <h3 class="sidebar-title">无障碍访问</h3>
               <ul class="accessibility-list">
                 <li>支持键盘导航</li>
                 <li>响应式设计适配移动设备</li>
@@ -173,7 +166,7 @@
               </ul>
             </div>
             <div class="browser-support">
-              <h3 class="sidebar-title">💻 浏览器支持</h3>
+              <h3 class="sidebar-title">浏览器支持</h3>
               <div class="browser-list">
                 <div class="browser-item">Chrome 90+</div>
                 <div class="browser-item">Firefox 88+</div>
@@ -195,7 +188,7 @@
         </div>
         <div class="team-content">
           <div class="project-info">
-            <h3 class="info-subtitle">📋 项目概况</h3>
+            <h3 class="info-subtitle">项目概况</h3>
             <div class="info-grid">
               <div class="info-item">
                 <strong>项目性质：</strong>教育展示类数字化博物馆
@@ -212,7 +205,7 @@
             </div>
           </div>
           <div class="contact-info">
-            <h3 class="info-subtitle">🤝 交流与反馈</h3>
+            <h3 class="info-subtitle">交流与反馈</h3>
             <p class="contact-desc">
               我们欢迎您的宝贵意见和建议，帮助我们不断改进和完善这个数字化博物馆项目。
             </p>
@@ -478,21 +471,22 @@ const getFloatingIcon = (index) => {
 
 <style scoped>
 .about-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #dc2626 50%, #991b1b 75%, #7f1d1d 100%);
-  color: #fef2f2;
-  font-family: 'Noto Serif SC', serif;
+  min-height: auto;
+  background: transparent;
+  color: #2e231a;
+  font-family: var(--font-serif);
 }
 
 /* 英雄区域 */
 .hero-section {
-  min-height: 100vh;
+  min-height: auto;
+  padding: 64px 0 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at center, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(167, 56, 42, 0.06) 0%, transparent 70%);
 }
 
 .hero-content {
@@ -510,36 +504,36 @@ const getFloatingIcon = (index) => {
 .emblem-outer {
   width: 150px;
   height: 150px;
-  border: 6px solid #fbbf24;
+  border: 6px solid #b9945e;
   border-radius: 50%;
   margin: 0 auto;
   position: relative;
-  background: linear-gradient(145deg, #dc2626, #991b1b);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(145deg, #8B1A1A, #8a2c21);
+  box-shadow: 0 10px 30px rgba(139, 26, 26, 0.4);
 }
 
 .emblem-inner {
   position: absolute;
   inset: 10px;
-  border: 3px solid #fbbf24;
+  border: 3px solid #b9945e;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, #7f1d1d, #991b1b);
+  background: radial-gradient(circle, #8B1A1A, #8a2c21);
 }
 
 .emblem-text {
   font-size: 32px;
   font-weight: bold;
-  color: #fbbf24;
+  color: #f6e2da;
   line-height: 1;
 }
 
 .emblem-subtitle {
   font-size: 14px;
-  color: #fef2f2;
+  color: #faf4e9;
   margin-top: 4px;
 }
 
@@ -547,38 +541,37 @@ const getFloatingIcon = (index) => {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #fbbf24;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  animation: titleGlow 3s ease-in-out infinite alternate;
+  color: #a7382a;
+  text-shadow: none;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 30px;
-  color: #fef2f2;
+  color: #3A2A1A;
   opacity: 0.9;
 }
 
 .hero-quote {
   font-size: 1.2rem;
   font-style: italic;
-  color: #fbbf24;
-  background: rgba(127, 29, 29, 0.5);
+  color: #8B1A1A;
+  background: rgba(139, 26, 26, 0.06);
   padding: 20px;
   border-radius: 10px;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #b9945e;
   margin-top: 30px;
 }
 
 .quote-mark {
   font-size: 1.5rem;
-  color: #dc2626;
+  color: #b9945e;
   font-weight: bold;
 }
 
 @keyframes titleGlow {
-  0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(251, 191, 36, 0.3); }
-  100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 30px rgba(251, 191, 36, 0.6); }
+  0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 0 0 20px rgba(139, 26, 26, 0.2); }
+  100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15), 0 0 30px rgba(139, 26, 26, 0.35); }
 }
 
 /* 浮动装饰元素 */
@@ -624,15 +617,14 @@ const getFloatingIcon = (index) => {
 .section-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .title-decoration {
   width: 100px;
   height: 4px;
-  background: linear-gradient(90deg, #fbbf24, #dc2626, #fbbf24);
+  background: linear-gradient(90deg, #a7382a, #a7382a, #a7382a);
   margin: 0 auto;
   border-radius: 2px;
 }
@@ -645,13 +637,13 @@ const getFloatingIcon = (index) => {
 .guide-section,
 .team-section {
   padding: 80px 0;
-  background: rgba(127, 29, 29, 0.1);
+  background: rgba(249, 238, 227, 0.55);
 }
 
 .features-section,
 .education-section,
 .team-section {
-  background: rgba(153, 27, 27, 0.1);
+  background: rgba(253, 247, 236, 0.75);
 }
 
 /* 项目介绍 */
@@ -664,13 +656,13 @@ const getFloatingIcon = (index) => {
 
 .intro-subtitle {
   font-size: 1.8rem;
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
 .intro-desc {
-  color: #fef2f2;
+  color: #4a392b;
   line-height: 1.8;
   margin-bottom: 40px;
   font-size: 1.1rem;
@@ -686,10 +678,10 @@ const getFloatingIcon = (index) => {
   display: flex;
   align-items: flex-start;
   gap: 15px;
-  background: rgba(127, 29, 29, 0.3);
+  background: #fffcf5;
   padding: 20px;
   border-radius: 10px;
-  border-left: 4px solid #fbbf24;
+  border-left: 2px solid #a7382a;
 }
 
 .highlight-icon {
@@ -698,13 +690,13 @@ const getFloatingIcon = (index) => {
 }
 
 .highlight-text h4 {
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
 .highlight-text p {
-  color: #fef2f2;
+  color: #4a392b;
   font-size: 0.9rem;
   opacity: 0.9;
 }
@@ -716,16 +708,16 @@ const getFloatingIcon = (index) => {
 
 .stat-card {
   text-align: center;
-  background: linear-gradient(145deg, rgba(127, 29, 29, 0.8), rgba(153, 27, 27, 0.6));
+  background: linear-gradient(145deg, #fffcf5, #fdf7ec);
   padding: 30px 20px;
   border-radius: 15px;
-  border: 2px solid #fbbf24;
+  border: 1px solid #e8d8c4;
   transition: all 0.3s ease;
 }
 
 .stat-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 10px 30px rgba(167, 56, 42, 0.12);
 }
 
 .stat-icon {
@@ -736,12 +728,12 @@ const getFloatingIcon = (index) => {
 .stat-number {
   font-size: 2rem;
   font-weight: bold;
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 8px;
 }
 
 .stat-label {
-  color: #fef2f2;
+  color: #4a392b;
   font-size: 0.9rem;
   opacity: 0.9;
 }
@@ -754,17 +746,17 @@ const getFloatingIcon = (index) => {
 }
 
 .feature-card {
-  background: linear-gradient(145deg, rgba(127, 29, 29, 0.8), rgba(153, 27, 27, 0.6));
+  background: linear-gradient(145deg, #fffcf5, #fdf7ec);
   padding: 40px 30px;
   border-radius: 15px;
-  border: 2px solid #fbbf24;
+  border: 1px solid #e8d8c4;
   transition: all 0.3s ease;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .feature-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 15px 40px rgba(167, 56, 42, 0.12);
 }
 
 .feature-icon {
@@ -774,13 +766,13 @@ const getFloatingIcon = (index) => {
 
 .feature-title {
   font-size: 1.5rem;
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 15px;
   font-weight: bold;
 }
 
 .feature-desc {
-  color: #fef2f2;
+  color: #4a392b;
   line-height: 1.6;
   margin-bottom: 20px;
   opacity: 0.9;
@@ -793,8 +785,8 @@ const getFloatingIcon = (index) => {
 }
 
 .tech-tag {
-  background: rgba(251, 191, 36, 0.2);
-  color: #fbbf24;
+  background: rgba(167, 56, 42, 0.12);
+  color: #a7382a;
   padding: 4px 12px;
   border-radius: 15px;
   font-size: 0.8rem;
@@ -810,7 +802,7 @@ const getFloatingIcon = (index) => {
 
 .tech-subtitle {
   font-size: 1.8rem;
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 30px;
   font-weight: bold;
 }
@@ -824,10 +816,10 @@ const getFloatingIcon = (index) => {
   display: flex;
   align-items: flex-start;
   gap: 15px;
-  background: rgba(127, 29, 29, 0.3);
+  background: #fffcf5;
   padding: 20px;
   border-radius: 10px;
-  border-left: 4px solid #fbbf24;
+  border-left: 2px solid #a7382a;
 }
 
 .tech-icon {
@@ -836,13 +828,13 @@ const getFloatingIcon = (index) => {
 }
 
 .tech-info h4 {
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
 .tech-info p {
-  color: #fef2f2;
+  color: #4a392b;
   font-size: 0.9rem;
   opacity: 0.9;
 }
@@ -856,26 +848,26 @@ const getFloatingIcon = (index) => {
   display: flex;
   align-items: flex-start;
   gap: 15px;
-  background: rgba(127, 29, 29, 0.3);
+  background: #fffcf5;
   padding: 20px;
   border-radius: 10px;
-  border-left: 4px solid #fbbf24;
+  border-left: 2px solid #a7382a;
 }
 
 .feature-bullet {
   font-size: 1.2rem;
   flex-shrink: 0;
-  color: #fbbf24;
+  color: #a7382a;
 }
 
 .feature-content h4 {
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
 .feature-content p {
-  color: #fef2f2;
+  color: #4a392b;
   font-size: 0.9rem;
   opacity: 0.9;
 }
@@ -888,17 +880,17 @@ const getFloatingIcon = (index) => {
 }
 
 .value-card {
-  background: linear-gradient(145deg, rgba(127, 29, 29, 0.8), rgba(153, 27, 27, 0.6));
+  background: linear-gradient(145deg, #fffcf5, #fdf7ec);
   padding: 40px 30px;
   border-radius: 15px;
-  border: 2px solid #fbbf24;
+  border: 1px solid #e8d8c4;
   transition: all 0.3s ease;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .value-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 15px 40px rgba(167, 56, 42, 0.12);
 }
 
 .value-icon {
@@ -908,13 +900,13 @@ const getFloatingIcon = (index) => {
 
 .value-title {
   font-size: 1.5rem;
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 15px;
   font-weight: bold;
 }
 
 .value-desc {
-  color: #fef2f2;
+  color: #4a392b;
   line-height: 1.6;
   margin-bottom: 20px;
   opacity: 0.9;
@@ -926,7 +918,7 @@ const getFloatingIcon = (index) => {
 }
 
 .value-points li {
-  color: #fef2f2;
+  color: #4a392b;
   margin-bottom: 8px;
   padding-left: 20px;
   position: relative;
@@ -937,7 +929,7 @@ const getFloatingIcon = (index) => {
   content: '▶';
   position: absolute;
   left: 0;
-  color: #fbbf24;
+  color: #a7382a;
   font-size: 0.8rem;
 }
 
@@ -957,16 +949,16 @@ const getFloatingIcon = (index) => {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  background: rgba(127, 29, 29, 0.3);
+  background: #fffcf5;
   padding: 30px;
   border-radius: 15px;
-  border-left: 4px solid #fbbf24;
+  border-left: 2px solid #a7382a;
 }
 
 .step-number {
   width: 40px;
   height: 40px;
-  background: #fbbf24;
+  background: #a7382a;
   color: #7f1d1d;
   border-radius: 50%;
   display: flex;
@@ -978,21 +970,21 @@ const getFloatingIcon = (index) => {
 }
 
 .step-title {
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 10px;
   font-weight: bold;
   font-size: 1.2rem;
 }
 
 .step-desc {
-  color: #fef2f2;
+  color: #4a392b;
   line-height: 1.6;
   margin-bottom: 10px;
   opacity: 0.9;
 }
 
 .step-tips {
-  color: #fbbf24;
+  color: #a7382a;
   font-style: italic;
   font-size: 0.9rem;
 }
@@ -1005,14 +997,14 @@ const getFloatingIcon = (index) => {
 
 .accessibility-info,
 .browser-support {
-  background: linear-gradient(145deg, rgba(127, 29, 29, 0.8), rgba(153, 27, 27, 0.6));
+  background: linear-gradient(145deg, #fffcf5, #fdf7ec);
   padding: 30px;
   border-radius: 15px;
-  border: 2px solid #fbbf24;
+  border: 1px solid #e8d8c4;
 }
 
 .sidebar-title {
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 1.2rem;
@@ -1024,7 +1016,7 @@ const getFloatingIcon = (index) => {
 }
 
 .accessibility-list li {
-  color: #fef2f2;
+  color: #4a392b;
   margin-bottom: 8px;
   padding-left: 20px;
   position: relative;
@@ -1035,7 +1027,7 @@ const getFloatingIcon = (index) => {
   content: '✓';
   position: absolute;
   left: 0;
-  color: #fbbf24;
+  color: #a7382a;
   font-weight: bold;
 }
 
@@ -1046,7 +1038,7 @@ const getFloatingIcon = (index) => {
 
 .browser-item {
   background: rgba(251, 191, 36, 0.1);
-  color: #fbbf24;
+  color: #a7382a;
   padding: 10px 15px;
   border-radius: 8px;
   text-align: center;
@@ -1062,7 +1054,7 @@ const getFloatingIcon = (index) => {
 
 .info-subtitle {
   font-size: 1.8rem;
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 30px;
   font-weight: bold;
 }
@@ -1073,20 +1065,20 @@ const getFloatingIcon = (index) => {
 }
 
 .info-item {
-  background: rgba(127, 29, 29, 0.3);
+  background: #fffcf5;
   padding: 20px;
   border-radius: 10px;
-  border-left: 4px solid #fbbf24;
-  color: #fef2f2;
+  border-left: 2px solid #a7382a;
+  color: #4a392b;
   line-height: 1.6;
 }
 
 .info-item strong {
-  color: #fbbf24;
+  color: #a7382a;
 }
 
 .contact-desc {
-  color: #fef2f2;
+  color: #4a392b;
   line-height: 1.8;
   margin-bottom: 30px;
   opacity: 0.9;
@@ -1101,10 +1093,10 @@ const getFloatingIcon = (index) => {
   display: flex;
   align-items: flex-start;
   gap: 15px;
-  background: rgba(127, 29, 29, 0.3);
+  background: #fffcf5;
   padding: 20px;
   border-radius: 10px;
-  border-left: 4px solid #fbbf24;
+  border-left: 2px solid #a7382a;
 }
 
 .feedback-icon {
@@ -1113,13 +1105,13 @@ const getFloatingIcon = (index) => {
 }
 
 .feedback-text h4 {
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
 .feedback-text p {
-  color: #fef2f2;
+  color: #4a392b;
   font-size: 0.9rem;
   opacity: 0.9;
 }
@@ -1129,7 +1121,7 @@ const getFloatingIcon = (index) => {
   background: linear-gradient(135deg, #7f1d1d, #991b1b);
   padding: 80px 0;
   text-align: center;
-  border-top: 4px solid #fbbf24;
+  border-top: 4px solid #a7382a;
 }
 
 .quote-content {
@@ -1139,7 +1131,7 @@ const getFloatingIcon = (index) => {
 
 .quote-title {
   font-size: 2.5rem;
-  color: #fbbf24;
+  color: #a7382a;
   margin-bottom: 30px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -1147,7 +1139,7 @@ const getFloatingIcon = (index) => {
 
 .quote-text {
   font-size: 1.3rem;
-  color: #fef2f2;
+  color: #4a392b;
   line-height: 1.8;
   opacity: 0.9;
   font-style: italic;
@@ -1197,330 +1189,14 @@ const getFloatingIcon = (index) => {
     padding: 0 15px;
   }
 }
-.about-page, [class*="about-"] {
-  background: transparent !important;
-  color: #E8E3DA !important;
+/* 装饰性 emoji 图标统一收起，保持纸面排版 */
+.highlight-icon,
+.stat-icon,
+.feature-icon,
+.tech-icon,
+.value-icon,
+.feedback-icon {
+  display: none;
 }
-
-[class*="bg-red-"] {
-  background-color: #3A1620 !important;
-  background-image: none !important;
-}
-[class*="from-red-"] {
-  --tw-gradient-from: #241016 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="via-red-"] {
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="to-red-"] {
-  --tw-gradient-to: #2A1218 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="border-red-"] {
-  border-color: rgba(212, 175, 55, 0.25) !important;
-}
-[class*="text-red-"] { color: #E8E3DA !important; }
-.text-red-200, .text-red-300 { color: #9AA5AC !important; }
-
-[class*="text-yellow-"] { color: #D4AF37 !important; }
-.text-yellow-100, .text-yellow-200 { color: #E8E3DA !important; }
-[class*="border-yellow-"] {
-  border-color: rgba(212, 175, 55, 0.4) !important;
-  border-width: 1px !important;
-}
-[class*="border-4"] { border-width: 1px !important; }
-[class*="border-8"] { border-width: 2px !important; }
-
-h1, h2, h3 { color: #D4AF37 !important; letter-spacing: 0.1em; }
-h4, h5 { color: #E8E3DA !important; }
-p, li, span { color: #C3CAD0 !important; }
-strong { color: #D4AF37 !important; }
-
-[class*="rounded-lg"], [class*="rounded-xl"] {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
-}
-
-[class*="stat-"], [class*="feature-"], [class*="info-card"] {
-  background: rgba(26, 34, 40, 0.6) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 12px;
-}
-/* ===== 主题配色覆盖 ===== */
-.about-page {
-  background: linear-gradient(135deg, #1A0E12 0%, #3A1620 25%, #451A24 50%, #3A1620 75%, #1A0E12 100%) !important;
-  background-image: linear-gradient(135deg, #1A0E12 0%, #3A1620 25%, #451A24 50%, #3A1620 75%, #1A0E12 100%) !important;
-  color: #E8E3DA !important;
-}
-
-/* 英雄区域 */
-.hero-section {
-  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%) !important;
-}
-.emblem-outer {
-  border: 1px solid rgba(212, 175, 55, 0.5) !important;
-  background: radial-gradient(circle at 50% 35%, #5A212C 0%, #3A1620 60%, #241016 100%) !important;
-  box-shadow: 0 0 50px -12px rgba(212, 175, 55, 0.35), inset 0 0 30px rgba(0, 0, 0, 0.6) !important;
-}
-.emblem-inner {
-  border: 1px solid rgba(212, 175, 55, 0.35) !important;
-  background: rgba(14, 20, 24, 0.6) !important;
-}
-.emblem-text {
-  color: #D4AF37 !important;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-}
-.emblem-subtitle { color: #9AA5AC !important; }
-.hero-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.12em;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.7);
-}
-.hero-subtitle { color: #9AA5AC !important; letter-spacing: 0.08em; }
-.hero-quote {
-  background: rgba(212, 175, 55, 0.06) !important;
-  border: 1px solid rgba(212, 175, 55, 0.22) !important;
-  border-radius: 12px;
-  color: #E8E3DA !important;
-  padding: 16px 28px;
-  display: inline-block;
-}
-.quote-mark { color: #D4AF37 !important; opacity: 0.7; }
-
-/* 通用区块标题 */
-.section-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.12em;
-}
-.title-decoration {
-  background: linear-gradient(90deg, transparent, #D4AF37, transparent) !important;
-  background-image: linear-gradient(90deg, transparent, #D4AF37, transparent) !important;
-  height: 1px !important;
-  opacity: 0.7;
-}
-
-/* 项目介绍 */
-.intro-section, .features-section, .tech-section,
-.education-section, .guide-section, .team-section, .footer-quote {
-  background: transparent !important;
-  background-image: none !important;
-}
-.intro-subtitle, .tech-subtitle, .info-subtitle {
-  color: #E8E3DA !important;
-}
-.intro-desc, .feature-desc, .value-desc, .step-desc, .contact-desc, .quote-text {
-  color: #C3CAD0 !important;
-}
-.highlight-item {
-  background: rgba(26, 34, 40, 0.6) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 12px;
-}
-.highlight-text h4, .tech-info h4, .feedback-text h4, .feature-content h4 {
-  color: #E8E3DA !important;
-}
-.highlight-text p, .tech-info p, .feedback-text p {
-  color: #9AA5AC !important;
-}
-
-/* 统计卡片 */
-.stat-card {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
-}
-.stat-number { color: #D4AF37 !important; }
-.stat-label { color: #9AA5AC !important; }
-
-/* 功能卡片 */
-.feature-card {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 14px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.feature-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(212, 175, 55, 0.45) !important;
-  box-shadow: 0 12px 34px -14px rgba(0, 0, 0, 0.85) !important;
-}
-.feature-title { color: #D4AF37 !important; }
-.tech-tag {
-  background: rgba(212, 175, 55, 0.1) !important;
-  color: #D4AF37 !important;
-  border: 1px solid rgba(212, 175, 55, 0.3) !important;
-  border-radius: 6px;
-}
-
-/* 技术架构 */
-.tech-item, .feature-list-item {
-  background: rgba(26, 34, 40, 0.6) !important;
-  border: 1px solid rgba(212, 175, 55, 0.15) !important;
-  border-radius: 12px;
-}
-
-/* 教育价值卡片 */
-.value-card {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
-  border-radius: 14px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
-}
-.value-title { color: #D4AF37 !important; }
-.value-points li { color: #9AA5AC !important; }
-
-/* 使用指南 */
-.step-item {
-  background: rgba(26, 34, 40, 0.5) !important;
-  border: 1px solid rgba(212, 175, 55, 0.15) !important;
-  border-radius: 12px;
-}
-.step-number {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  color: #D4AF37 !important;
-  border: 1px solid rgba(212, 175, 55, 0.4) !important;
-}
-.step-title { color: #E8E3DA !important; }
-.step-tips { color: #9AA5AC !important; }
-.step-tips strong { color: #D4AF37 !important; }
-.accessibility-info, .browser-support {
-  background: rgba(26, 34, 40, 0.6) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 12px;
-}
-.sidebar-title { color: #D4AF37 !important; }
-.accessibility-list li { color: #9AA5AC !important; }
-.browser-item {
-  background: rgba(212, 175, 55, 0.08) !important;
-  color: #C3CAD0 !important;
-  border: 1px solid rgba(212, 175, 55, 0.25) !important;
-  border-radius: 8px;
-}
-
-/* 项目信息 */
-.info-item {
-  background: rgba(26, 34, 40, 0.5) !important;
-  border: 1px solid rgba(212, 175, 55, 0.15) !important;
-  border-radius: 10px;
-  color: #C3CAD0 !important;
-}
-.info-item strong { color: #D4AF37 !important; }
-.feedback-item {
-  background: rgba(26, 34, 40, 0.6) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 12px;
-}
-
-/* 页脚引言 */
-.footer-quote {
-  background: linear-gradient(165deg, #241016 0%, #3A1620 100%) !important;
-  border-top: 1px solid rgba(212, 175, 55, 0.2) !important;
-}
-.quote-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.1em;
-}
-
-
-
-[class*="bg-black"],[class*="bg-gray-9"],[class*="bg-slate-9"],
-[class*="bg-zinc-9"],[class*="bg-neutral-9"],[class*="bg-opacity"]{
-  background:transparent!important;background-color:transparent!important;
-  background-image:none!important;
-  border:1px solid rgba(212,175,55,.18)!important;
-}
-
-
-[class*="card"] *,[class*="item"] *,[class*="stat"] *,
-[class*="feature"] *,[class*="tech"] *,[class*="value"] *,[class*="tag"] *{
-  background:transparent!important;background-color:transparent!important;
-  background-image:none!important;
-}
-
-
-[class*="stat-number"],[class*="number"]{color:#EBC97A!important}
-[class*="rounded"]{
-  border:1px solid rgba(212,175,55,.2)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.03)!important;
-}
-
-
-.about-page [class*="highlight"],
-.about-page [class*="intro-item"],
-.about-page [class*="item"]{
-  background:rgba(58,22,32,.72)!important;
-  background-color:rgba(58,22,32,.72)!important;
-  background-image:none!important;
-  backdrop-filter:none!important;
-  border:1px solid rgba(212,175,55,.22)!important;
-  border-radius:12px!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.03)!important;
-}
-.about-page [class*="highlight"] h4,
-.about-page [class*="item"] h4{
-  color:#E8E3DA!important;font-weight:600!important;
-}
-.about-page [class*="highlight"] p,
-.about-page [class*="item"] p{color:#C3CAD0!important}
-
-
-.about-page footer,
-.about-page [class*="footer"]{
-  background:linear-gradient(165deg,#241016 0%,#3A1620 100%)!important;
-  background-image:none!important;
-  border-top:1px solid rgba(212,175,55,.25)!important;
-  color:#9AA5AC!important;
-}
-.about-page [class*="footer"] *{color:#9AA5AC!important}
-
-/* ===== 金线精简：内部小块全去线 ===== */
-.about-page [class*="rounded"],
-.about-page [class*="card"] *,
-.about-page [class*="item"] *,
-.about-page [class*="highlight"] *,
-.about-page [class*="stat"] *,
-.about-page [class*="tag"] *,
-.about-page [class*="feature"] *,
-.about-page [class*="tech"] *,
-.about-page [class*="value"] *,
-.about-page [class*="btn"],
-.about-page button,
-.about-page [class*="badge"]{
-  border:none!important;
-  border-color:transparent!important;
-  box-shadow:none!important;
-}
-
-
-.about-page [class*="tag"],
-.about-page .browser-item,
-.about-page [class*="btn"]{
-  background:rgba(212,175,55,.06)!important;
-  color:#EBC97A!important;
-  border:none!important;
-  border-radius:6px;
-}
-
-
-.about-page .feature-card,
-.about-page .value-card,
-.about-page .stat-card,
-.about-page .highlight-item,
-.about-page .tech-item,
-.about-page .feedback-item,
-.about-page .info-item,
-.about-page .accessibility-info,
-.about-page .browser-support{
-  border:1px solid rgba(212,175,55,.12)!important;
-  box-shadow:none!important;
-}
-
-
-.about-page .title-decoration{opacity:.35!important}
-.about-page [class*="footer"]{border-top-color:rgba(212,175,55,.12)!important}
 
 </style>

@@ -12,6 +12,16 @@ const route = useRoute()
 // 主内容滚动容器的引用
 const mainContentRef = ref(null)
 
+// 导航配置
+const navItems = [
+  { to: '/', label: '首页' },
+  { to: '/war-exhibit', label: '抗战展示' },
+  { to: '/war-data', label: '英雄人物' },
+  { to: '/interactive-china-map', label: '历史地图' },
+  { to: '/war-battle-dataviz', label: '战役数据' },
+  { to: '/about', label: '关于我们' }
+]
+
 // 切换移动端菜单的显示状态
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
@@ -81,214 +91,86 @@ const setViewportHeight = () => {
 
 <template>
   <div class="app-container">
-    <div
-      class="app-content bg-gradient-to-br from-ink to-ink-2 text-cream rounded-xl overflow-hidden flex flex-col"
-    >
-      <!-- 背景装饰元素 -->
-      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div
-          class="absolute -top-24 -left-24 w-96 h-96 bg-antique opacity-[0.07] rounded-full filter blur-3xl"
-        ></div>
-        <div
-          class="absolute -bottom-32 -right-24 w-[28rem] h-[28rem] bg-bronze opacity-[0.07] rounded-full filter blur-3xl"
-        ></div>
-        <div
-          class="absolute top-1/3 right-1/4 w-72 h-72 bg-ember opacity-[0.05] rounded-full filter blur-3xl"
-        ></div>
-        <div class="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_30%,transparent_40%,rgba(0,0,0,0.55)_100%)]"></div>
-      </div>
+    <div class="app-content">
+      <header class="site-header">
+        <div class="header-inner">
+          <router-link to="/" class="brand" @click="handleNavClick">
+            <span class="ui-seal">抗</span>
+            <span class="brand-text">
+              <strong>抗战数字博物馆</strong>
+              <small>文物展示 · 战役数据可视化</small>
+            </span>
+          </router-link>
 
-      <div class="relative z-10 flex flex-col h-full">
-        <!-- 历史风格导航栏 -->
-        <header
-          class="sticky top-0 z-50 bg-gradient-to-b from-[#1A232B] via-[#151C22] to-[#10161B] border-b border-antique/30 shadow-[0_6px_30px_-10px_rgba(0,0,0,0.85)] backdrop-blur-md"
-        >
-          <div
-            class="container mx-auto px-4 py-3 flex justify-between items-center relative"
-          >
-            <!-- 传统装饰纹样 -->
-            <div class="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-transparent via-antique/[0.06] to-transparent pointer-events-none"></div>
-            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-antique/30 text-base">🏛️</div>
-            <div class="absolute right-4 top-1/2 transform -translate-y-1/2 text-antique/30 text-base">🇨🇳</div>
-
+          <!-- 桌面导航 -->
+          <nav class="desktop-nav">
             <router-link
-              to="/"
-              class="flex items-center relative z-10 group"
+              v-for="item in navItems"
+              :key="item.to"
+              :to="item.to"
+              class="nav-link"
               @click="handleNavClick"
             >
-              <div class="flex items-center space-x-3">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B87333] flex items-center justify-center ring-1 ring-antique/50 shadow-[0_0_12px_rgba(212,175,55,0.25)] group-hover:shadow-[0_0_18px_rgba(212,175,55,0.45)] transition-all">
-                  <span class="text-[#0E1418] font-bold text-sm font-serif">战</span>
-                </div>
-                <h1 class="text-base md:text-xl font-bold text-antique font-serif tracking-wide">
-                  抗战文物数字展示与战役数据可视化系统 V1.0
-                </h1>
-              </div>
+              {{ item.label }}
             </router-link>
+          </nav>
 
-            <!-- 桌面导航 -->
-            <nav class="hidden lg:block relative z-10">
-              <ul class="flex items-center space-x-7">
-                <li>
-                  <router-link
-                    to="/"
-                    class="nav-link text-[#AEB6BD] hover:text-antique transition-all duration-300 font-serif tracking-wider text-sm border-b-2 border-transparent hover:border-antique pb-1"
-                    @click="handleNavClick"
-                    >首页</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    to="/war-exhibit"
-                    class="nav-link text-[#AEB6BD] hover:text-antique transition-all duration-300 font-serif tracking-wider text-sm border-b-2 border-transparent hover:border-antique pb-1"
-                    @click="handleNavClick"
-                    >抗战展示</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    to="/war-data"
-                    class="nav-link text-[#AEB6BD] hover:text-antique transition-all duration-300 font-serif tracking-wider text-sm border-b-2 border-transparent hover:border-antique pb-1"
-                    @click="handleNavClick"
-                    >英雄人物</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    to="/interactive-china-map"
-                    class="nav-link text-[#AEB6BD] hover:text-antique transition-all duration-300 font-serif tracking-wider text-sm border-b-2 border-transparent hover:border-antique pb-1"
-                    @click="handleNavClick"
-                    >历史地图</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    to="/war-battle-dataviz"
-                    class="nav-link text-[#AEB6BD] hover:text-antique transition-all duration-300 font-serif tracking-wider text-sm border-b-2 border-transparent hover:border-antique pb-1"
-                    @click="handleNavClick"
-                    >战役数据</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    to="/about"
-                    class="nav-link text-[#AEB6BD] hover:text-antique transition-all duration-300 font-serif tracking-wider text-sm border-b-2 border-transparent hover:border-antique pb-1"
-                    @click="handleNavClick"
-                    >关于我们</router-link
-                  >
-                </li>
-              </ul>
-            </nav>
-
-            <!-- 移动端菜单按钮 -->
-            <button
-              @click="toggleMobileMenu"
-              class="block lg:hidden text-antique relative z-10 p-2 rounded-lg border border-antique/25 bg-ink-3/60 hover:bg-ink-4 transition-all"
+          <!-- 移动端菜单按钮 -->
+          <button
+            @click="toggleMobileMenu"
+            class="menu-btn"
+            aria-label="切换菜单"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.6"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  v-if="!isMobileMenuOpen"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-                <path
-                  v-else
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
+              <path
+                v-if="!isMobileMenuOpen"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 7h16M4 12h16M4 17h16"
+              />
+              <path
+                v-else
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
 
-          <!-- 移动端菜单 -->
-          <div
-            v-if="isMobileMenuOpen"
-            class="lg:hidden bg-gradient-to-b from-[#1A232B] to-[#0E1418] py-4 px-6 border-b border-antique/25"
+        <!-- 移动端菜单 -->
+        <div v-if="isMobileMenuOpen" class="mobile-nav">
+          <router-link
+            v-for="item in navItems"
+            :key="item.to"
+            :to="item.to"
+            class="mobile-link"
+            @click="handleNavClick"
           >
-            <nav>
-              <ul class="space-y-1">
-                <li>
-                  <router-link
-                    @click="handleNavClick"
-                    to="/"
-                    class="block text-[#AEB6BD] hover:text-antique transition-colors py-2.5 font-serif tracking-wider text-sm border-l-2 border-transparent hover:border-antique hover:bg-antique/[0.06] pl-3"
-                    >首页</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    @click="handleNavClick"
-                    to="/war-exhibit"
-                    class="block text-[#AEB6BD] hover:text-antique transition-colors py-2.5 font-serif tracking-wider text-sm border-l-2 border-transparent hover:border-antique hover:bg-antique/[0.06] pl-3"
-                    >抗战展示</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    @click="handleNavClick"
-                    to="/war-data"
-                    class="block text-[#AEB6BD] hover:text-antique transition-colors py-2.5 font-serif tracking-wider text-sm border-l-2 border-transparent hover:border-antique hover:bg-antique/[0.06] pl-3"
-                    >英雄人物</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    @click="handleNavClick"
-                    to="/interactive-china-map"
-                    class="block text-[#AEB6BD] hover:text-antique transition-colors py-2.5 font-serif tracking-wider text-sm border-l-2 border-transparent hover:border-antique hover:bg-antique/[0.06] pl-3"
-                    >历史地图</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    @click="handleNavClick"
-                    to="/war-battle-dataviz"
-                    class="block text-[#AEB6BD] hover:text-antique transition-colors py-2.5 font-serif tracking-wider text-sm border-l-2 border-transparent hover:border-antique hover:bg-antique/[0.06] pl-3"
-                    >战役数据</router-link
-                  >
-                </li>
-                <li>
-                  <router-link
-                    @click="handleNavClick"
-                    to="/about"
-                    class="block text-[#AEB6BD] hover:text-antique transition-colors py-2.5 font-serif tracking-wider text-sm border-l-2 border-transparent hover:border-antique hover:bg-antique/[0.06] pl-3"
-                    >关于我们</router-link
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
+            {{ item.label }}
+          </router-link>
+        </div>
+      </header>
 
-        <!-- 主要内容区域 - 可滚动 -->
-        <main
-          ref="mainContentRef"
-          class="flex-grow container mx-auto px-4 py-4 pb-0 overflow-y-auto"
-        >
-          <router-view />
-        </main>
+      <!-- 主要内容区域 - 可滚动 -->
+      <main
+        ref="mainContentRef"
+        class="main-scroll"
+      >
+        <router-view />
+      </main>
 
-        <!-- 玻璃拟态页脚 -->
-        <footer
-          class="backdrop-filter backdrop-blur-lg bg-[#0E1418]/90 border-t border-antique/25 py-3 md:py-5 rounded-b-xl"
-        >
-          <div
-            class="container mx-auto px-4 text-center text-[#7E878E] text-xs md:text-sm tracking-wide"
-          >
-            <p>© 2025 抗战文物数字展示与战役数据可视化系统 V1.0</p>
-          </div>
-        </footer>
-      </div>
+      <footer class="site-footer">
+        <p>© 2025 抗战文物数字展示与战役数据可视化系统 V1.0</p>
+        <p class="footer-sub">铭记历史 · 珍爱和平</p>
+      </footer>
     </div>
   </div>
 </template>
@@ -308,17 +190,6 @@ body {
   overflow: hidden;
 }
 
-body {
-  font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
-  color: #E8E3DA;
-  background: radial-gradient(120% 100% at 50% 0%, #131B21 0%, #0B1014 60%, #080C0F 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
 #app {
   width: 100%;
   height: 100%;
@@ -333,182 +204,227 @@ body {
 }
 
 .app-container {
-  width: 95%;
-  height: calc(95 * var(--vh, 1vh));
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: calc(95 * var(--vh, 1vh));
+  padding: 16px;
 }
 
 .app-content {
   width: 100%;
-  height: 100%;
+  height: calc(97 * var(--vh, 1vh));
+  max-height: calc(97 * var(--vh, 1vh));
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  background: rgba(255, 252, 245, 0.55);
+  border: 1px solid rgba(232, 216, 196, 0.9);
+  border-radius: 22px;
+  box-shadow: 0 40px 90px -70px rgba(84, 48, 28, 0.75);
 }
 
-.museum-header h1 {
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: #E8E3DA;
+/* ---------- 顶部导航 ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(253, 248, 239, 0.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
 }
 
-.museum-content {
+.header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.brand-text strong {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--red-deep);
+}
+
+.brand-text small {
+  margin-top: 2px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--red-deep);
+  background: var(--red-soft);
+}
+
+.nav-link.router-link-active {
+  color: var(--red-deep);
+  background: var(--red-soft);
+  font-weight: 600;
+}
+
+.menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 6px 18px 14px;
+  border-top: 1px solid var(--line);
+  background: var(--card);
+}
+
+.mobile-link {
+  padding: 11px 4px;
+  border-bottom: 1px solid rgba(232, 216, 196, 0.7);
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+.mobile-link:last-child {
+  border-bottom: 0;
+}
+
+.mobile-link.router-link-active {
+  color: var(--red-deep);
+  font-weight: 600;
+}
+
+/* ---------- 主内容 ---------- */
+.main-scroll {
   flex: 1;
-  background-color: transparent;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 22px 24px 8px;
 }
 
-.museum-footer {
-  background-color: #0E1418;
-  padding: 1rem;
+.main-scroll > * {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  flex-shrink: 0;
+  padding: 12px 24px;
+  border-top: 1px solid var(--line);
+  background: rgba(253, 248, 239, 0.9);
   text-align: center;
-  font-size: 0.9rem;
-  color: #7E878E;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
 }
 
-/* 移动端优化 */
+.site-footer .footer-sub {
+  margin-top: 2px;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.28em;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .brand-text strong {
+    font-size: 16px;
+  }
+  .nav-link {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 900px) {
+  .desktop-nav {
+    display: none;
+  }
+  .menu-btn {
+    display: inline-flex;
+  }
+  .mobile-nav {
+    display: flex;
+  }
+}
+
 @media (max-width: 768px) {
-  body {
-    padding: 5px;
-  }
-
   .app-container {
-    width: 95%;
-    height: calc(98 * var(--vh, 1vh));
-    max-height: calc(98 * var(--vh, 1vh));
+    padding: 0;
   }
-
-  main.container {
-    padding-left: 10px;
-    padding-right: 10px;
-    overflow-y: auto;
-    flex: 1;
-  }
-
   .app-content {
-    overflow: hidden;
-    max-height: calc(98 * var(--vh, 1vh));
+    height: calc(100 * var(--vh, 1vh));
+    max-height: calc(100 * var(--vh, 1vh));
+    border-radius: 0;
+    border: 0;
   }
-
-  header.sticky {
-    position: sticky;
-    top: 0;
-    z-index: 50;
+  .main-scroll {
+    padding: 16px 14px 8px;
   }
-
-  footer {
-    padding-top: 8px;
-    padding-bottom: 8px;
+  .header-inner {
+    padding: 10px 16px;
   }
-}
-
-/* 针对超小屏幕的优化 */
-@media (max-height: 600px) {
-  .app-container {
-    height: calc(99 * var(--vh, 1vh));
-    max-height: calc(99 * var(--vh, 1vh));
+  .brand-text small {
+    display: none;
   }
-
-  header.sticky {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  footer {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  header .container {
-    padding-top: 6px;
-    padding-bottom: 6px;
+  .site-footer {
+    padding: 8px 16px;
   }
 }
 
-/* 针对iOS的输入优化 */
+/* iOS 输入框防缩放 */
 @media screen and (max-width: 768px) {
   input,
   select,
   textarea {
     font-size: 16px !important;
-  }
-}
-
-/* 针对底部工具栏的滑动交互 */
-@supports (-webkit-touch-callout: none) {
-  .app-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-/* 历史风格导航栏样式 */
-.nav-link {
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(201,162,39,0), #D4AF37, rgba(201,162,39,0));
-  transition: all 0.35s ease;
-  transform: translateX(-50%);
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* 传统装饰动效 */
-@keyframes traditional-glow {
-  0%, 100% {
-    text-shadow: 0 1px 10px rgba(212, 175, 55, 0.18);
-  }
-  50% {
-    text-shadow: 0 1px 14px rgba(212, 175, 55, 0.32);
-  }
-}
-
-header h1 {
-  animation: traditional-glow 4s ease-in-out infinite;
-}
-
-/* 移动端菜单项悬停效果 */
-.lg\:hidden .nav-link:hover {
-  background: rgba(212, 175, 55, 0.08);
-  border-radius: 4px;
-}
-
-/* 响应式标题 */
-@media (max-width: 1024px) {
-  header h1 {
-    font-size: 1.05rem;
-  }
-}
-
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 0.95rem;
-  }
-
-  .absolute.left-4,
-  .absolute.right-4 {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 0.85rem;
   }
 }
 </style>

@@ -256,9 +256,8 @@ onMounted(() => {
 .province-war-detail {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  min-height: 100vh;
+  padding: 0 0 24px;
+  background: transparent;
 }
 
 .back-navigation {
@@ -269,7 +268,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background: #3b82f6;
+  background: #a7382a;
   color: white;
   border: none;
   border-radius: 8px;
@@ -279,7 +278,7 @@ onMounted(() => {
 }
 
 .back-btn:hover {
-  background: #2563eb;
+  background: #8a2c21;
   transform: translateY(-1px);
 }
 
@@ -287,16 +286,16 @@ onMounted(() => {
 .error-container {
   text-align: center;
   padding: 60px 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fffcf5;
+  border: 1px solid #e8d8c4;
+  border-radius: 18px;
 }
 
 .loading-spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid #e5e7eb;
-  border-top: 4px solid #3b82f6;
+  border: 4px solid #e8d8c4;
+  border-top: 4px solid #a7382a;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto 20px;
@@ -312,16 +311,17 @@ onMounted(() => {
 }
 
 .province-content {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fffcf5;
+  border: 1px solid #e8d8c4;
+  border-radius: 18px;
   overflow: hidden;
 }
 
 .province-header {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  color: white;
-  padding: 40px;
+  background: linear-gradient(120deg, #fbeee5 0%, #fdf7ec 70%);
+  border-bottom: 1px solid #e8d8c4;
+  color: #2e231a;
+  padding: 36px 40px;
   text-align: center;
 }
 
@@ -346,28 +346,28 @@ onMounted(() => {
 }
 
 .status-occupied {
-  background: #ef4444;
+  background: #a7382a;
   color: white;
 }
 .status-battlefield {
-  background: #f59e0b;
+  background: #b9945e;
   color: white;
 }
 .status-base {
-  background: #10b981;
+  background: #7c8b5a;
   color: white;
 }
 .status-rear {
-  background: #3b82f6;
+  background: #a7382a;
   color: white;
 }
 .status-default {
-  background: #6b7280;
+  background: #8b7768;
   color: white;
 }
 
 .period-info {
-  color: #cbd5e1;
+  color: #8b7768;
   font-size: 16px;
 }
 
@@ -377,22 +377,22 @@ onMounted(() => {
 .heritage-sites,
 .statistics-section {
   padding: 30px 40px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e8d8c4;
 }
 
 .section-title {
   font-size: 24px;
   font-weight: bold;
-  color: #1e293b;
+  color: #2e231a;
   margin-bottom: 20px;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #a7382a;
   padding-left: 15px;
 }
 
 .summary-text {
   font-size: 16px;
   line-height: 1.8;
-  color: #374151;
+  color: #4a392b;
   margin-bottom: 20px;
 }
 
@@ -406,17 +406,17 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
-  background: #f8fafc;
+  background: #fdf7ec;
   border-radius: 8px;
 }
 
 .info-label {
   font-weight: 600;
-  color: #64748b;
+  color: #8b7768;
 }
 
 .info-value {
-  color: #1e293b;
+  color: #2e231a;
   font-weight: 500;
 }
 
@@ -434,14 +434,14 @@ onMounted(() => {
   flex-shrink: 0;
   width: 120px;
   font-weight: 600;
-  color: #3b82f6;
+  color: #a7382a;
   font-size: 14px;
 }
 
 .event-content {
   flex: 1;
   padding-left: 20px;
-  border-left: 2px solid #e5e7eb;
+  border-left: 2px solid #e8d8c4;
   position: relative;
 }
 
@@ -452,31 +452,31 @@ onMounted(() => {
   top: 0;
   width: 10px;
   height: 10px;
-  background: #3b82f6;
+  background: #a7382a;
   border-radius: 50%;
 }
 
 .event-title {
   font-size: 18px;
   font-weight: bold;
-  color: #1e293b;
+  color: #2e231a;
   margin-bottom: 8px;
 }
 
 .event-location {
-  color: #64748b;
+  color: #8b7768;
   font-size: 14px;
   margin-bottom: 8px;
 }
 
 .event-description {
-  color: #374151;
+  color: #4a392b;
   line-height: 1.6;
   margin-bottom: 8px;
 }
 
 .event-significance {
-  color: #059669;
+  color: #8a2c21;
   font-size: 14px;
   font-style: italic;
 }
@@ -489,7 +489,7 @@ onMounted(() => {
 .subsection-title {
   font-size: 18px;
   font-weight: 600;
-  color: #1e293b;
+  color: #2e231a;
   margin-bottom: 10px;
 }
 
@@ -503,20 +503,20 @@ onMounted(() => {
 .organization-tag,
 .leader-tag {
   padding: 6px 12px;
-  background: #dbeafe;
-  color: #1e40af;
+  background: #f6e2da;
+  color: #8a2c21;
   border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
 }
 
 .leader-tag {
-  background: #dcfce7;
-  color: #166534;
+  background: #f1e4cd;
+  color: #7a5a2e;
 }
 
 .activities-text {
-  color: #374151;
+  color: #4a392b;
   line-height: 1.6;
 }
 
@@ -528,13 +528,13 @@ onMounted(() => {
 
 .heritage-item {
   padding: 20px;
-  background: #f8fafc;
+  background: #fdf7ec;
   border-radius: 8px;
-  border-left: 4px solid #10b981;
+  border-left: 2px solid #b9945e;
 }
 
 .heritage-type {
-  color: #059669;
+  color: #8a6d3f;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
@@ -544,12 +544,12 @@ onMounted(() => {
 .heritage-name {
   font-size: 16px;
   font-weight: 600;
-  color: #1e293b;
+  color: #2e231a;
   margin-bottom: 8px;
 }
 
 .heritage-description {
-  color: #64748b;
+  color: #8b7768;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -563,19 +563,19 @@ onMounted(() => {
 .stat-item {
   text-align: center;
   padding: 20px;
-  background: #f8fafc;
+  background: #fdf7ec;
   border-radius: 8px;
 }
 
 .stat-number {
   font-size: 32px;
   font-weight: bold;
-  color: #3b82f6;
+  color: #a7382a;
   margin-bottom: 5px;
 }
 
 .stat-label {
-  color: #64748b;
+  color: #8b7768;
   font-size: 14px;
   font-weight: 500;
 }
@@ -619,7 +619,7 @@ onMounted(() => {
   .event-content {
     padding-left: 0;
     border-left: none;
-    border-top: 2px solid #e5e7eb;
+    border-top: 2px solid #e8d8c4;
     padding-top: 15px;
   }
 

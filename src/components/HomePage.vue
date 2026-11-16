@@ -1,15 +1,15 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
 // 统计数据
 const stats = ref([
-  { label: '珍贵文物', icon: '📜' },
-  { label: '历史照片', icon: '🖼️' },
-  { label: '3D展品', icon: '🏺' },
-  { label: '英雄人物', icon: '👥' }
+  { label: '珍贵文物', value: '1280', suffix: '件' },
+  { label: '历史照片', value: '860', suffix: '张' },
+  { label: '3D展品', value: '68', suffix: '件' },
+  { label: '英雄人物', value: '32', suffix: '位' }
 ])
 
 // 核心展览区域
@@ -18,33 +18,37 @@ const exhibitions = ref([
     id: 'weapons',
     title: '铁血兵器',
     subtitle: '抗战武器装备展',
-    description: '枪林弹雨中的钢铁意志，每一件武器都镌刻着血与火的传奇',
+    description: '枪林弹雨中的钢铁意志，每一件武器都镌刻着血与火的传奇。',
     route: '/war-weapons',
-    year: '1931-1945'
+    year: '1931-1945',
+    image: '/images/步枪.jpg'
   },
   {
     id: 'daily',
     title: '烽火岁月',
     subtitle: '战时生活用品展',
-    description: '硝烟中的温情，见证着中华儿女在困境中的坚韧与希望',
+    description: '硝烟中的温情，见证着中华儿女在困境中的坚韧与希望。',
     route: '/war-daily-items',
-    year: '1937-1945'
+    year: '1937-1945',
+    image: '/images/生活用品/抗战时期新四军军装.jpg'
   },
   {
     id: 'architecture',
     title: '历史遗迹',
     subtitle: '抗战建筑场景展',
-    description: '砖瓦间的记忆，每一座建筑都是历史的见证者和守护者',
+    description: '砖瓦间的记忆，每一座建筑都是历史的见证者和守护者。',
     route: '/war-architecture',
-    year: '1638-1945'
+    year: '1638-1945',
+    image: '/images/建筑物/四行仓库.png'
   },
   {
     id: 'map',
     title: '抗战地图',
     subtitle: '十四年抗战全景',
-    description: '全景展示中华民族十四年抗战的历史进程与地理变迁',
+    description: '全景展示中华民族十四年抗战的历史进程与地理变迁。',
     route: '/war-map',
-    year: '1931-1945'
+    year: '1931-1945',
+    image: '/中华人民共和国.svg'
   }
 ])
 
@@ -77,32 +81,32 @@ const historicalNodes = ref([
 
 // 英雄人物
 const heroes = ref([
-  { 
-    name: '左权', 
+  {
+    name: '左权',
     title: '太行山战神',
     party: '共产党',
     description: '八路军副参谋长，牺牲时年仅37岁',
     avatar: '/images/抗战英雄图片/左权.jpg',
     details: '左权（1905-1942），湖南醴陵人，中国共产党军事家。1942年5月任八路军副参谋长，同年5月25日在山西辽县指挥部队突围时壮烈牺牲，是抗战时期中共牺牲的最高级别将领。'
   },
-  { 
-    name: '杨靖宇', 
+  {
+    name: '杨靖宇',
     title: '白山黑水',
     party: '共产党',
     description: '东北抗联总司令，宁死不屈',
     avatar: '/images/抗战英雄图片/杨靖宇.jpg',
     details: '杨靖宇（1905-1940），河南确山人，中国共产党军事家。东北抗日联军创建人和领导人之一，率部在东北坚持游击战争。1940年2月在濛江与日军战斗中壮烈牺牲，日军解剖其胃时发现只有枯草、树皮和棉絮。'
   },
-  { 
-    name: '张自忠', 
+  {
+    name: '张自忠',
     title: '民族忠魂',
     party: '国民党',
     description: '抗战殉国最高级别将领，周恩来称"民族忠魂"',
     avatar: '/images/抗战英雄图片/张自忠.jpg',
     details: '张自忠（1891-1940），山东临清人，国民党将领。1940年5月16日在枣宜会战中亲率部队与日军决战，身中7弹仍坚持指挥，壮烈殉国。是抗战中殉国的最高级别将领，周恩来称其为"民族忠魂"。'
   },
-  { 
-    name: '谢晋元', 
+  {
+    name: '谢晋元',
     title: '八百壮士团长',
     party: '国民党',
     description: '率部死守上海四行仓库，掩护主力撤退',
@@ -139,7 +143,7 @@ const handleAvatarError = (event) => {
   // 显示首字母作为后备
   const parentDiv = event.target.parentElement
   const fallbackLetter = document.createElement('span')
-  fallbackLetter.className = 'text-4xl font-bold text-yellow-400 font-serif'
+  fallbackLetter.className = 'avatar-fallback'
   fallbackLetter.textContent = selectedHero.value.name.charAt(0)
   parentDiv.appendChild(fallbackLetter)
 }
@@ -150,7 +154,7 @@ const handleCardAvatarError = (event) => {
   // 显示首字母作为后备
   const parentDiv = event.target.parentElement
   const fallbackLetter = document.createElement('span')
-  fallbackLetter.className = 'text-2xl font-bold text-yellow-400 font-serif'
+  fallbackLetter.className = 'avatar-fallback'
   fallbackLetter.textContent = event.target.alt.charAt(0)
   parentDiv.appendChild(fallbackLetter)
 }
@@ -164,625 +168,831 @@ const closeImagePreview = () => {
   showImagePreview.value = false
   previewImage.value = ''
 }
-
-onMounted(() => {
-  // 添加传统滚动动画
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible')
-      }
-    })
-  })
-  
-  document.querySelectorAll('.scroll-reveal').forEach(el => {
-    observer.observe(el)
-  })
-})
 </script>
 
 <template>
-  <div class="min-h-screen">
-    <!-- 主英雄区域 -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background-color:#4b0c0c;">
-      <!-- 传统纹理背景 -->
-      <div class="absolute inset-0 opacity-10">
-        <div class="traditional-pattern"></div>
-      </div>
+  <div class="home-page">
+    <!-- 主视觉 -->
+    <section class="home-hero">
+      <img class="hero-bg" src="/images/卢沟桥事变.png" alt="卢沟桥事变" />
+      <div class="hero-shade"></div>
 
-      <!-- 主要内容 -->
-      <div class="relative z-10 text-center max-w-6xl mx-auto px-6 py-20">
-        <!-- 传统印章样式馆徽 -->
-        <div class="mb-12">
-          <div class="relative w-48 h-48 mx-auto">
-            <!-- 外圆印章 -->
-            <div class="absolute inset-0 border-8 border-red-600 rounded-full bg-red-700 shadow-2xl traditional-seal">
-              <!-- 内圆装饰 -->
-              <div class="absolute inset-4 border-4 border-yellow-300 rounded-full flex items-center justify-center">
-                <div class="text-center">
-                  <div class="text-6xl font-bold text-yellow-400 mb-3 font-serif">抗</div>
-                  <div class="text-4xl font-bold text-yellow-300 text-4xl">战</div>
-                </div>
-              </div>
-            </div>
-            <!-- 印章底座效果 -->
-            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-52 h-8 bg-red-900 rounded-full opacity-60 blur-sm"></div>
+      <div class="hero-body">
+        <span class="hero-kicker">1931 — 1945 · 十四年抗战</span>
+        <h1>中国人民抗日战争<br />纪念博物馆</h1>
+        <p class="hero-desc">
+          以文物为证，以数据为尺，回望那段山河不屈的岁月。
+        </p>
+
+        <div class="hero-actions">
+          <button class="ui-btn" @click="navigateTo('/war-exhibit')">踏入历史殿堂</button>
+          <button class="ui-btn ui-btn--ghost" @click="navigateTo('/war-map')">浏览抗战地图</button>
+        </div>
+
+        <div class="hero-dates">
+          <div class="hero-date">
+            <span>1931.9.18</span>
+            <small>九一八事变 · 抗战起点</small>
           </div>
-        </div>
-        <br><br>
-        <!-- 主标题 - 传统书法风格 -->
-        <div class="mb-8">
-          <h1 class="text-6xl md:text-8xl font-bold text-red-100 mb-4 font-serif traditional-text-shadow">
-            中国人民抗日战争
-          </h1><br>
-          <h2 class="text-5xl md:text-7xl font-bold text-yellow-400 font-serif traditional-text-shadow">
-            纪念博物馆
-          </h2>
-        </div>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        
-                 <!-- 重要时间节点 - 传统卷轴样式 -->
-         <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16 mb-16">
-           <div class="bg-red-700 hover:bg-red-600 border-yellow-600 rounded-lg px-10 py-8 transform hover:scale-105 transition-transform min-w-[280px]">
-             <div class="text-yellow-400 font-bold text-4xl mb-3 font-serif text-center">1931.9.18</div>
-             <div class="text-red-100 text-xl font-serif text-center mb-2">九一八事变</div>
-             <div class="text-yellow-300 text-base text-center">十四年抗战始</div>
-           </div>
-           
-           <div class="hidden md:flex flex-col items-center px-8">
-             <div class="w-32 h-1 bg-gradient-to-r from-yellow-600 to-red-600 rounded-full"></div>
-             <div class="text-center text-yellow-400 font-serif text-2xl py-4 font-bold">血雨腥风</div>
-             <div class="w-32 h-1 bg-gradient-to-r from-red-600 to-yellow-600 rounded-full"></div>
-           </div>
-           
-           <div class="bg-red-700 hover:bg-red-600 border-yellow-600 rounded-lg px-10 py-8 transform hover:scale-105 transition-transform min-w-[280px]">
-             <div class="text-yellow-400 font-bold text-4xl mb-3 font-serif text-center">1945.8.15</div>
-             <div class="text-red-100 text-xl font-serif text-center mb-2">抗战胜利</div>
-             <div class="text-yellow-300 text-base text-center">民族获解放</div>
-           </div>
-         </div>
-
-                 <!-- 主要操作按钮 - 传统样式 -->
-         <div class="flex flex-col md:flex-row gap-12 justify-center items-center mt-8">
-           <button 
-             @click="navigateTo('/war-exhibit')"
-             class="group bg-transparent border-4 border-yellow-600 text-yellow-400 hover:bg-yellow-600 hover:text-red-900 px-20 py-8 rounded-lg text-2xl font-bold transition-all duration-300 transform hover:scale-105 font-serif min-w-[300px]">
-             <span class="relative z-10">踏入历史殿堂</span>
-           </button>
-           
-           <button 
-             @click="navigateTo('/war-map')"
-             class="group bg-transparent border-4 border-yellow-600 text-yellow-400 hover:bg-yellow-600 hover:text-red-900 px-20 py-8 rounded-lg text-2xl font-bold transition-all duration-300 transform hover:scale-105 font-serif min-w-[300px]">
-             浏览抗战地图
-           </button>
-         </div>
-      </div>
-    
-    </section>
-
-    <!-- 馆藏统计 - 传统算盘样式 -->
-    <section class="py-20 bg-gradient-to-b from-red-950 to-red-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-yellow-400 mb-6 font-serif">馆藏珍品</h2>
-          <div class="w-32 h-1 bg-yellow-600 mx-auto rounded-full"></div>
-        </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div 
-            v-for="(stat, index) in stats" 
-            :key="index"
-            class="text-center bg-red-800 bg-opacity-50 border-2 border-yellow-600 rounded-lg p-8 hover:bg-opacity-70 transition-all">
-            <div class="text-5xl mb-4">{{ stat.icon }}</div>
-            <div class="text-4xl font-bold text-yellow-400 mb-2 font-serif">{{ stat.value }}{{ stat.suffix }}</div>
-            <div class="text-red-100 text-lg font-serif">{{ stat.label }}</div>
+          <div class="hero-date">
+            <span>1945.8.15</span>
+            <small>日本投降 · 民族胜利</small>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 历史时间轴 - 传统编年史样式 -->
-    <section class="py-20 bg-red-900">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-yellow-400 mb-6 font-serif">抗战编年</h2>
-          <p class="text-xl text-red-100 max-w-3xl mx-auto font-serif">
-            血火十四载，从九一八之殇到八一五之胜，每一个日子都镌刻着民族的苦难与荣光。
-          </p>
-          <div class="w-32 h-1 bg-yellow-600 mx-auto mt-8 rounded-full"></div>
+    <!-- 馆藏统计 -->
+    <section class="stat-strip">
+      <div v-for="(stat, index) in stats" :key="index" class="stat-cell">
+        <div class="stat-value">
+          {{ stat.value }}<span>{{ stat.suffix }}</span>
         </div>
-        
-        <div class="relative">
-          <!-- 中轴线 -->
-          <div class="absolute left-1/2 transform -translate-x-1/2 w-2 h-full bg-yellow-600 rounded-full"></div>
-          
-          <div class="space-y-16">
-            <div 
-              v-for="(node, index) in historicalNodes" 
-              :key="index"
-              class="relative flex items-center"
-              :class="index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'"
-            >
-              <!-- 时间节点 -->
-              <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-yellow-600 rounded-full border-4 border-red-700 z-10"></div>
-              
-              <!-- 内容卡片 -->
-              <div class="w-5/12">
-                <div class="bg-red-800 border-4 border-yellow-600 rounded-lg p-6 transform hover:scale-105 transition-transform">
-                  <!-- 历史图片 -->
-                  <div class="mb-4">
-                    <img 
-                      :src="node.image" 
-                      :alt="node.event"
-                      class="timeline-image w-full h-48 object-cover rounded-lg border-2 border-yellow-500 cursor-pointer hover:border-yellow-300 transition-colors"
-                      @click="openImagePreview(node.image)"
-                      @error="$event.target.style.display = 'none'"
-                    />
-                  </div>
-                  
-                  <!-- 文字信息 -->
-                  <div class="text-yellow-400 font-bold text-xl mb-3 font-serif">{{ node.date }}</div>
-                  <h3 class="text-2xl font-bold text-red-100 mb-3 font-serif">{{ node.event }}</h3>
-                  <p class="text-red-200 text-base font-serif leading-relaxed">{{ node.desc }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="stat-label">{{ stat.label }}</div>
       </div>
     </section>
 
-    <!-- 核心展览 - 传统殿堂样式 -->
-    <section class="py-20 bg-gradient-to-b from-red-900 to-red-950">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-yellow-400 mb-6 font-serif">展览殿堂</h2>
-          <p class="text-xl text-red-100 max-w-4xl mx-auto font-serif leading-relaxed">
-            四大展厅，分门别类展示抗战文物。从铁血兵器到烽火岁月，从历史遗迹到地图全景，
-            每一处展览都承载着厚重的历史，每一件文物都诉说着英雄的故事。
-          </p>
-          <div class="w-32 h-1 bg-yellow-600 mx-auto mt-8 rounded-full"></div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div 
-            v-for="(exhibition, index) in exhibitions" 
-            :key="exhibition.id"
-            class="group relative bg-red-800 border-4 border-yellow-600 rounded-lg p-8 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:bg-red-700"
-            @click="navigateTo(exhibition.route)"
-          >
-            <!-- 年代标识 -->
-            <div class="absolute top-4 right-4 bg-red-900 border-2 border-yellow-500 px-4 py-2 rounded-lg">
-              <span class="text-yellow-400 font-bold text-sm font-serif">{{ exhibition.year }}</span>
-            </div>
-            
-            <!-- 主要内容 -->
-            <div class="pt-4">
-              <h3 class="text-3xl font-bold text-yellow-400 mb-3 font-serif">{{ exhibition.title }}</h3>
-              <p class="text-xl text-red-200 mb-4 font-serif">{{ exhibition.subtitle }}</p>
-              <p class="text-red-100 leading-relaxed mb-6 font-serif">{{ exhibition.description }}</p>
-              
-              <!-- 进入按钮 -->
-              <div class="flex items-center justify-between">
-                <span class="text-yellow-400 font-bold text-lg font-serif group-hover:text-yellow-300">深入参观</span>
-                <div class="w-12 h-12 bg-yellow-600 bg-opacity-20 rounded-full flex items-center justify-center group-hover:bg-opacity-40">
-                  <svg class="w-6 h-6 text-yellow-400 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-            </div>
+    <!-- 抗战编年 -->
+    <section class="home-section">
+      <div class="ui-section-head">
+        <h2 class="ui-section-title">抗战编年</h2>
+        <span class="ui-section-note">血火十四载 · 二十三个历史节点</span>
+      </div>
+
+      <div class="chronicle-grid">
+        <article
+          v-for="(node, index) in historicalNodes"
+          :key="index"
+          class="chronicle-card"
+          @click="openImagePreview(node.image)"
+        >
+          <div class="chronicle-media">
+            <img
+              :src="node.image"
+              :alt="node.event"
+              loading="lazy"
+              @error="$event.target.style.display = 'none'"
+            />
           </div>
-        </div>
+          <div class="chronicle-body">
+            <span class="chronicle-date">{{ node.date }}</span>
+            <h3>{{ node.event }}</h3>
+            <p>{{ node.desc }}</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- 英雄人物 - 传统牌位样式 -->
-    <section class="py-20 bg-red-950">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-yellow-400 mb-6 font-serif">英烈千秋</h2>
-          <p class="text-xl text-red-100 max-w-3xl mx-auto font-serif whitespace-nowrap">
-            缅怀为民族独立和人民解放英勇牺牲的英雄先烈，他们的精神如星辰般永远照耀着中华大地。
-          </p>
-          <div class="w-32 h-1 bg-yellow-600 mx-auto mt-8 rounded-full"></div>
-        </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div 
-            v-for="(hero, index) in heroes" 
-            :key="index"
-            class="text-center cursor-pointer"
-            @click="openHeroDetail(hero)">
-            <div class="bg-red-800 border-4 border-yellow-600 rounded-lg p-6 mb-4 transform hover:scale-105 transition-transform">
-              <div class="w-20 h-20 mx-auto mb-4 bg-red-900 border-2 border-yellow-500 rounded-full overflow-hidden">
-                <img 
-                  :src="hero.avatar" 
-                  :alt="hero.name + '头像'"
-                  class="w-full h-full object-cover"
-                  @error="handleCardAvatarError"
-                />
-              </div>
-              <h3 class="text-xl font-bold text-yellow-400 mb-2 font-serif">{{ hero.name }}</h3>
-              <p class="text-red-200 text-sm font-serif">{{ hero.title }}</p>
-              <div class="mt-2">
-                <span 
-                  :class="hero.party === '共产党' ? 'bg-red-600' : 'bg-blue-600'"
-                  class="text-xs text-white px-2 py-1 rounded-full"
-                >
-                  {{ hero.party }}
-                </span>
-              </div>
-            </div>
+    <!-- 展览殿堂 -->
+    <section class="home-section">
+      <div class="ui-section-head">
+        <h2 class="ui-section-title">展览殿堂</h2>
+        <span class="ui-section-note">四大展厅 · 分类陈列</span>
+      </div>
+
+      <div class="exhibit-grid">
+        <article
+          v-for="exhibition in exhibitions"
+          :key="exhibition.id"
+          class="exhibit-card"
+          @click="navigateTo(exhibition.route)"
+        >
+          <div class="exhibit-media">
+            <img :src="exhibition.image" :alt="exhibition.title" loading="lazy" />
+            <span class="exhibit-year">{{ exhibition.year }}</span>
           </div>
-        </div>
+          <div class="exhibit-body">
+            <span class="exhibit-subtitle">{{ exhibition.subtitle }}</span>
+            <h3>{{ exhibition.title }}</h3>
+            <p>{{ exhibition.description }}</p>
+            <span class="exhibit-more">深入参观 →</span>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- 底部昭示 - 传统碑文样式 -->
-    <section class="py-20 bg-gradient-to-b from-red-950 to-red-900">
-      <div class="max-w-5xl mx-auto px-6 text-center">
-        <div class="bg-red-800 border-8 border-yellow-600 rounded-lg p-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-yellow-400 mb-8 font-serif leading-tight">
-            铭记历史，勿忘国耻
-            <br>
-            珍爱和平，振兴中华
-          </h2>
-          
-          <p class="text-2xl text-red-100 mb-8 leading-relaxed font-serif">
-            历史是最好的教科书，也是最好的清醒剂
-          </p>
-          
-          <!-- 重要引言 -->
-          <div class="bg-red-900 border-4 border-yellow-500 rounded-lg p-8 mb-8">
-            <blockquote class="text-xl text-yellow-300 font-serif italic leading-relaxed">
-              "一个有希望的民族不能没有英雄，<br>一个有前途的国家不能没有先锋。"
-            </blockquote>
-            <cite class="block mt-4 text-yellow-400 font-bold font-serif">——习近平</cite>
+    <!-- 英烈千秋 -->
+    <section class="home-section">
+      <div class="ui-section-head">
+        <h2 class="ui-section-title">英烈千秋</h2>
+        <span class="ui-section-note">点击卡片查看生平</span>
+      </div>
+
+      <div class="hero-grid">
+        <article
+          v-for="(hero, index) in heroes"
+          :key="index"
+          class="hero-card"
+          @click="openHeroDetail(hero)"
+        >
+          <div class="hero-avatar">
+            <img
+              :src="hero.avatar"
+              :alt="hero.name + '头像'"
+              loading="lazy"
+              @error="handleCardAvatarError"
+            />
           </div>
-          
-          <button 
-            @click="navigateTo('/war-exhibit')"
-            class="bg-yellow-600 hover:bg-yellow-500 text-red-900 px-20 py-6 rounded-lg text-2xl font-bold transition-all duration-300 transform hover:scale-105 border-4 border-red-700 font-serif">
-            开启历史征程
-          </button>
-        </div>
+          <h3>{{ hero.name }}</h3>
+          <p class="hero-title">{{ hero.title }}</p>
+          <span
+            class="hero-party"
+            :class="hero.party === '共产党' ? 'is-cpc' : 'is-kmt'"
+          >{{ hero.party }}</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 结语 -->
+    <section class="home-cta">
+      <div class="cta-inner">
+        <span class="cta-kicker">铭记历史 · 珍爱和平</span>
+        <h2>一个有希望的民族不能没有英雄<br />一个有前途的国家不能没有先锋</h2>
+        <p>历史是最好的教科书，也是最好的清醒剂。</p>
+        <button class="ui-btn ui-btn--ghost" @click="navigateTo('/war-exhibit')">
+          开启历史征程
+        </button>
       </div>
     </section>
 
     <!-- 图片预览模态框 -->
-    <div 
+    <div
       v-if="showImagePreview"
-      class="image-preview-modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+      class="modal-mask"
       @click="closeImagePreview"
     >
-      <div class="relative max-w-4xl max-h-screen p-4">
-        <!-- 关闭按钮 -->
-        <button 
-          @click="closeImagePreview"
-          class="absolute top-2 right-2 text-white bg-red-600 hover:bg-red-700 rounded-full w-10 h-10 flex items-center justify-center z-10 transition-colors"
-        >
-          ✕
-        </button>
-        
-        <!-- 预览图片 -->
-        <img 
-          :src="previewImage" 
-          alt="历史图片预览"
-          class="preview-image max-w-full max-h-full object-contain rounded-lg border-4 border-yellow-500"
-          @click.stop
-        />
+      <div class="preview-box" @click.stop>
+        <button class="modal-close" @click="closeImagePreview">✕</button>
+        <img :src="previewImage" alt="历史图片预览" />
+      </div>
+    </div>
+
+    <!-- 英雄详情模态框 -->
+    <div
+      v-if="showHeroDetail && selectedHero"
+      class="modal-mask"
+      @click="closeHeroDetail"
+    >
+      <div class="hero-modal" @click.stop>
+        <div class="hero-modal-head">
+          <div>
+            <span class="hero-party" :class="selectedHero.party === '共产党' ? 'is-cpc' : 'is-kmt'">
+              {{ selectedHero.party }}
+            </span>
+            <h3>{{ selectedHero.name }}</h3>
+            <p>{{ selectedHero.title }}</p>
+          </div>
+          <button class="modal-close" @click="closeHeroDetail">✕</button>
+        </div>
+
+        <div class="hero-modal-body">
+          <div class="hero-modal-avatar">
+            <img
+              :src="selectedHero.avatar"
+              :alt="selectedHero.name + '头像'"
+              @error="handleAvatarError"
+            />
+          </div>
+          <div class="hero-modal-text">
+            <h4>英雄简介</h4>
+            <p>{{ selectedHero.description }}</p>
+            <h4>详细事迹</h4>
+            <p>{{ selectedHero.details }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-    <!-- 英雄详情模态框 -->
-    <div 
-      v-if="showHeroDetail && selectedHero" 
-      class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
-      @click="closeHeroDetail"
-    >
-      <div 
-        class="bg-gradient-to-b from-red-900 to-red-800 border-4 border-yellow-500 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
-        @click.stop
-      >
-        <!-- 模态框头部 -->
-        <div class="bg-red-800 p-6 border-b-2 border-yellow-400">
-          <div class="flex justify-between items-center">
-            <h3 class="text-2xl font-bold text-yellow-400 font-serif">
-              {{ selectedHero.name }} - {{ selectedHero.title }}
-            </h3>
-            <button 
-              @click="closeHeroDetail"
-              class="w-10 h-10 bg-red-700 hover:bg-red-600 rounded-full flex items-center justify-center text-yellow-400 transition-colors"
-            >
-              ✕
-            </button>
-          </div>
-          <div class="mt-2">
-            <span 
-              :class="selectedHero.party === '共产党' ? 'bg-red-600' : 'bg-blue-600'"
-              class="text-sm text-white px-3 py-1 rounded-full"
-            >
-              {{ selectedHero.party }}
-            </span>
-          </div>
-        </div>
-        
-        <!-- 模态框内容 -->
-        <div class="p-6 overflow-y-auto max-h-[60vh]">
-          <div class="mb-6">
-            <h4 class="text-xl font-bold text-yellow-400 mb-3 font-serif">英雄简介</h4>
-            <p class="text-red-100 leading-relaxed font-serif text-lg">
-              {{ selectedHero.description }}
-            </p>
-          </div>
-          
-          <div class="mb-6">
-            <h4 class="text-xl font-bold text-yellow-400 mb-3 font-serif">详细事迹</h4>
-            <p class="text-red-100 leading-relaxed font-serif text-lg">
-              {{ selectedHero.details }}
-            </p>
-          </div>
-          
-          <!-- 英雄头像 -->
-          <div class="text-center mb-6">
-            <div class="w-32 h-32 mx-auto bg-red-700 border-4 border-yellow-500 rounded-full overflow-hidden flex items-center justify-center mb-4">
-              <img 
-                :src="selectedHero.avatar" 
-                :alt="selectedHero.name + '头像'"
-                class="w-full h-full object-cover"
-                @error="handleAvatarError"
-              />
-            </div>
-          </div>
-        </div>
-        
-        <!-- 模态框底部 -->
-        <div class="bg-red-800 p-4 border-t-2 border-yellow-400 text-center">
-          <p class="text-yellow-400 font-serif italic">
-            英雄不朽，精神永存
-          </p>
-        </div>
-      </div>
-    </div>
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&display=swap');
-
-/* 传统背景 */
-.bg-traditional {
-  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 25%, #dc2626 50%, #991b1b 75%, #7f1d1d 100%);
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding-bottom: 24px;
 }
 
-/* 传统纹理图案 */
-.traditional-pattern {
+/* ---------- 主视觉 ---------- */
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 26px 60px -48px rgba(84, 48, 28, 0.8);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(circle at 25px 25px, rgba(255, 193, 7, 0.1) 2px, transparent 2px),
-    radial-gradient(circle at 75px 75px, rgba(255, 193, 7, 0.1) 2px, transparent 2px);
-  background-size: 100px 100px;
+  object-fit: cover;
+  object-position: center 35%;
 }
 
-/* 传统印章效果 */
-.traditional-seal {
-  box-shadow: 
-    inset 0 0 20px rgba(0, 0, 0, 0.5),
-    0 10px 30px rgba(0, 0, 0, 0.3);
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(38, 22, 15, 0.88) 0%, rgba(48, 27, 18, 0.62) 45%, rgba(48, 27, 18, 0.12) 100%),
+    linear-gradient(0deg, rgba(38, 22, 15, 0.55) 0%, rgba(38, 22, 15, 0) 55%);
 }
 
-/* 传统文字阴影 */
-.traditional-text-shadow {
-  text-shadow: 
-    2px 2px 4px rgba(0, 0, 0, 0.8),
-    0 0 10px rgba(255, 193, 7, 0.3);
+.hero-body {
+  position: relative;
+  z-index: 1;
+  padding: 44px 48px 36px;
+  max-width: 640px;
+  color: #fdf4e6;
 }
 
-/* 传统按钮效果 */
-.traditional-button {
-  box-shadow: 
-    inset 0 2px 4px rgba(255, 193, 7, 0.2),
-    0 8px 16px rgba(0, 0, 0, 0.3);
+.hero-kicker {
+  display: inline-block;
+  padding: 4px 14px;
+  border: 1px solid rgba(253, 244, 230, 0.4);
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #f3e3c9;
 }
 
-.traditional-button:hover {
-  box-shadow: 
-    inset 0 2px 4px rgba(255, 193, 7, 0.4),
-    0 12px 24px rgba(0, 0, 0, 0.4);
+.hero-body h1 {
+  margin-top: 18px;
+  font-size: 44px;
+  line-height: 1.28;
+  letter-spacing: 0.06em;
+  color: #fff8ec;
 }
 
-/* 滚动显示动画 */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
+.hero-desc {
+  margin-top: 14px;
+  font-size: 15px;
+  color: rgba(255, 246, 233, 0.82);
+  letter-spacing: 0.04em;
 }
 
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
 }
 
-/* 传统字体 */
-.font-serif {
-  font-family: 'Noto Serif SC', serif;
+.hero-actions .ui-btn--ghost {
+  background: rgba(255, 250, 240, 0.12);
+  border-color: rgba(255, 250, 240, 0.45);
+  color: #fff8ec;
+}
+.hero-actions .ui-btn--ghost:hover {
+  background: rgba(255, 250, 240, 0.22);
+  border-color: rgba(255, 250, 240, 0.7);
+  color: #fff;
 }
 
-/* 传统悬浮效果 */
-.traditional-hover {
-  transition: all 0.3s ease;
+.hero-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 246, 233, 0.22);
 }
 
-.traditional-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+.hero-date span {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: #f6e4c8;
 }
 
-/* 传统边框 */
-.traditional-border {
-  border-image: linear-gradient(45deg, #dc2626, #fbbf24, #dc2626) 1;
+.hero-date small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 246, 233, 0.66);
 }
 
-/* 传统渐变 */
-.traditional-gradient {
-  background: linear-gradient(135deg, #7f1d1d, #dc2626, #fbbf24, #dc2626, #7f1d1d);
+/* ---------- 统计数据 ---------- */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--line);
 }
 
-/* 响应式调整 */
+.stat-cell {
+  padding: 22px 20px;
+  background: var(--card);
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--red-deep);
+  line-height: 1.2;
+}
+
+.stat-value span {
+  margin-left: 3px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.stat-label {
+  margin-top: 4px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+/* ---------- 区块 ---------- */
+.home-section {
+  padding-top: 2px;
+}
+
+/* ---------- 编年卡片 ---------- */
+.chronicle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.chronicle-card {
+  display: flex;
+  gap: 14px;
+  padding: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chronicle-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(167, 56, 42, 0.35);
+  box-shadow: 0 16px 30px -26px rgba(84, 48, 28, 0.7);
+}
+
+.chronicle-media {
+  flex: 0 0 104px;
+  height: 104px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--paper-deep);
+}
+
+.chronicle-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.02);
+}
+
+.chronicle-body {
+  min-width: 0;
+}
+
+.chronicle-date {
+  font-family: var(--font-serif);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--red);
+}
+
+.chronicle-body h3 {
+  margin-top: 4px;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.chronicle-body p {
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- 展厅 ---------- */
+.exhibit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.exhibit-card {
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.exhibit-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(167, 56, 42, 0.3);
+  box-shadow: 0 26px 44px -38px rgba(84, 48, 28, 0.85);
+}
+
+.exhibit-media {
+  position: relative;
+  height: 190px;
+  background: var(--paper-deep);
+}
+
+.exhibit-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.88);
+  transition: transform 0.4s ease;
+}
+
+.exhibit-card:hover .exhibit-media img {
+  transform: scale(1.03);
+}
+
+.exhibit-card:nth-child(4) .exhibit-media img {
+  object-fit: contain;
+  padding: 18px;
+}
+
+.exhibit-year {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 250, 240, 0.9);
+  color: var(--red-deep);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.exhibit-body {
+  padding: 18px 20px 20px;
+}
+
+.exhibit-subtitle {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+}
+
+.exhibit-body h3 {
+  margin-top: 4px;
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.exhibit-body p {
+  margin-top: 6px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+
+.exhibit-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--red);
+}
+
+/* ---------- 英雄卡片 ---------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hero-card {
+  padding: 22px 16px 18px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(167, 56, 42, 0.35);
+  box-shadow: 0 20px 36px -30px rgba(84, 48, 28, 0.8);
+}
+
+.hero-avatar {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 12px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--paper-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.15) saturate(0.9);
+}
+
+.hero-card h3 {
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.hero-title {
+  margin-top: 3px;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.hero-party {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.hero-party.is-cpc {
+  background: var(--red-soft);
+  color: var(--red-deep);
+}
+
+.hero-party.is-kmt {
+  background: var(--gold-soft);
+  color: #7a5a2e;
+}
+
+.avatar-fallback {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--red);
+}
+
+/* ---------- 结语 ---------- */
+.home-cta {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(167, 56, 42, 0.25);
+  background:
+    radial-gradient(80% 120% at 15% 0%, rgba(255, 240, 224, 0.16) 0%, transparent 55%),
+    linear-gradient(115deg, #8a2c21 0%, #a7382a 60%, #b24a33 100%);
+}
+
+.cta-inner {
+  padding: 40px 48px;
+  color: #fdf3e3;
+}
+
+.cta-kicker {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: rgba(253, 243, 227, 0.7);
+}
+
+.cta-inner h2 {
+  margin-top: 12px;
+  font-size: 26px;
+  line-height: 1.6;
+  color: #fff8ec;
+  letter-spacing: 0.05em;
+}
+
+.cta-inner p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(253, 243, 227, 0.78);
+}
+
+.cta-inner .ui-btn--ghost {
+  margin-top: 20px;
+  background: rgba(255, 248, 236, 0.12);
+  border-color: rgba(255, 248, 236, 0.5);
+  color: #fff8ec;
+}
+
+.cta-inner .ui-btn--ghost:hover {
+  background: rgba(255, 248, 236, 0.24);
+  color: #fff;
+}
+
+/* ---------- 模态框 ---------- */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(38, 24, 16, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.preview-box {
+  position: relative;
+  max-width: 900px;
+  max-height: 88vh;
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.preview-box img {
+  display: block;
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 252, 245, 0.92);
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+.modal-close:hover {
+  background: var(--red-soft);
+  color: var(--red-deep);
+}
+
+.hero-modal {
+  width: min(720px, 100%);
+  max-height: 86vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.hero-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--card-soft);
+}
+
+.hero-modal-head h3 {
+  margin-top: 6px;
+  font-size: 24px;
+  color: var(--red-deep);
+}
+
+.hero-modal-head p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.hero-modal-body {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.hero-modal-avatar {
+  flex: 0 0 150px;
+  width: 150px;
+  height: 190px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+
+.hero-modal-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-modal-text h4 {
+  margin-top: 14px;
+  font-size: 15px;
+  color: var(--red-deep);
+}
+
+.hero-modal-text h4:first-child {
+  margin-top: 0;
+}
+
+.hero-modal-text p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink-2);
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1100px) {
+  .chronicle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-body {
+    padding: 32px 30px 28px;
+  }
+  .hero-body h1 {
+    font-size: 34px;
+  }
+  .hero-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
-  .traditional-text-shadow {
-    font-size: 2.5rem;
+  .home-page {
+    gap: 26px;
   }
-  
-  .traditional-pattern {
-    background-size: 50px 50px;
+  .home-hero {
+    min-height: 380px;
   }
-}
-
-/* 传统滚动条 */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #7f1d1d;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #fbbf24, #dc2626);
-  border-radius: 6px;
-  border: 2px solid #7f1d1d;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #f59e0b, #b91c1c);
-}
-
-/* 传统动画 */
-@keyframes traditional-pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
+  .hero-body {
+    padding: 26px 20px 24px;
   }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
+  .hero-body h1 {
+    font-size: 27px;
   }
-}
-
-.traditional-pulse {
-  animation: traditional-pulse 3s ease-in-out infinite;
-}
-
-/* 历史图片样式 */
-.timeline-image {
-  transition: all 0.3s ease;
-}
-
-.timeline-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
-}
-
-/* 图片预览样式 */
-.image-preview-modal {
-  backdrop-filter: blur(8px);
-}
-
-.preview-image {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-/* 英雄详情模态框样式 */
-.hero-detail-modal {
-  backdrop-filter: blur(8px);
-}
-
-.hero-detail-content {
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
-  border-style: solid;
-  border-width: 4px;
-}
-
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .timeline-image {
+  .hero-dates {
+    gap: 20px;
+  }
+  .stat-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .chronicle-grid {
+    grid-template-columns: 1fr;
+  }
+  .exhibit-grid {
+    grid-template-columns: 1fr;
+  }
+  .exhibit-media {
+    height: 170px;
+  }
+  .cta-inner {
+    padding: 28px 22px;
+  }
+  .cta-inner h2 {
+    font-size: 20px;
+  }
+  .hero-modal-body {
+    flex-direction: column;
+  }
+  .hero-modal-avatar {
+    width: 120px;
     height: 120px;
-  }
-  
-  .image-preview-modal .relative {
-    max-width: 95vw;
-    padding: 8px;
-  }
-  
-  .preview-image {
-    border-width: 2px;
-  }
-  
-  /* 移动端时间线卡片调整 */
-  .space-y-16 > div {
-    margin-bottom: 2rem;
-  }
-  
-  /* 调整时间线节点在移动端的显示 */
-  .w-8 {
-    width: 1.5rem;
-    height: 1.5rem;
+    border-radius: 50%;
   }
 }
-
-#app, main {
-  background: #1A0E12 !important;
-  background-image: none !important;
-}
-
-section { background: transparent !important; }
-
-
-[class*="bg-red-"] {
-  background-color: #3A1620 !important;
-  background-image: none !important;
-}
-.bg-red-950, .bg-red-900, .bg-red-800 {
-  background-color: #1A0E12 !important;
-}
-[class*="from-red-"], [class*="via-red-"], [class*="to-red-"] {
-  --tw-gradient-from: #241016 !important;
-  --tw-gradient-to: #2A1218 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="bg-gradient"] {
-  background-image: linear-gradient(165deg, #241016 0%, #3A1620 60%, #2A1218 100%) !important;
-}
-
-[class*="from-purple-"], [class*="from-fuchsia-"], [class*="from-rose-"] {
-  --tw-gradient-from: #241016 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="via-purple-"], [class*="to-purple-"], [class*="to-fuchsia-"], [class*="to-rose-"] {
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-
-
-[class*="bg-white"], [class*="bg-opacity"], [class*="bg-black"] {
-  background-color: #451A24 !important;
-}
-[class*="border-red-"] { border-color: rgba(212,175,55,.25) !important; }
-[class*="border-4"] { border-width: 1px !important; }
-
-
-[class*="text-yellow-"], [class*="text-amber-"] { color: #EBC97A !important; }
-[class*="text-red-"] { color: #E8E3DA !important; }
-
 </style>

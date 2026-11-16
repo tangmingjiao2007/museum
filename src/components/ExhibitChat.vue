@@ -310,7 +310,7 @@ const handleKeyDown = (event) => {
     <div class="animate-fade-in">
       <button
         @click="goBack"
-        class="flex items-center px-3 py-1.5 bg-museum-primary/40 hover:bg-museum-primary/60 text-museum-light rounded-full border border-museum-gold/20 transition-all duration-300 shadow-lg backdrop-blur-sm hover:scale-105"
+        class="flex items-center px-3 py-1.5 bg-[#fdf7ec]/85 hover:bg-[#f6e2da] text-[#2e231a] rounded-full border border-[#e8d8c4] transition-all duration-300 shadow-lg backdrop-blur-sm hover:scale-105"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -334,26 +334,26 @@ const handleKeyDown = (event) => {
     <div class="mt-5 grid grid-cols-1 lg:grid-cols-2 gap-10">
       <!-- 3D模型展示区 -->
       <div
-        class="relative backdrop-blur-lg bg-museum-primary/20 rounded-2xl overflow-hidden border border-museum-gold/20 shadow-2xl h-[500px] animate-slide-up"
+        class="relative backdrop-blur-lg bg-white/85 rounded-2xl overflow-hidden border border-[#e8d8c4] shadow-2xl h-[500px] animate-slide-up"
       >
         <!-- 展品标题 -->
         <div
-          class="absolute top-0 left-0 right-0 z-10 backdrop-blur-md bg-museum-primary/40 p-4 border-b border-museum-gold/20 animate-fade-in"
+          class="absolute top-0 left-0 right-0 z-10 backdrop-blur-md bg-[#fdf7ec]/85 p-4 border-b border-[#e8d8c4] animate-fade-in"
         >
-          <h2 class="text-2xl font-bold text-museum-light animate-content">
+          <h2 class="text-2xl font-bold text-[#2e231a] animate-content">
             {{ exhibitData.title }}
           </h2>
           <div class="flex space-x-2 mt-1 animate-content animation-delay-100">
             <span
-              class="text-xs px-2 py-0.5 rounded-full bg-museum-gold/80 text-museum-primary transform transition-all duration-300 hover:scale-110 hover:bg-museum-gold"
+              class="text-xs px-2 py-0.5 rounded-full bg-[#b9945e] text-white transform transition-all duration-300 hover:scale-110 hover:bg-museum-gold"
               >{{ exhibitData.dynasty }}</span
             >
             <span
-              class="text-xs px-2 py-0.5 rounded-full bg-museum-copper/80 text-white transform transition-all duration-300 hover:scale-110 hover:bg-museum-copper"
+              class="text-xs px-2 py-0.5 rounded-full bg-[#a7382a] text-white transform transition-all duration-300 hover:scale-110 hover:bg-museum-copper"
               >{{ exhibitData.category }}</span
             >
             <span
-              class="text-xs px-2 py-0.5 rounded-full bg-blue-500/80 text-white transform transition-all duration-300 hover:scale-110 hover:bg-blue-500"
+              class="text-xs px-2 py-0.5 rounded-full bg-[#b9945e] text-white transform transition-all duration-300 hover:scale-110 hover:bg-blue-500"
               >基础问答</span
             >
           </div>
@@ -396,7 +396,7 @@ const handleKeyDown = (event) => {
             class="max-w-full max-h-64 mb-4 rounded-lg shadow-lg"
           />
           <p
-            class="text-museum-light/80 bg-museum-terra/20 backdrop-blur-sm px-4 py-2 rounded-full"
+            class="text-[#5a4738] bg-[#f6e2da] backdrop-blur-sm px-4 py-2 rounded-full"
           >
             3D模型加载失败
           </p>
@@ -408,26 +408,26 @@ const handleKeyDown = (event) => {
           class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 backdrop-blur-sm animate-pulse-subtle"
         >
           <div
-            class="w-16 h-16 border-4 border-museum-gold/30 border-t-museum-gold rounded-full animate-spin mb-4 shadow-glow-gold"
+            class="w-16 h-16 border-4 border-[#e8d8c4] border-t-[#a7382a] rounded-full animate-spin mb-4 shadow-glow-gold"
           ></div>
-          <p class="text-museum-light/80">正在加载3D模型...</p>
+          <p class="text-[#5a4738]">正在加载3D模型...</p>
         </div>
       </div>
 
       <!-- 对话区域 -->
       <div
-        class="backdrop-blur-lg bg-museum-primary/20 rounded-2xl border border-museum-gold/20 shadow-2xl flex flex-col h-[500px] animate-slide-up animation-delay-200"
+        class="backdrop-blur-lg bg-white/85 rounded-2xl border border-[#e8d8c4] shadow-2xl flex flex-col h-[500px] animate-slide-up animation-delay-200"
       >
         <!-- 对话标题 -->
         <div
-          class="p-4 border-b border-museum-gold/20 backdrop-blur-md bg-museum-primary/40 animate-fade-in"
+          class="p-4 border-b border-[#e8d8c4] backdrop-blur-md bg-[#fdf7ec]/85 animate-fade-in"
         >
           <h3
-            class="text-xl font-bold text-museum-light flex items-center animate-content"
+            class="text-xl font-bold text-[#2e231a] flex items-center animate-content"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 mr-2 text-museum-gold"
+              class="h-5 w-5 mr-2 text-[#a7382a]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -460,11 +460,11 @@ const handleKeyDown = (event) => {
               class="flex items-start justify-start"
             >
               <div
-                class="w-8 h-8 rounded-full bg-museum-gold/80 flex items-center justify-center mr-2 flex-shrink-0 shadow-glow-gold"
+                class="w-8 h-8 rounded-full bg-[#a7382a] flex items-center justify-center mr-2 flex-shrink-0 shadow-glow-gold"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-museum-primary"
+                  class="h-5 w-5 text-white"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -479,15 +479,15 @@ const handleKeyDown = (event) => {
               </div>
               <div class="max-w-[80%]">
                 <div
-                  class="bg-museum-primary/40 backdrop-blur-sm p-3 rounded-lg rounded-tl-none text-museum-light text-left shadow-md hover:bg-museum-primary/60 transition-all duration-300"
+                  class="bg-[#fdf7ec]/85 backdrop-blur-sm p-3 rounded-lg rounded-tl-none text-[#2e231a] text-left shadow-md hover:bg-[#f6e2da] transition-all duration-300"
                 >
                   {{ message.text }}
                   <span
                     v-if="message.isTyping"
-                    class="inline-block w-1.5 h-4 bg-museum-light/70 ml-0.5 animate-pulse"
+                    class="inline-block w-1.5 h-4 bg-[#8b7768] ml-0.5 animate-pulse"
                   ></span>
                 </div>
-                <div class="text-xs text-museum-light/50 mt-1 text-left">
+                <div class="text-xs text-[#8b7768] mt-1 text-left">
                   {{ message.time }}
                 </div>
               </div>
@@ -497,16 +497,16 @@ const handleKeyDown = (event) => {
             <div v-else class="flex items-start justify-end">
               <div class="max-w-[80%]">
                 <div
-                  class="bg-museum-gold/20 backdrop-blur-sm p-3 rounded-lg rounded-tr-none text-museum-light shadow-md hover:bg-museum-gold/30 transition-all duration-300"
+                  class="bg-[#f6e2da] backdrop-blur-sm p-3 rounded-lg rounded-tr-none text-[#2e231a] shadow-md hover:bg-[#f1e4cd] transition-all duration-300"
                 >
                   {{ message.text }}
                 </div>
-                <div class="text-xs text-museum-light/50 mt-1 text-right">
+                <div class="text-xs text-[#8b7768] mt-1 text-right">
                   {{ message.time }}
                 </div>
               </div>
               <div
-                class="w-8 h-8 rounded-full bg-museum-copper/80 flex items-center justify-center ml-2 flex-shrink-0 shadow-glow-copper"
+                class="w-8 h-8 rounded-full bg-[#a7382a] flex items-center justify-center ml-2 flex-shrink-0 shadow-glow-copper"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -529,11 +529,11 @@ const handleKeyDown = (event) => {
           <!-- 正在输入提示 -->
           <div v-if="isTyping" class="flex items-start mb-4 animate-fade-in">
             <div
-              class="w-8 h-8 rounded-full bg-museum-gold/80 flex items-center justify-center mr-2 flex-shrink-0 shadow-glow-gold"
+              class="w-8 h-8 rounded-full bg-[#a7382a] flex items-center justify-center mr-2 flex-shrink-0 shadow-glow-gold"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-museum-primary"
+                class="h-5 w-5 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -547,18 +547,18 @@ const handleKeyDown = (event) => {
               </svg>
             </div>
             <div
-              class="bg-museum-primary/40 backdrop-blur-sm p-3 rounded-lg rounded-tl-none text-museum-light shadow-md"
+              class="bg-[#fdf7ec]/85 backdrop-blur-sm p-3 rounded-lg rounded-tl-none text-[#2e231a] shadow-md"
             >
               <div class="flex space-x-1">
                 <div
-                  class="w-2 h-2 bg-museum-light/70 rounded-full animate-bounce"
+                  class="w-2 h-2 bg-[#8b7768] rounded-full animate-bounce"
                 ></div>
                 <div
-                  class="w-2 h-2 bg-museum-light/70 rounded-full animate-bounce"
+                  class="w-2 h-2 bg-[#8b7768] rounded-full animate-bounce"
                   style="animation-delay: 0.2s"
                 ></div>
                 <div
-                  class="w-2 h-2 bg-museum-light/70 rounded-full animate-bounce"
+                  class="w-2 h-2 bg-[#8b7768] rounded-full animate-bounce"
                   style="animation-delay: 0.4s"
                 ></div>
               </div>
@@ -568,19 +568,19 @@ const handleKeyDown = (event) => {
 
         <!-- 输入区域 -->
         <div
-          class="p-4 border-t border-museum-gold/20 backdrop-blur-md bg-museum-primary/40 animate-slide-up animation-delay-300"
+          class="p-4 border-t border-[#e8d8c4] backdrop-blur-md bg-[#fdf7ec]/85 animate-slide-up animation-delay-300"
         >
           <div class="flex">
             <textarea
               v-model="userMessage"
               @keydown="handleKeyDown"
-              class="flex-grow bg-museum-primary/40 backdrop-blur-sm text-museum-light border border-museum-gold/30 rounded-l-lg p-2 focus:outline-none focus:border-museum-gold/60 focus:shadow-glow-gold resize-none transition-all duration-300"
+              class="flex-grow bg-[#fdf7ec]/85 backdrop-blur-sm text-[#2e231a] border border-[#e8d8c4] rounded-l-lg p-2 focus:outline-none focus:border-[#a7382a] focus:shadow-glow-gold resize-none transition-all duration-300"
               placeholder="输入您的问题..."
               rows="2"
             ></textarea>
             <button
               @click="sendMessage"
-              class="bg-museum-gold hover:bg-museum-gold/80 text-museum-primary font-bold px-4 rounded-r-lg transition-all duration-300 hover:shadow-glow-gold hover:scale-105"
+              class="bg-[#a7382a] hover:bg-[#8a2c21] text-white font-bold px-4 rounded-r-lg transition-all duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -609,9 +609,9 @@ const handleKeyDown = (event) => {
     class="h-[500px] flex flex-col items-center justify-center animate-pulse-subtle"
   >
     <div
-      class="w-16 h-16 border-4 border-museum-gold/30 border-t-museum-gold rounded-full animate-spin mb-4 shadow-glow-gold"
+      class="w-16 h-16 border-4 border-[#e8d8c4] border-t-[#a7382a] rounded-full animate-spin mb-4 shadow-glow-gold"
     ></div>
-    <p class="text-museum-light/80">加载中...</p>
+    <p class="text-[#5a4738]">加载中...</p>
   </div>
 </template>
 
@@ -768,16 +768,10 @@ const handleKeyDown = (event) => {
   animation-delay: 0.3s;
 }
 
-/* 发光效果 */
-.shadow-glow-gold {
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
-
-.shadow-glow-green {
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
-}
-
+/* 发光效果已移除，保持纸面质感 */
+.shadow-glow-gold,
+.shadow-glow-green,
 .shadow-glow-copper {
-  box-shadow: 0 0 10px rgba(162, 123, 92, 0.5);
+  box-shadow: none;
 }
 </style>

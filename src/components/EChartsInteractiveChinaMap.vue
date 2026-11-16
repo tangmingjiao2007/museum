@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="echarts-china-map">
     <!-- 历史背景装饰 -->
     <div class="historical-background">
@@ -26,15 +26,11 @@
     <!-- 地图标题 -->
     <div class="map-header">
       <h1 class="map-title">
-        <span class="title-decoration">⚔️</span>
         <span class="title-text">中国抗战历史地图</span>
-        <span class="title-decoration">🇨🇳</span>
       </h1>
       <p class="map-subtitle">
-        <span class="subtitle-icon">🏛️</span>
         点击各省份查看详细的抗战历史
         <span class="subtitle-divider">|</span>
-        <span class="subtitle-icon">🔍</span>
         支持缩放和拖拽操作
       </p>
       <div class="historical-quote">
@@ -230,15 +226,15 @@ const createMap = async () => {
 
       // 根据控制状态设置颜色
       const colors = [
-        '#22c55e',
-        '#8b5cf6',
-        '#eab308',
-        '#f97316',
-        '#ef4444',
-        '#dc2626'
+        '#6f8f79',
+        '#8a7a9b',
+        '#c9a961',
+        '#c9824a',
+        '#bf5a4a',
+        '#9c3327'
       ]
       const itemStyle = {
-        areaColor: colors[value] || '#e5e7eb'
+        areaColor: colors[value] || '#e8d8c4'
       }
 
       // 找到对应的省份详细信息
@@ -285,12 +281,12 @@ const createMap = async () => {
                 ${selectedYear.value}年控制状态:
                 <span style="color: ${statusColor}; font-weight: 500;">${controlStatus}</span>
               </p>
-              <p style="margin: 0; color: #10b981; font-size: 13px; font-weight: 500;">🖱️ 点击查看详细抗战历史</p>
+              <p style="margin: 0; color: #a7382a; font-size: 13px; font-weight: 500;">点击查看详细抗战历史</p>
             </div>
           `
         },
         backgroundColor: 'rgba(255, 255, 255, 0.95)',
-        borderColor: '#e5e7eb',
+        borderColor: '#e8d8c4',
         borderWidth: 1,
         textStyle: {
           color: '#374151'
@@ -305,12 +301,12 @@ const createMap = async () => {
         calculable: false,
         inRange: {
           color: [
-            '#22c55e',
-            '#8b5cf6',
-            '#eab308',
-            '#f97316',
-            '#ef4444',
-            '#dc2626'
+            '#6f8f79',
+            '#8a7a9b',
+            '#c9a961',
+            '#c9824a',
+            '#bf5a4a',
+            '#9c3327'
           ]
         },
         textStyle: {
@@ -422,7 +418,7 @@ const createMap = async () => {
     // 显示错误信息
     const container = document.getElementById('china-map')
     container.innerHTML = `
-      <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #ef4444; font-size: 18px;">
+      <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #bf5a4a; font-size: 18px;">
         地图加载失败，请刷新页面重试
       </div>
     `
@@ -511,17 +507,17 @@ const getControlValue = status => {
 const getControlColor = status => {
   switch (status) {
     case '日占区':
-      return '#dc2626' // 深红色 - 日军直接占领
+      return '#9c3327' // 深红色 - 日军直接占领
     case '伪政权':
-      return '#ef4444' // 红色 - 傀儡政权
+      return '#bf5a4a' // 红色 - 傀儡政权
     case '争夺区':
-      return '#f97316' // 橙色 - 双方争夺
+      return '#c9824a' // 橙色 - 双方争夺
     case '游击区':
-      return '#eab308' // 黄色 - 游击根据地
+      return '#c9a961' // 黄色 - 游击根据地
     case '租界':
-      return '#8b5cf6' // 紫色 - 外国租界
+      return '#8a7a9b' // 紫色 - 外国租界
     case '中方控制':
-      return '#22c55e' // 绿色 - 中方控制
+      return '#6f8f79' // 绿色 - 中方控制
     default:
       return '#94a3b8' // 灰色 - 未知状态
   }
@@ -646,15 +642,15 @@ const updateMapByYear = () => {
 
     // 根据控制状态设置颜色
     const colors = [
-      '#22c55e',
-      '#8b5cf6',
-      '#eab308',
-      '#f97316',
-      '#ef4444',
-      '#dc2626'
+      '#6f8f79',
+      '#8a7a9b',
+      '#c9a961',
+      '#c9824a',
+      '#bf5a4a',
+      '#9c3327'
     ]
     const itemStyle = {
-      areaColor: colors[value] || '#e5e7eb'
+      areaColor: colors[value] || '#e8d8c4'
     }
 
     // 找到对应的省份详细信息
@@ -689,7 +685,7 @@ const updateMapByYear = () => {
     top: 'bottom',
     text: ['日占区', '中方控制'],
     inRange: {
-      color: ['#22c55e', '#8b5cf6', '#eab308', '#f97316', '#ef4444', '#dc2626']
+      color: ['#6f8f79', '#8a7a9b', '#c9a961', '#c9824a', '#bf5a4a', '#9c3327']
     },
     textStyle: {
       color: '#374151'
@@ -702,337 +698,120 @@ const updateMapByYear = () => {
 </script>
 
 <style scoped>
+/* ===== 中国抗战历史地图 ===== */
 .echarts-china-map {
-  max-width: 1600px;
+  position: relative;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
-  background: linear-gradient(
-    135deg,
-    #7f1d1d 0%,
-    #991b1b 25%,
-    #dc2626 50%,
-    #991b1b 75%,
-    #7f1d1d 100%
-  );
-  border-radius: 12px;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+  padding: 0 0 24px;
+  color: #2e231a;
 }
 
-/* 历史背景装饰 */
+/* 装饰层全部收起，保留干净纸面 */
 .historical-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
-.background-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(
-      circle at 20% 50%,
-      rgba(251, 191, 36, 0.15) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(220, 38, 38, 0.2) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 80%,
-      rgba(185, 28, 28, 0.15) 0%,
-      transparent 50%
-    ),
-    linear-gradient(
-      45deg,
-      transparent 40%,
-      rgba(251, 191, 36, 0.03) 50%,
-      transparent 60%
-    );
-  background-size: 800px 800px, 600px 600px, 700px 700px, 200px 200px;
-  animation: backgroundShift 30s ease-in-out infinite;
-}
-
-@keyframes backgroundShift {
-  0%,
-  100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(-20px, -10px) rotate(1deg);
-  }
-  50% {
-    transform: translate(10px, -20px) rotate(-1deg);
-  }
-  75% {
-    transform: translate(-10px, 10px) rotate(0.5deg);
-  }
-}
-
-/* 浮动历史元素 */
-.floating-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.floating-element {
-  position: absolute;
-  font-size: 24px;
-  opacity: 0.4;
-  animation: float 8s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.4));
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.3;
-  }
-  25% {
-    transform: translateY(-20px) rotate(5deg);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translateY(-10px) rotate(-3deg);
-    opacity: 0.4;
-  }
-  75% {
-    transform: translateY(-15px) rotate(2deg);
-    opacity: 0.6;
-  }
-}
-
-/* 战争云朵效果 */
-.war-clouds {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 30%;
-}
-
-.cloud {
-  position: absolute;
-  width: 100px;
-  height: 40px;
-  background: rgba(127, 29, 29, 0.15);
-  border-radius: 40px;
-  animation: cloudMove 20s linear infinite;
-}
-
-.cloud::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-  background: rgba(127, 29, 29, 0.12);
-  border-radius: 50%;
-}
-
-.cloud::after {
-  content: '';
-  position: absolute;
-  top: -10px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  background: rgba(127, 29, 29, 0.08);
-  border-radius: 50%;
-}
-
-@keyframes cloudMove {
-  0% {
-    transform: translateX(-100px);
-  }
-  100% {
-    transform: translateX(calc(100vw + 100px));
-  }
-}
-
+/* ---------- 页头 ---------- */
 .map-header {
-  text-align: center;
-  margin-bottom: 30px;
   position: relative;
-  z-index: 10;
-  background: linear-gradient(145deg, rgba(127, 29, 29, 0.8), rgba(153, 27, 27, 0.6));
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 30px;
-  border: 3px solid #fbbf24;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(251, 191, 36, 0.1);
+  z-index: 2;
+  padding: 26px 28px 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #e8d8c4;
+  border-radius: 20px;
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(249, 229, 221, 0.85) 0%, rgba(249, 229, 221, 0) 60%),
+    #fffcf5;
 }
 
 .map-title {
-  font-size: 36px;
-  font-weight: bold;
-  color: #fef2f2;
-  margin-bottom: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  animation: titleGlow 3s ease-in-out infinite alternate;
-  font-family: 'Noto Serif SC', serif;
-}
-
-.title-decoration {
-  display: inline-block;
-  animation: decorationPulse 2s ease-in-out infinite;
-  margin: 0 15px;
-}
-
-.title-text {
-  background: linear-gradient(45deg, #fbbf24, #dc2626, #fbbf24);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 4s ease infinite;
-}
-
-@keyframes titleGlow {
-  0% {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), 0 0 20px rgba(251, 191, 36, 0.4);
-  }
-  100% {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), 0 0 30px rgba(251, 191, 36, 0.7);
-  }
-}
-
-@keyframes decorationPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.map-subtitle {
-  font-size: 16px;
-  color: #fef2f2;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  font-family: 'Noto Serif SC', serif;
-}
-
-.subtitle-icon {
-  color: #fbbf24;
-  margin: 0 8px;
-  animation: iconBounce 2s ease-in-out infinite;
-}
-
-.subtitle-divider {
-  color: #94a3b8;
-  margin: 0 10px;
-}
-
-@keyframes iconBounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-
-.historical-quote {
-  font-size: 18px;
-  color: #fbbf24;
-  font-style: italic;
-  margin-top: 20px;
-  padding: 15px;
-  background: rgba(127, 29, 29, 0.3);
-  border-radius: 8px;
-  border-left: 4px solid #fbbf24;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  animation: quoteGlow 4s ease-in-out infinite alternate;
-  font-family: 'Noto Serif SC', serif;
-}
-
-.quote-mark {
-  font-size: 24px;
-  font-weight: bold;
-  color: #dc2626;
-}
-
-@keyframes quoteGlow {
-  0% {
-    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
-  }
-  100% {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
-  }
-}
-
-.year-selector {
-  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
+  font-size: 30px;
+  letter-spacing: 0.12em;
+  color: #8a2c21;
+}
+
+.title-decoration {
+  display: none;
+}
+
+.title-text {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: #8a2c21;
+}
+
+.map-subtitle {
+  margin-top: 8px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #8b7768;
+}
+
+.subtitle-icon {
+  color: #b9945e;
+  margin: 0 6px;
+}
+
+.subtitle-divider {
+  color: #d9c8b4;
+  margin: 0 8px;
+}
+
+.historical-quote {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 9px 20px;
+  border-left: 2px solid #a7382a;
+  border-radius: 0 10px 10px 0;
+  background: #fdf7ec;
+  color: #5a4738;
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+}
+
+.quote-mark {
+  color: #b9945e;
+  font-family: var(--font-serif);
+}
+
+.year-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 .year-label {
-  font-size: 16px;
-  font-weight: 500;
-  color: #fbbf24;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  font-family: 'Noto Serif SC', serif;
+  font-size: 13.5px;
+  color: #5a4738;
 }
 
 .year-select {
-  padding: 10px 20px;
-  border: 2px solid #fbbf24;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #7f1d1d;
-  background: rgba(254, 242, 242, 0.95);
+  padding: 8px 16px;
+  border: 1px solid #e8d8c4;
+  border-radius: 10px;
+  background: #fffdf8;
+  color: #2e231a;
+  font-size: 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
-  font-family: 'Noto Serif SC', serif;
 }
 
 .year-select:hover {
-  border-color: #ff6b6b;
-  background: rgba(255, 255, 255, 1);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+  border-color: rgba(167, 56, 42, 0.45);
 }
 
 .year-select:focus {
   outline: none;
-  border-color: #ff6b6b;
-  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+  border-color: #a7382a;
+  box-shadow: 0 0 0 3px rgba(167, 56, 42, 0.12);
 }
 
 .year-info {
@@ -1042,724 +821,268 @@ const updateMapByYear = () => {
 }
 
 .current-year {
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #ff6b6b, #ffd700);
-  color: #1a1a2e;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  text-shadow: none;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-  animation: yearPulse 2s ease-in-out infinite;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #a7382a;
+  color: #fff8ee;
+  font-size: 13px;
+  letter-spacing: 0.04em;
 }
 
-@keyframes yearPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-.map-title {
-  font-size: 32px;
-  font-weight: bold;
-  color: #1e293b;
-  margin-bottom: 10px;
-}
-
-.map-subtitle {
-  font-size: 16px;
-  color: #64748b;
-}
-
+/* ---------- 地图 ---------- */
 .map-container {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  margin-bottom: 30px;
-  overflow: hidden;
   position: relative;
-  z-index: 5;
-  border: 2px solid rgba(255, 215, 0, 0.3);
-  animation: containerGlow 4s ease-in-out infinite alternate;
-}
-
-@keyframes containerGlow {
-  0% {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
-    border-color: rgba(255, 215, 0, 0.3);
-  }
-  100% {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.4);
-    border-color: rgba(255, 215, 0, 0.5);
-  }
+  z-index: 1;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 1px solid #e8d8c4;
+  border-radius: 18px;
+  background: #fffdf8;
+  box-shadow: 0 20px 44px -40px rgba(84, 48, 28, 0.65);
 }
 
 .china-map-echarts {
   width: 100%;
-  height: 800px;
-  min-height: 700px;
+  height: 680px;
+  min-height: 560px;
 }
 
+/* ---------- 图例 ---------- */
 .map-legend {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
-  z-index: 5;
+  z-index: 1;
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  border: 1px solid #e8d8c4;
+  border-radius: 16px;
+  background: #fffcf5;
 }
 
 .legend-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ffd700;
-  margin-bottom: 20px;
-  text-align: center;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 12px;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: #8a2c21;
 }
 
 .legend-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
+  gap: 10px 22px;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  color: #ffffff;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.legend-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  gap: 8px;
+  color: #5a4738;
+  font-size: 13px;
 }
 
 .legend-color {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  animation: colorPulse 3s ease-in-out infinite;
-}
-
-@keyframes colorPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(46, 35, 26, 0.08);
 }
 
 .legend-color.japanese-occupied {
-  background: #ef4444;
+  background: #9c3327;
 }
 .legend-color.puppet-regime {
-  background: #f97316;
+  background: #bf5a4a;
 }
 .legend-color.contested {
-  background: #eab308;
+  background: #c9824a;
 }
 .legend-color.guerrilla {
-  background: #22c55e;
+  background: #c9a961;
 }
 .legend-color.rental-area {
-  background: #8b5cf6;
+  background: #8a7a9b;
 }
 .legend-color.chinese-control {
-  background: #3b82f6;
+  background: #6f8f79;
 }
 
+/* ---------- 省份面板 ---------- */
 .province-info-panel {
   position: fixed;
   top: 50%;
-  right: 20px;
+  right: 24px;
   transform: translateY(-50%);
-  width: 300px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+  z-index: 60;
+  width: 320px;
+  overflow: hidden;
+  border: 1px solid #e8d8c4;
+  border-radius: 16px;
+  background: #fffcf5;
+  box-shadow: 0 26px 60px -40px rgba(38, 24, 16, 0.85);
 }
 
 .panel-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #e5e7eb;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e8d8c4;
+  background: #fdf7ec;
 }
 
 .panel-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #1e293b;
+  font-size: 18px;
+  color: #8a2c21;
 }
 
 .close-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #64748b;
-  cursor: pointer;
+  width: 28px;
+  height: 28px;
   padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid #e8d8c4;
   border-radius: 50%;
-  transition: all 0.2s;
+  background: #fffdf8;
+  color: #5a4738;
+  font-size: 18px;
+  line-height: 1;
 }
 
 .close-btn:hover {
-  background: #f1f5f9;
-  color: #1e293b;
+  background: #f6e2da;
+  color: #8a2c21;
 }
 
 .panel-content {
-  padding: 20px;
+  padding: 18px 20px 20px;
 }
 
 .province-status {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .status-badge {
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  color: white;
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #fff8ee;
 }
 
 .status-occupied {
-  background: #ef4444;
+  background: #a7382a;
 }
 .status-battlefield {
-  background: #f59e0b;
+  background: #b9945e;
 }
 .status-base {
-  background: #10b981;
+  background: #7c8b5a;
 }
 .status-rear {
-  background: #3b82f6;
+  background: #5f7f9e;
 }
 .status-default {
-  background: #6b7280;
+  background: #8b7768;
 }
 
 .province-summary {
-  color: #374151;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  font-size: 14px;
+  margin-bottom: 16px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: #4a392b;
 }
 
 .panel-actions {
-  text-align: center;
+  display: flex;
 }
 
 .detail-btn {
-  background: #3b82f6;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  width: 100%;
+  padding: 9px 0;
+  border: 1px solid #a7382a;
+  border-radius: 999px;
+  background: #a7382a;
+  color: #fff8ee;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
 }
 
 .detail-btn:hover {
-  background: #2563eb;
-  transform: translateY(-1px);
+  background: #8a2c21;
+  border-color: #8a2c21;
 }
 
+/* ---------- 统计 ---------- */
 .statistics-panel {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
-  z-index: 5;
+  z-index: 1;
+  padding: 20px 22px;
+  border: 1px solid #e8d8c4;
+  border-radius: 16px;
+  background: #fffcf5;
 }
 
 .stats-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ffd700;
-  margin-bottom: 20px;
-  text-align: center;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 14px;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: #8a2c21;
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .stat-item {
+  padding: 14px 12px;
   text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #efe2d1;
   border-radius: 12px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  animation: statGlow 3s ease-in-out infinite alternate;
-}
-
-.stat-item:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
-}
-
-@keyframes statGlow {
-  0% {
-    border-color: rgba(255, 215, 0, 0.3);
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
-  }
-  100% {
-    border-color: rgba(255, 215, 0, 0.6);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
-  }
+  background: #fdf7ec;
 }
 
 .stat-number {
-  font-size: 28px;
-  font-weight: bold;
-  color: #ffd700;
-  margin-bottom: 8px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  animation: numberPulse 2s ease-in-out infinite;
-}
-
-@keyframes numberPulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: #a7382a;
+  line-height: 1.3;
 }
 
 .stat-label {
-  color: #e2e8f0;
-  font-size: 14px;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-top: 2px;
+  font-size: 12px;
+  color: #8b7768;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-  .echarts-china-map {
-    padding: 15px;
-  }
-
-  .map-title {
-    font-size: 24px;
-  }
-
+/* ---------- 响应式 ---------- */
+@media (max-width: 1100px) {
   .china-map-echarts {
-    height: 600px;
-    min-height: 500px;
+    height: 580px;
   }
+}
 
-  .province-info-panel {
-    position: fixed;
-    top: auto;
-    bottom: 20px;
-    right: 20px;
-    left: 20px;
-    width: auto;
-    transform: none;
+@media (max-width: 768px) {
+  .map-header {
+    padding: 20px 16px;
   }
-
-  .legend-items {
-    justify-content: center;
+  .map-title {
+    font-size: 22px;
   }
-
+  .china-map-echarts {
+    height: 480px;
+    min-height: 400px;
+  }
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-.china-map-page, .map-container, .map-header {
-  background: transparent !important;
-}
-.map-header h1, .map-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.1em;
-}
-[class*="bg-red-"] { background-color: #3A1620 !important; }
-[class*="from-red-"] {
-  --tw-gradient-from: #241016 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="to-red-"] {
-  --tw-gradient-to: #2A1218 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-[class*="text-red-"] { color: #E8E3DA !important; }
-[class*="text-yellow-"] { color: #D4AF37 !important; }
-[class*="border-yellow-"] { border-color: rgba(212,175,55,.4) !important; border-width: 1px !important; }
-[class*="border-4"] { border-width: 1px !important; }
-button {
-  background: #451A24 !important;
-  color: #E8E3DA !important;
-  border: 1px solid rgba(212,175,55,.3) !important;
-}
-.echarts-china-map {
-  background: transparent !important;
-  color: #E8E3DA !important;
-}
-
-/* 顶部标题 */
-.map-title, .china-map-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.12em;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
-}
-.map-subtitle {
-  color: #9AA5AC !important;
-}
-.historical-quote, .quote-text {
-  color: #E8E3DA !important;
-  background: rgba(212, 175, 55, 0.06) !important;
-  border-left: 2px solid #D4AF37 !important;
-}
-
-/* 年份选择器 */
-.year-select, select {
-  background: #3A1620 !important;
-  color: #E8E3DA !important;
-  border: 1px solid rgba(212, 175, 55, 0.3) !important;
-  border-radius: 8px;
-}
-.control-btn, .year-btn {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  color: #E8E3DA !important;
-  border: 1px solid rgba(212, 175, 55, 0.35) !important;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-.control-btn:hover {
-  background: rgba(212, 175, 55, 0.12) !important;
-  color: #D4AF37 !important;
-  border-color: #D4AF37 !important;
-}
-
-/* 地图容器 */
-.china-map-echarts, .map-container {
-  background: #241016 !important;
-  border: 1px solid rgba(212, 175, 55, 0.22) !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* 图例（保留颜色语义，只加细边框让它精致） */
-.legend-item {
-  border-radius: 6px;
-  transition: all 0.25s ease;
-}
-.legend-color {
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 3px;
-}
-.legend-label, .legend-title {
-  color: #9AA5AC !important;
-}
-.legend-panel {
-  background: rgba(26, 34, 40, 0.7) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 12px;
-}
-
-/* 省份信息面板 */
-.province-info-panel {
-  background: linear-gradient(160deg, #451A24 0%, #2A1218 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.3) !important;
-  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.9) !important;
-  color: #E8E3DA !important;
-}
-.province-name {
-  color: #D4AF37 !important;
-}
-.province-summary {
-  color: #C3CAD0 !important;
-}
-.detail-btn {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  color: #E8E3DA !important;
-  border: 1px solid rgba(212, 175, 55, 0.35) !important;
-  border-radius: 8px;
-}
-.detail-btn:hover {
-  background: rgba(212, 175, 55, 0.12) !important;
-  color: #D4AF37 !important;
-  border-color: #D4AF37 !important;
-}
-
-/* 统计面板 */
-.statistics-panel {
-  background: rgba(26, 34, 40, 0.5) !important;
-  border: 1px solid rgba(212, 175, 55, 0.18) !important;
-  border-radius: 14px;
-}
-.stats-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.1em;
-}
-.stat-item {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212, 175, 55, 0.2) !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
-}
-.stat-number {
-  color: #D4AF37 !important;
-}
-.stat-label {
-  color: #9AA5AC !important;
-}
-
-/* 兜底：扫掉这页残留的红 */
-.echarts-china-map [class*="bg-red-"] {
-  background-color: #3A1620 !important;
-}
-.echarts-china-map [class*="from-red-"] {
-  --tw-gradient-from: #241016 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-.echarts-china-map [class*="to-red-"] {
-  --tw-gradient-to: #2A1218 !important;
-  --tw-gradient-stops: #241016, #3A1620, #2A1218 !important;
-}
-.echarts-china-map [class*="border-red-"] {
-  border-color: rgba(212, 175, 55, 0.22) !important;
-}
-.echarts-china-map [class*="text-red-"] {
-  color: #E8E3DA !important;
-}
-.echarts-china-map [class*="text-yellow-"] {
-  color: #D4AF37 !important;
-}
-.echarts-china-map [class*="border-yellow-"] {
-  border-color: rgba(212, 175, 55, 0.4) !important;
-  border-width: 1px !important;
-}
-.echarts-china-map [class*="border-4"] {
-  border-width: 1px !important;
-}
-/* ===== 历史地图 · 深色主题 ===== */
-.echarts-china-map {
-  background: transparent !important;
-  color: #E8E3DA !important;
-}
-
-/* 背景装饰：金色调淡 */
-.background-pattern { opacity: 0.35 !important; }
-.floating-element { opacity: 0.18 !important; filter: sepia(0.6); }
-.cloud { opacity: 0.1 !important; }
-
-/* 标题 */
-.map-title {
-  color: #D4AF37 !important;
-  letter-spacing: 0.14em;
-  text-shadow: 0 2px 24px rgba(0,0,0,.7), 0 0 40px rgba(212,175,55,.2) !important;
-}
-.title-decoration { opacity: 0.8; }
-.map-subtitle { color: #9AA5AC !important; letter-spacing: 0.06em; }
-.subtitle-icon { opacity: 0.7; }
-.subtitle-divider { color: rgba(212,175,55,.4) !important; }
-
-/* 引言 */
-.historical-quote {
-  background: rgba(212, 175, 55, 0.06) !important;
-  border: 1px solid rgba(212, 175, 55, 0.22) !important;
-  border-radius: 12px;
-  color: #E8E3DA !important;
-  padding: 14px 26px;
-  display: inline-block;
-  font-style: normal;
-}
-.quote-mark { color: #D4AF37 !important; opacity: 0.7; }
-
-/* 年份选择器 */
-.year-label { color: #9AA5AC !important; }
-.year-select {
-  background: #3A1620 !important;
-  background-image: none !important;
-  color: #E8E3DA !important;
-  border: 1px solid rgba(212,175,55,.35) !important;
-  border-radius: 8px;
-  padding: 8px 14px;
-}
-.year-select:focus { border-color: #D4AF37 !important; outline: none; }
-.year-info {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  border: 1px solid rgba(212,175,55,.35) !important;
-  border-radius: 8px;
-  padding: 8px 16px;
-}
-.current-year { color: #D4AF37 !important; letter-spacing: .08em; }
-
-/* 地图容器 */
-.map-container {
-  background: rgba(14,20,24,.55) !important;
-  border: 1px solid rgba(212,175,55,.22) !important;
-  border-radius: 14px;
-  box-shadow: 0 4px 30px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.03) !important;
-  overflow: hidden;
-}
-.china-map-echarts { background: transparent !important; }
-
-/* 图例 */
-.map-legend {
-  background: rgba(26,34,40,.7) !important;
-  border: 1px solid rgba(212,175,55,.18) !important;
-  border-radius: 12px;
-  padding: 14px 18px !important;
-}
-.legend-title {
-  color: #D4AF37 !important;
-  letter-spacing: .1em;
-  font-size: 14px !important;
-}
-.legend-item span { color: #C3CAD0 !important; }
-.legend-color {
-  border: 1px solid rgba(255,255,255,.2) !important;
-  border-radius: 3px;
-  box-shadow: 0 0 8px rgba(0,0,0,.4);
-}
-
-/* 省份信息面板 */
-.province-info-panel {
-  background: linear-gradient(160deg, #451A24 0%, #2A1218 100%) !important;
-  border: 1px solid rgba(212,175,55,.3) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 24px 70px -20px rgba(0,0,0,.9) !important;
-}
-.panel-header { border-bottom: 1px solid rgba(212,175,55,.2) !important; }
-.panel-title { color: #D4AF37 !important; letter-spacing: .1em; }
-.close-btn { color: #9AA5AC !important; }
-.close-btn:hover { color: #D4AF37 !important; }
-.province-summary { color: #C3CAD0 !important; }
-.status-badge {
-  border: 1px solid rgba(212,175,55,.4) !important;
-  background: rgba(212,175,55,.1) !important;
-  color: #D4AF37 !important;
-  border-radius: 6px;
-}
-.detail-btn {
-  background: linear-gradient(135deg, #5A212C, #451A24) !important;
-  color: #E8E3DA !important;
-  border: 1px solid rgba(212,175,55,.35) !important;
-  border-radius: 8px;
-  transition: all .3s ease;
-}
-.detail-btn:hover {
-  background: rgba(212,175,55,.12) !important;
-  color: #D4AF37 !important;
-  border-color: #D4AF37 !important;
-}
-
-/* 统计面板 */
-.statistics-panel {
-  background: rgba(26,34,40,.5) !important;
-  border: 1px solid rgba(212,175,55,.18) !important;
-  border-radius: 14px;
-  padding: 20px !important;
-}
-.stats-title { color: #D4AF37 !important; letter-spacing: .1em; }
-.stat-item {
-  background: linear-gradient(160deg, #451A24 0%, #3A1620 100%) !important;
-  border: 1px solid rgba(212,175,55,.2) !important;
-  border-radius: 12px;
-  box-shadow: 0 2px 14px rgba(0,0,0,.5) !important;
-}
-.stat-number { color: #D4AF37 !important; }
-.stat-label { color: #9AA5AC !important; }
-.echarts-china-map .map-title,
-.echarts-china-map h1 {
-  color: #EBC97A !important;
-  font-weight: 700 !important;
-  text-shadow: none !important;
-  -webkit-text-stroke: 0 !important;
-  letter-spacing: 0.1em !important;
-  opacity: 1 !important;
-}
-
-.echarts-china-map .map-subtitle,
-.echarts-china-map .map-subtitle * {
-  color: #C3CAD0 !important;
-  opacity: 1 !important;
-  text-shadow: none !important;
-}
-
-.echarts-china-map .historical-quote {
-  color: #E8E3DA !important;
-  opacity: 1 !important;
-  text-shadow: none !important;
-  font-size: 15px !important;
-  line-height: 1.7 !important;
-}
-
-.echarts-china-map .year-label { color: #C3CAD0 !important; opacity: 1 !important; }
-
-.echarts-china-map .year-select {
-  background: #451A24 !important;
-  background-image: none !important;
-  color: #E8E3DA !important;
-  font-size: 15px !important;
-  font-weight: 500 !important;
-  border: 1px solid rgba(212,175,55,.5) !important;
-}
-
-.echarts-china-map .year-info {
-  background: #451A24 !important;
-  background-image: none !important;
-  border: 1px solid rgba(212,175,55,.5) !important;
-}
-.echarts-china-map .current-year {
-  color: #EBC97A !important;
-  font-weight: 600 !important;
-  opacity: 1 !important;
-  text-shadow: none !important;
-}
-
-
-.echarts-china-map .floating-element { opacity: 0.25 !important; }
-.echarts-china-map .background-pattern { opacity: 0.5 !important; }
-
-
-.echarts-china-map * {
-  text-shadow: none !important;
-}
-.echarts-china-map p,
-.echarts-china-map span,
-.echarts-china-map div {
-  opacity: 1 !important;
+  .province-info-panel {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+    transform: none;
+  }
 }
 </style>

@@ -250,78 +250,47 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="space-y-8">
+  <section class="item-section">
     <!-- 板块标题 -->
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        建筑场景
-      </h2>
-      <p class="text-white/80 text-lg max-w-3xl mx-auto">
-        这些历史建筑见证了抗战时期的烽火岁月，从卢沟桥的第一声枪响到台儿庄的首次大捷，每一座建筑都承载着民族记忆与英雄史诗
-      </p>
-      <div class="w-20 h-1 bg-green-500 mx-auto mt-4 rounded-full"></div>
+    <div class="item-head">
+      <h2>建筑场景</h2>
+      <p>这些历史建筑见证了抗战时期的烽火岁月，从卢沟桥的第一声枪响到台儿庄的首次大捷，每一座建筑都承载着民族记忆与英雄史诗。</p>
+      <hr class="ui-rule" />
     </div>
 
     <!-- 建筑场景网格 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      <div
+    <div class="item-grid">
+      <article
         v-for="(item, index) in architectureItems"
         :key="item.id"
         :ref="el => { if (el) itemCards[index] = el }"
-        class="group bg-white/80 backdrop-blur-md rounded-xl overflow-hidden border border-green-200/30 shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-green-300/50 transform hover:-translate-y-2 flex flex-col opacity-0 translate-y-5 cursor-pointer"
+        class="item-card"
         @click="navigateToDetail(item)"
       >
-        <!-- 建筑图片区域 -->
-        <div class="relative h-48 md:h-56 overflow-hidden">
-          <img
-            :src="item.thumbnail"
-            :alt="item.title"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          <!-- 标签 -->
-          <div class="absolute top-3 right-3 flex flex-col items-end space-y-1.5">
-            <span class="bg-green-600/80 backdrop-blur-sm text-white text-xs font-semibold py-1 px-2.5 rounded-full shadow-md">
-              建筑场景
-            </span>
-            <span class="bg-gray-700/80 backdrop-blur-sm text-white text-xs font-semibold py-1 px-2.5 rounded-full shadow-md">
-              {{ item.category }}
-            </span>
+        <div class="item-media">
+          <img :src="item.thumbnail" :alt="item.title" loading="lazy" />
+          <div class="item-tags">
+            <span class="item-tag">{{ item.category }}</span>
           </div>
-          <!-- Hover覆盖层 -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-            <span class="text-white font-semibold text-lg">查看3D模型</span>
-          </div>
+          <div class="item-hover"><span>查看 3D 模型</span></div>
         </div>
 
-        <!-- 建筑信息区域 -->
-        <div class="p-4 md:p-6 flex flex-col flex-grow">
-          <h3 class="text-lg md:text-xl font-bold text-museum-dark mb-2 group-hover:text-green-600 transition-colors duration-300 line-clamp-2">
-            {{ item.title }}
-          </h3>
-          <div class="flex items-center text-museum-dark/60 text-sm mb-3">
+        <div class="item-body">
+          <h3 class="item-title line-clamp-2">{{ item.title }}</h3>
+          <div class="item-meta">
             <span>{{ item.material }}</span>
-            <span class="mx-2">·</span>
+            <span>·</span>
             <span>{{ item.dynasty }}</span>
-            <span class="mx-2">·</span>
+            <span>·</span>
             <span>{{ item.size }}</span>
           </div>
-          <p class="text-museum-dark/70 text-sm line-clamp-3 flex-grow mb-4 leading-relaxed">
-            {{ item.description }}
-          </p>
-          <div class="bg-green-50/50 rounded-lg p-3 mb-4">
-            <p class="text-green-700/80 text-xs md:text-sm italic">
-              {{ item.historicalContext }}
-            </p>
-          </div>
-          <div class="mt-auto pt-3 border-t border-green-100/50">
-            <button class="w-full text-center py-2 px-4 bg-green-600/10 hover:bg-green-600 text-green-600 hover:text-white rounded-lg text-sm font-medium transition-all duration-300 group-hover:bg-green-600 group-hover:text-white">
-              查看详细信息
-            </button>
-          </div>
+          <p class="item-desc line-clamp-3">{{ item.description }}</p>
+          <p class="item-note line-clamp-2">{{ item.historicalContext }}</p>
+          <span class="item-action">查看详细信息 →</span>
         </div>
-      </div>
+      </article>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
